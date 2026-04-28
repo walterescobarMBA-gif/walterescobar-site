@@ -1,340 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walter Escobar | Housing Rights Advocate</title>
 
-  <title>Walter Escobar | Housing Rights Advocate</title>
-  <meta name="description" content="Walter Escobar is a housing rights advocate, student, survivor, and public policy thinker focused on housing justice, LGBTQ+ dignity, tenant protections, and systems accountability." />
+<style>
+:root {
+  --navy: #071526;
+  --blue: #0b1c2c;
+  --panel: #10243a;
+  --white: #ffffff;
+  --muted: #cbd5e1;
+  --gold: #d6b46d;
+  --soft: #f8fafc;
+}
 
-  <style>
-    :root {
-      --navy: #0b1120;
-      --navy-2: #111827;
-      --slate: #1f2937;
-      --muted: #6b7280;
-      --soft: #f8fafc;
-      --white: #ffffff;
-      --border: #e5e7eb;
-      --silver: #cbd5e1;
-      --gold: #d6b46d;
-      --accent: #334155;
-      --deep-red: #7f1d1d;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--blue);
+  color: var(--white);
+  line-height: 1.65;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--soft);
-      color: var(--slate);
-      line-height: 1.6;
-    }
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 22px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(214,180,109,0.22), transparent 28%),
+    linear-gradient(135deg, #020617, #071526 45%, #0b1c2c);
+}
 
-    a {
-      color: inherit;
-    }
+.hero {
+  max-width: 1050px;
+}
 
-    header {
-      min-height: 92vh;
-      background:
-        radial-gradient(circle at 18% 15%, rgba(214, 180, 109, 0.22), transparent 26%),
-        radial-gradient(circle at 80% 25%, rgba(148, 163, 184, 0.15), transparent 30%),
-        linear-gradient(135deg, #020617 0%, #0b1120 45%, #1f2937 100%);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 92px 22px 76px;
-    }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 22px;
+}
 
-    .hero {
-      max-width: 1050px;
-      margin: 0 auto;
-    }
+h1 {
+  font-size: clamp(54px, 10vw, 118px);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
 
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.78rem;
-      color: var(--silver);
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+.hero p {
+  max-width: 850px;
+  margin: 30px auto 0;
+  font-size: clamp(19px, 3vw, 28px);
+  color: #e5e7eb;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: clamp(3.4rem, 10vw, 7rem);
-      line-height: 0.92;
-      letter-spacing: -0.07em;
-    }
+.hero-statement {
+  margin: 38px auto 0;
+  max-width: 850px;
+  background: rgba(255,255,255,0.08);
+  border-left: 5px solid var(--gold);
+  padding: 25px;
+  text-align: left;
+  border-radius: 0 16px 16px 0;
+  font-size: 18px;
+}
 
-    .hero-subtitle {
-      max-width: 860px;
-      margin: 30px auto 0;
-      font-size: clamp(1.18rem, 3vw, 1.65rem);
-      color: #e5e7eb;
-    }
+.hero-buttons {
+  margin-top: 38px;
+}
 
-    .hero-statement {
-      max-width: 850px;
-      margin: 34px auto 0;
-      padding: 24px 26px;
-      border-left: 5px solid var(--gold);
-      background: rgba(255, 255, 255, 0.08);
-      text-align: left;
-      border-radius: 0 16px 16px 0;
-      font-size: 1.08rem;
-      color: #f8fafc;
-    }
+.hero-buttons a {
+  display: inline-block;
+  margin: 8px;
+  padding: 13px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
 
-    .hero-statement strong {
-      color: white;
-    }
+.primary {
+  background: white;
+  color: var(--navy);
+}
 
-    .hero-buttons {
-      margin-top: 36px;
-    }
+.secondary {
+  border: 1px solid white;
+  color: white;
+}
 
-    .hero-buttons a {
-      display: inline-block;
-      margin: 8px;
-      padding: 13px 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.18s ease, background 0.18s ease;
-    }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  text-align: center;
+  padding: 15px 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
-    .hero-buttons a:hover {
-      transform: translateY(-2px);
-    }
+nav a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0 12px;
+}
 
-    .primary {
-      background: white;
-      color: var(--navy);
-    }
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 55px 20px;
+}
 
-    .outline {
-      border: 1px solid rgba(255,255,255,0.75);
-      color: white;
-    }
+section {
+  background: white;
+  color: var(--blue);
+  padding: clamp(28px, 5vw, 48px);
+  border-radius: 18px;
+  margin-bottom: 28px;
+}
 
-    nav {
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 12px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
+section h2 {
+  margin-top: 0;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
 
-    nav a {
-      display: inline-block;
-      margin: 6px 10px;
-      text-decoration: none;
-      color: var(--navy-2);
-      font-weight: bold;
-      font-size: 0.95rem;
-    }
+.lead {
+  font-size: 20px;
+  color: #334155;
+}
 
-    main {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 44px 20px 76px;
-    }
+.split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+}
 
-    section {
-      background: white;
-      margin-bottom: 26px;
-      padding: clamp(26px, 5vw, 46px);
-      border-radius: 20px;
-      box-shadow: 0 10px 32px rgba(15, 23, 42, 0.07);
-      border: 1px solid rgba(229, 231, 235, 0.8);
-    }
+.panel {
+  background: #f1f5f9;
+  padding: 24px;
+  border-radius: 14px;
+  border-left: 5px solid var(--gold);
+}
 
-    h2 {
-      margin-top: 0;
-      color: var(--navy-2);
-      font-size: clamp(1.85rem, 4vw, 2.7rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-    }
+.quote {
+  font-size: 22px;
+  font-weight: 800;
+  border-left: 5px solid var(--blue);
+  padding-left: 18px;
+}
 
-    h3 {
-      margin: 0 0 8px;
-      color: var(--navy-2);
-      font-size: 1.22rem;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 18px;
+}
 
-    p {
-      font-size: 1.04rem;
-    }
+.card {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  border-radius: 14px;
+}
 
-    .lead {
-      font-size: 1.18rem;
-      color: #374151;
-    }
+.card h3 {
+  margin-top: 0;
+}
 
-    .split {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: stretch;
-    }
+.number {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--blue);
+}
 
-    .panel {
-      background: #f3f4f6;
-      border-radius: 18px;
-      padding: 26px;
-      border: 1px solid #e5e7eb;
-    }
+.dark {
+  background: var(--navy);
+  color: white;
+}
 
-    .quote {
-      border-left: 5px solid var(--navy-2);
-      padding-left: 18px;
-      font-size: 1.22rem;
-      font-weight: bold;
-      color: var(--navy-2);
-    }
+.dark h2 {
+  color: white;
+}
 
-    .gold-panel {
-      background:
-        linear-gradient(135deg, rgba(214, 180, 109, 0.18), rgba(248, 250, 252, 1));
-      border-left: 5px solid var(--gold);
-    }
+.dark p {
+  color: #e5e7eb;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-      gap: 18px;
-    }
+.button {
+  display: inline-block;
+  background: var(--blue);
+  color: white;
+  text-decoration: none;
+  padding: 12px 17px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-top: 14px;
+}
 
-    .card {
-      background: #f8fafc;
-      border-radius: 18px;
-      padding: 24px;
-      border: 1px solid #e5e7eb;
-    }
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+}
 
-    .card p {
-      margin-bottom: 0;
-    }
-
-    .number {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--navy-2);
-      margin-bottom: 4px;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 14px;
-      margin-right: 10px;
-      padding: 12px 17px;
-      background: var(--navy-2);
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .button.secondary {
-      background: #374151;
-    }
-
-    .tag-row {
-      margin-top: 22px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #e5e7eb;
-      color: #111827;
-      padding: 7px 11px;
-      border-radius: 999px;
-      margin: 5px 4px 0 0;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    .statement-list {
-      padding-left: 0;
-      list-style: none;
-    }
-
-    .statement-list li {
-      border-left: 4px solid var(--navy-2);
-      padding-left: 16px;
-      margin-bottom: 18px;
-    }
-
-    .impact-bar {
-      background: var(--navy-2);
-      color: white;
-      border-radius: 20px;
-      padding: clamp(28px, 5vw, 48px);
-    }
-
-    .impact-bar h2 {
-      color: white;
-    }
-
-    .impact-bar p {
-      color: #e5e7eb;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 34px 20px 48px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 780px) {
-      header {
-        min-height: 86vh;
-      }
-
-      .split {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-statement {
-        text-align: left;
-      }
-    }
-  </style>
+@media (max-width: 800px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header id="home">
   <div class="hero">
-    <div class="eyebrow">Housing Rights Advocate · Student · Survivor · Public Policy Builder</div>
+    <div class="eyebrow">Housing Rights Advocate · Student · Systems Thinker · Public Policy Builder</div>
 
     <h1>Walter Escobar</h1>
 
-    <p class="hero-subtitle">
-      I build public accountability from lived experience, disciplined documentation, and a deep love for the communities that shaped me.
+    <p>
+      I build public accountability from lived experience, professional systems knowledge, disciplined documentation, and deep love for the communities that shaped me.
     </p>
 
     <div class="hero-statement">
@@ -342,50 +247,62 @@
     </div>
 
     <div class="hero-buttons">
-      <a class="primary" href="#purpose">My Purpose</a>
-      <a class="outline" href="#initiatives">Initiatives</a>
-      <a class="outline" href="#contact">Contact</a>
+      <a class="primary" href="#story">My Story</a>
+      <a class="secondary" href="initiatives.html">Initiatives</a>
+      <a class="secondary" href="contact.html">Contact</a>
     </div>
   </div>
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#identity">Identity</a>
+  <a href="index.html">Home</a>
+  <a href="#story">Story</a>
   <a href="#purpose">Purpose</a>
-  <a href="#objectives">Objectives</a>
-  <a href="#initiatives">Initiatives</a>
-  <a href="#academics">Academics</a>
-  <a href="#contact">Contact</a>
+  <a href="initiatives.html">Initiatives</a>
+  <a href="audit.html">Audit</a>
+  <a href="timeline.html">Timeline</a>
+  <a href="evidence.html">Evidence</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <main>
 
-<section id="identity">
+<section id="story">
   <div class="split">
     <div>
-      <h2>About Walter Escobar</h2>
+      <h2>My Story</h2>
       <p class="lead">
-        I am a student, housing rights advocate, and first-generation public-policy thinker committed to housing justice, LGBTQ+ dignity, tenant protections, and systems accountability.
+        I was raised in Torrance, California, in a loving and stable family environment. That foundation shaped how I understand safety, dignity, and possibility.
       </p>
       <p>
-        My work is shaped by lived experience, survival, education, documentation, and a belief that public systems should be held to the purpose they were created to serve.
+        Stability is not abstract to me. It is the ground people need before they can heal, study, work, advocate, and build a life.
       </p>
       <p>
-        I have moved through hardship with gratitude, discipline, and love for my community. That experience did not narrow my vision. It gave me direction.
+        My life has included hardship, but hardship did not erase what I was given. It clarified what I want to protect for others.
       </p>
     </div>
 
-    <div class="panel gold-panel">
-      <h3>My Operating Principle</h3>
-      <p>
-        People should not have to become experts in bureaucracy to access support that already exists for them.
-      </p>
-      <p>
-        When systems create confusion, instability, or harm, the record should be preserved, organized, and used to demand better.
-      </p>
+    <div class="panel">
+      <h3>The Throughline</h3>
+      <p>I grew up understanding stability.</p>
+      <p>I worked inside regulated systems.</p>
+      <p>I experienced housing instability firsthand.</p>
+      <p>Now I am turning that arc into public accountability work.</p>
     </div>
   </div>
+</section>
+
+<section>
+  <h2>Professional Foundation</h2>
+  <p class="lead">
+    From 2008 to 2018, I worked in the nonprofit financial sector through credit unions.
+  </p>
+  <p>
+    That decade trained me to understand rigid systems, compliance frameworks, documentation standards, internal controls, audit trails, member service, and process integrity.
+  </p>
+  <p>
+    When I look at a publicly funded housing program, I do not just see isolated mistakes. I see whether the system has controls, whether decisions are traceable, and whether the people being served are actually protected by the structure.
+  </p>
 </section>
 
 <section id="purpose">
@@ -394,175 +311,111 @@
     My reason for doing this work is love for my community.
   </p>
   <p>
-    I believe housing advocacy is community protection work. It is how we defend dignity, safety, health, and possibility for people who are too often forced to survive systems that were never designed around their full humanity.
+    I believe housing advocacy is community protection work. It is how we defend dignity, safety, health, and possibility for people who are too often forced to survive systems that were not designed around their full humanity.
   </p>
   <p>
-    I am entering this field because our communities deserve leadership that understands what instability feels like, what administrative harm looks like, and what it means when support systems lose sight of the people they are funded to serve.
-  </p>
-  <p>
-    The LGBTQ+ community carries a history of survival, loss, resistance, and brilliance. Many who fought for dignity, civil rights, and care were lost to the AIDS crisis, leaving behind unfinished work and a responsibility for those of us still here.
-  </p>
-  <p>
-    I want my life and work to help carry that responsibility forward.
+    The LGBTQ+ community carries a history of survival, loss, resistance, brilliance, and unfinished work. I want my life and work to help carry that responsibility forward.
   </p>
 </section>
 
-<section id="objectives">
+<section>
   <h2>Objectives</h2>
 
   <div class="grid">
     <div class="card">
       <div class="number">01</div>
       <h3>Document</h3>
-      <p>
-        Preserve records of housing-system failures, administrative breakdowns, participant experiences, and public program gaps.
-      </p>
+      <p>Preserve records of housing-system failures, administrative breakdowns, and participant experiences.</p>
     </div>
 
     <div class="card">
       <div class="number">02</div>
       <h3>Translate</h3>
-      <p>
-        Turn complex lived experience into structured findings, timelines, evidence records, and policy language that others can understand and act on.
-      </p>
+      <p>Turn complex lived experience into structured findings, timelines, evidence records, and policy language.</p>
     </div>
 
     <div class="card">
       <div class="number">03</div>
       <h3>Advocate</h3>
-      <p>
-        Use documentation to support tenant protections, civil rights, housing stability, and meaningful oversight.
-      </p>
+      <p>Use documentation to support tenant protections, civil rights, housing stability, and meaningful oversight.</p>
     </div>
 
     <div class="card">
       <div class="number">04</div>
       <h3>Build</h3>
-      <p>
-        Create public-facing resources, tools, and frameworks that help people navigate housing instability and institutional barriers.
-      </p>
+      <p>Create public-facing tools and frameworks that help people navigate institutional barriers.</p>
     </div>
   </div>
 </section>
 
-<section class="impact-bar">
+<section class="dark">
   <h2>Core Thesis</h2>
   <p>
     Housing programs should stabilize people, not push them through unclear procedures, shifting expectations, and circular grievance routes.
   </p>
   <p>
-    If a program is funded to serve vulnerable communities, then clarity, dignity, cultural competence, and accountability should not be optional. They should be built into the structure.
+    If a program is funded to serve vulnerable communities, then clarity, dignity, cultural competence, and accountability should be built into the structure.
   </p>
 </section>
 
-<section id="initiatives">
-  <h2>Current Initiatives</h2>
+<section>
+  <h2>Current Work</h2>
   <p class="lead">
-    My work is developing into a broader advocacy platform. The HOPWA compliance audit is one major initiative within a larger public-policy and community-accountability mission.
+    My current work focuses on housing system accountability, participant protections, and compliance failures within publicly funded housing programs.
   </p>
 
   <div class="grid">
     <div class="card">
       <h3>HOPWA Compliance Audit</h3>
-      <p>
-        A participant-prepared compliance review documenting sponsor-level failures, transition-planning breakdowns, reasonable accommodation issues, displacement pressure, and oversight concerns within a federally funded housing program.
-      </p>
+      <p>A participant-prepared review documenting sponsor-level failures, transition planning breakdowns, accommodation issues, displacement pressure, and oversight concerns.</p>
       <a class="button" href="audit.html">View Audit</a>
     </div>
 
     <div class="card">
-      <h3>Timeline of Program Failure</h3>
-      <p>
-        A structured timeline showing how administrative decisions, lack of planning, and delayed response escalated housing instability during a critical transition period.
-      </p>
-      <a class="button secondary" href="timeline.html">View Timeline</a>
-    </div>
-
-    <div class="card">
       <h3>Evidence Record</h3>
-      <p>
-        A proof layer connecting communications, admissions, notices, and documentation to audit findings and public accountability.
-      </p>
-      <a class="button secondary" href="evidence.html">View Evidence</a>
+      <p>A proof layer connecting communications, notices, admissions, and documentation to accountability concerns.</p>
+      <a class="button" href="evidence.html">View Evidence</a>
     </div>
 
     <div class="card">
-      <h3>Tenant Protections</h3>
-      <p>
-        Practical analysis grounded in firsthand experience with habitability issues, inspections, notices, displacement risk, and housing enforcement systems.
-      </p>
+      <h3>Timeline</h3>
+      <p>A structured chronology showing how administrative failures escalated housing instability during a critical transition period.</p>
+      <a class="button" href="timeline.html">View Timeline</a>
     </div>
   </div>
 </section>
 
-<section id="academics">
+<section>
   <h2>Academics & Public Policy</h2>
   <p>
-    My education is part of the mission. Public policy gives language, structure, and strategy to what lived experience has already taught me.
+    My education is part of the mission. Public policy gives language, structure, and strategy to what lived experience and professional systems work have already taught me.
   </p>
   <p>
-    I want to understand how programs are funded, governed, monitored, audited, and corrected. I want to know where the system breaks, who is responsible, and how communities can push it toward accountability.
+    I want to understand how programs are funded, governed, monitored, audited, corrected, and redesigned.
   </p>
-
-  <div class="tag-row">
-    <span class="tag">Public Policy</span>
-    <span class="tag">Housing Systems</span>
-    <span class="tag">Civil Rights</span>
-    <span class="tag">LGBTQ+ Advocacy</span>
-    <span class="tag">Tenant Protections</span>
-    <span class="tag">Administrative Accountability</span>
-  </div>
 </section>
 
 <section>
   <h2>Leadership Philosophy</h2>
-  <ul class="statement-list">
-    <li>
-      <strong>Lead with evidence.</strong> A strong record can move through rooms where emotion alone is dismissed.
-    </li>
-    <li>
-      <strong>Protect the community.</strong> Advocacy should be rooted in care, dignity, and the refusal to let people be quietly failed.
-    </li>
-    <li>
-      <strong>Build what was missing.</strong> When systems do not provide clarity, create tools that make the path visible for others.
-    </li>
-    <li>
-      <strong>Turn survival into structure.</strong> Lived experience becomes power when it is documented, analyzed, and directed toward change.
-    </li>
-  </ul>
+  <p><strong>Lead with evidence.</strong> A strong record can move through rooms where emotion alone is dismissed.</p>
+  <p><strong>Protect the community.</strong> Advocacy should be rooted in care, dignity, and refusal to let people be quietly failed.</p>
+  <p><strong>Build what was missing.</strong> When systems do not provide clarity, create tools that make the path visible for others.</p>
 </section>
 
 <section>
-  <h2>What This Platform Will Become</h2>
-  <p>
-    This site will grow into a portfolio of advocacy, documentation, policy analysis, tenant protection resources, and community-centered accountability work.
-  </p>
-  <p>
-    It is a public record, a developing policy portfolio, and a statement of purpose.
-  </p>
-</section>
-
-<section id="contact">
   <h2>Contact</h2>
   <p>
-    For documentation, advocacy, housing-system accountability, or public-policy related inquiries:
+    For housing-system accountability, policy, advocacy, or collaboration inquiries:
   </p>
-  <p>
-    <strong>Email:</strong> <a href="mailto:WalterEscobar@proton.me">WalterEscobar@proton.me</a>
-  </p>
-</section>
-
-<section>
-  <h2>Disclaimer</h2>
-  <p class="muted">
-    This website provides personal documentation, housing advocacy information, and public-policy related commentary. It does not provide legal advice, and no attorney-client relationship is formed.
-  </p>
+  <p><strong>Email:</strong> walter@walterescobar.org</p>
+  <p><strong>General:</strong> contact@walterescobar.org</p>
+  <a class="button" href="contact.html">Contact Walter</a>
 </section>
 
 </main>
 
 <footer>
-  © Walter Escobar · Housing Rights Advocate
+  © 2026 Walter Escobar · Housing Rights Advocate
 </footer>
 
 </body>
