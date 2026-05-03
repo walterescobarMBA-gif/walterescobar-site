@@ -4,107 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Timeline | Walter Escobar</title>
-
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0b1c2c;
-  color: white;
-  line-height: 1.6;
-}
-
-header {
-  padding: 120px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #020617, #0b1c2c);
-}
-
-h1 {
-  font-size: 56px;
-  margin: 0;
-  letter-spacing: -0.04em;
-}
-
-header p {
-  margin-top: 15px;
-  font-size: 20px;
-  color: #cbd5e1;
-}
-
-nav {
-  background: white;
-  padding: 15px;
-  text-align: center;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #0b1c2c;
-  font-weight: bold;
-}
-
-main {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-.section {
-  background: white;
-  color: #0b1c2c;
-  padding: 28px;
-  margin-bottom: 22px;
-  border-radius: 12px;
-  border-left: 5px solid #0b1c2c;
-}
-
-h2 {
-  margin-top: 0;
-}
+:root{--black:#020617;--navy:#0b1c2c;--gold:#d6b46d;--white:#fff;--muted:#cbd5e1;--soft:#f8fafc}
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--black);color:white;line-height:1.7}
+header{padding:110px 24px;background:linear-gradient(135deg,#020617,#0b1c2c);text-align:center}
+h1{font-size:clamp(52px,9vw,96px);letter-spacing:-.07em;margin:0}
+header p{color:var(--muted);font-size:22px;max-width:780px;margin:26px auto 0}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);padding:15px;text-align:center;overflow-x:auto;white-space:nowrap}
+nav a{color:var(--black);text-decoration:none;font-weight:800;margin:0 12px} nav a:hover{color:var(--gold)}
+main{max-width:900px;margin:auto;padding:70px 24px}
+.item{background:white;color:var(--black);padding:30px;border-radius:22px;margin-bottom:26px;border-left:6px solid var(--gold);box-shadow:0 20px 45px rgba(0,0,0,.18)}
+.item h2{margin-top:0}
+footer{text-align:center;padding:44px;color:#94a3b8}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Timeline</h1>
-  <p>Sequence of events and observed system behavior</p>
+<h1>Timeline</h1>
+<p>Sequence matters. Patterns become visible when events are placed in order.</p>
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="audit.html">Analysis</a>
-  <a href="initiatives.html">Framework</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="contact.html">Contact</a>
+<a href="index.html">Home</a>
+<a href="audit.html">Analysis</a>
+<a href="initiatives.html">Initiatives</a>
+<a href="timeline.html">Timeline</a>
+<a href="evidence.html">Evidence</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 <main>
-
-<div class="section">
-  <h2>Initial Engagement</h2>
-  <p>Entry into housing program and initial coordination phase.</p>
-</div>
-
-<div class="section">
-  <h2>Transition Phase</h2>
-  <p>Emergence of communication gaps and administrative inconsistencies.</p>
-</div>
-
-<div class="section">
-  <h2>Escalation</h2>
-  <p>Increased instability, notices, and breakdowns in structured response.</p>
-</div>
-
-<div class="section">
-  <h2>Documentation</h2>
-  <p>Events organized into structured timeline and supporting evidence record.</p>
-</div>
-
+<div class="item"><h2>Initial Engagement</h2><p>Entry into housing support systems and early administrative coordination.</p></div>
+<div class="item"><h2>Transition Period</h2><p>Communication gaps, unclear expectations, and instability become visible.</p></div>
+<div class="item"><h2>Escalation</h2><p>Notices, pressure points, and breakdowns in structured response emerge.</p></div>
+<div class="item"><h2>Documentation</h2><p>Events are preserved, organized, and translated into a reviewable record.</p></div>
 </main>
 
+<footer>© 2026 Walter Escobar · walter@walterescobar.org</footer>
 </body>
 </html>
