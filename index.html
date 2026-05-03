@@ -6,106 +6,234 @@
 <title>Walter Escobar</title>
 
 <style>
+:root {
+  --black: #020617;
+  --navy: #0b1c2c;
+  --blue: #10243a;
+  --gold: #d6b46d;
+  --white: #ffffff;
+  --muted: #cbd5e1;
+  --soft: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #020617;
-  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--black);
+  color: var(--white);
   line-height: 1.7;
 }
 
-header {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 20px;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent),
-    linear-gradient(135deg,#020617,#0b1c2c);
+    radial-gradient(circle at 20% 10%, rgba(214,180,109,.18), transparent 28%),
+    radial-gradient(circle at 85% 25%, rgba(255,255,255,.07), transparent 24%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 24px;
+  background:
+    linear-gradient(135deg, rgba(2,6,23,.96), rgba(11,28,44,.92)),
+    radial-gradient(circle at 30% 20%, rgba(214,180,109,.25), transparent 30%);
 }
 
 .hero {
-  max-width: 900px;
+  max-width: 1050px;
   margin: auto;
+  animation: rise 1s ease both;
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 22px;
 }
 
 h1 {
-  font-size: 64px;
+  font-size: clamp(58px, 11vw, 124px);
+  line-height: .88;
+  letter-spacing: -.08em;
   margin: 0;
-  letter-spacing: -0.05em;
 }
 
 .hero p {
-  margin-top: 25px;
-  font-size: 22px;
-  color: #cbd5e1;
+  max-width: 850px;
+  font-size: clamp(21px, 3vw, 31px);
+  color: var(--muted);
+  margin-top: 32px;
+}
+
+.hero-line {
+  max-width: 820px;
+  margin-top: 36px;
+  padding-left: 22px;
+  border-left: 5px solid var(--gold);
+  font-size: 20px;
+  color: #e5e7eb;
 }
 
 nav {
   position: sticky;
   top: 0;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  padding: 15px;
+  z-index: 50;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(14px);
+  padding: 15px 10px;
   text-align: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-shadow: 0 12px 35px rgba(0,0,0,.12);
 }
 
 nav a {
-  margin: 0 12px;
+  color: var(--black);
   text-decoration: none;
-  color: #020617;
-  font-weight: 600;
+  font-weight: 800;
+  margin: 0 12px;
+}
+
+nav a:hover {
+  color: var(--gold);
 }
 
 section {
-  padding: 80px 20px;
+  padding: 90px 24px;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1050px;
   margin: auto;
 }
 
-.section-light {
-  background: white;
-  color: #020617;
+.light {
+  background: var(--white);
+  color: var(--black);
+}
+
+.dark-panel {
+  background:
+    linear-gradient(135deg, rgba(11,28,44,.95), rgba(2,6,23,.98));
 }
 
 h2 {
-  font-size: 34px;
-  margin-bottom: 20px;
+  font-size: clamp(36px, 6vw, 62px);
+  line-height: 1;
+  letter-spacing: -.06em;
+  margin-top: 0;
+}
+
+.lead {
+  font-size: 22px;
+  color: var(--muted);
+  max-width: 850px;
+}
+
+.light .lead {
+  color: #334155;
+}
+
+.statement {
+  font-size: 24px;
+  font-weight: 850;
+  border-left: 5px solid var(--gold);
+  padding-left: 22px;
+  margin: 34px 0;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap: 25px;
-  margin-top: 40px;
+  gap: 24px;
+  margin-top: 42px;
 }
 
 .card {
-  background: #f1f5f9;
-  padding: 25px;
-  border-radius: 14px;
-  transition: 0.25s;
+  background: var(--soft);
+  color: var(--black);
+  padding: 30px;
+  border-radius: 22px;
+  min-height: 190px;
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: 1px solid rgba(214,180,109,.25);
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(0,0,0,.18);
 }
 
 .card a {
+  color: var(--black);
+  font-size: 22px;
+  font-weight: 900;
   text-decoration: none;
-  color: #020617;
-  font-weight: bold;
 }
 
-.statement {
-  font-size: 20px;
-  margin-top: 20px;
-  color: #e2e8f0;
+.number {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 900;
+  letter-spacing: .15em;
+  margin-bottom: 12px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.panel {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(214,180,109,.25);
+  padding: 32px;
+  border-radius: 24px;
+}
+
+footer {
+  padding: 44px 24px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 58px;
+  }
 }
 </style>
 </head>
@@ -114,16 +242,14 @@ h2 {
 
 <header>
   <div class="hero">
+    <div class="eyebrow">Housing systems · Public accountability · Lived experience translated into structure</div>
     <h1>Walter Escobar</h1>
-
     <p>
-      I didn’t start in policy. I started inside the system.
+      I turn lived experience into systems analysis, public accountability, and tools that expose where housing programs break down.
     </p>
-
-    <p class="statement">
-      What I experienced wasn’t random. It followed patterns.  
-      And once you see the patterns, you can’t unsee them.
-    </p>
+    <div class="hero-line">
+      The lesson is simple: systems do not fail randomly. They fail in patterns. Once those patterns are documented, they can be challenged, corrected, and rebuilt.
+    </div>
   </div>
 </header>
 
@@ -136,93 +262,110 @@ h2 {
   <a href="contact.html">Contact</a>
 </nav>
 
-<section>
-  <div class="container">
-    <h2>What This Work Actually Is</h2>
-
-    <p>
-      Most people think housing systems fail because of isolated mistakes.  
-      That’s not what I saw.
-    </p>
-
-    <p>
-      I saw patterns—repeatable breakdowns in communication, accountability, and execution.  
-      Not accidents. Structure.
-    </p>
-
-    <p>
-      This platform exists to document those patterns, translate them into something clear,  
-      and make it impossible to ignore how systems actually behave in real conditions.
-    </p>
-  </div>
-</section>
-
-<section class="section-light">
-  <div class="container">
-    <h2>The Lesson</h2>
-
-    <p>
-      Systems don’t fail randomly.  
-      They fail in ways they were never designed to prevent.
-    </p>
-
-    <p>
-      When a system lacks clear responsibility, consistent communication, and real accountability,  
-      the outcome is predictable—instability for the people relying on it.
-    </p>
-
-    <p>
-      The goal isn’t just to say something went wrong.  
-      The goal is to show exactly how and why it keeps happening.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>Where That Leads</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <a href="audit.html">Analysis</a>
-        <p>Breakdowns, patterns, and system behavior</p>
-      </div>
-
-      <div class="card">
-        <a href="timeline.html">Timeline</a>
-        <p>How events unfolded and escalated</p>
-      </div>
-
-      <div class="card">
-        <a href="evidence.html">Evidence</a>
-        <p>Documentation supporting each conclusion</p>
-      </div>
-
-      <div class="card">
-        <a href="initiatives.html">Initiatives</a>
-        <p>What changes when systems are built correctly</p>
-      </div>
-
+<section class="dark-panel">
+  <div class="container split">
+    <div>
+      <h2>My Story</h2>
+      <p class="lead">
+        I did not arrive at this work through theory. I arrived through direct experience with housing instability, institutional confusion, and systems that often speak in policy while people live the consequences.
+      </p>
+    </div>
+    <div class="panel">
+      <p>
+        My background gave me a rare lens: stability as a child, rigid regulated systems through credit union work, and firsthand experience navigating housing programs when stability was at stake.
+      </p>
+      <p>
+        That combination became the foundation for my work.
+      </p>
     </div>
   </div>
 </section>
 
-<section class="section-light">
+<section class="light">
   <div class="container">
-    <h2>Why It Matters</h2>
-
-    <p>
-      Housing systems are supposed to stabilize people.  
-      When they don’t, the consequences aren’t theoretical.
+    <h2>What This Work Teaches</h2>
+    <p class="statement">
+      A system’s failure is rarely one moment. It is usually a chain of unclear responsibility, weak communication, missing controls, and no meaningful correction.
     </p>
-
     <p>
-      This work is about making sure those failures are understood, documented,  
-      and eventually corrected—not repeated.
+      My work focuses on identifying those chains. Not to make noise. To create clarity.
+    </p>
+    <p>
+      When housing programs are funded to stabilize vulnerable communities, accountability cannot be decorative. It has to operate in real time.
     </p>
   </div>
 </section>
+
+<section>
+  <div class="container">
+    <h2>Initiatives</h2>
+    <p class="lead">
+      These initiatives are the practical expression of the work: documenting failure, translating it into structure, and building tools for accountability.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="number">01</div>
+        <a href="audit.html">Systems Analysis</a>
+        <p>Reviewing program behavior, breakdowns, and patterns in execution.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">02</div>
+        <a href="timeline.html">Timeline Development</a>
+        <p>Organizing events into sequence so escalation becomes visible.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">03</div>
+        <a href="evidence.html">Evidence Architecture</a>
+        <p>Preserving documentation in a way that supports clarity and review.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">04</div>
+        <a href="initiatives.html">Accountability Framework</a>
+        <p>Building principles for better housing-system design and participant protection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="container split">
+    <div>
+      <h2>Purpose</h2>
+      <p>
+        My purpose is rooted in love for my community and a refusal to accept systems that destabilize the people they are funded to protect.
+      </p>
+      <p>
+        I believe lived experience becomes powerful when it is organized, documented, and translated into language institutions cannot easily dismiss.
+      </p>
+    </div>
+    <div>
+      <h2>Direction</h2>
+      <p>
+        I am building toward public policy, housing oversight, and systems accountability work that makes participant protection more than a promise.
+      </p>
+      <p>
+        This site is the platform where that work begins to take shape.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Core Thesis</h2>
+    <p class="lead">
+      Housing systems should stabilize people. When they create confusion, fear, or displacement pressure instead, the failure is not just personal. It is structural.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Walter Escobar · walter@walterescobar.org
+</footer>
 
 </body>
 </html>
