@@ -8,59 +8,103 @@
 <style>
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0b1c2c;
+  font-family: -apple-system, sans-serif;
+  background: #020617;
   color: white;
-  line-height: 1.6;
 }
 
 header {
-  padding: 120px 20px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent),
+    linear-gradient(135deg,#020617,#0b1c2c);
   text-align: center;
-  background: linear-gradient(135deg, #020617, #0b1c2c);
 }
 
 h1 {
-  font-size: 64px;
+  font-size: 72px;
   margin: 0;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
 }
 
 header p {
   margin-top: 20px;
   font-size: 20px;
-  color: #cbd5e1;
+  color: #94a3b8;
 }
 
 nav {
-  background: white;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
   padding: 15px;
   text-align: center;
 }
 
 nav a {
-  margin: 0 10px;
+  margin: 0 12px;
   text-decoration: none;
-  color: #0b1c2c;
-  font-weight: bold;
+  color: #020617;
+  font-weight: 600;
 }
 
-main {
+.section-dark {
+  padding: 80px 20px;
   max-width: 900px;
   margin: auto;
-  padding: 40px 20px;
 }
 
-section {
+.section-light {
   background: white;
-  color: #0b1c2c;
-  padding: 30px;
-  margin-bottom: 25px;
-  border-radius: 12px;
+  color: #020617;
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
 }
 
 h2 {
-  margin-top: 0;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #f1f5f9;
+  padding: 30px;
+  border-radius: 16px;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card a {
+  text-decoration: none;
+  color: #020617;
+  font-weight: bold;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 60px auto;
+  width: 60%;
 }
 </style>
 </head>
@@ -69,7 +113,7 @@ h2 {
 
 <header>
   <h1>Walter Escobar</h1>
-  <p>Housing Systems Analysis · Structured Review · Public Accountability</p>
+  <p>Housing Systems Analysis · Public Accountability</p>
 </header>
 
 <nav>
@@ -81,36 +125,49 @@ h2 {
   <a href="contact.html">Contact</a>
 </nav>
 
-<main>
+<section class="section-dark">
+  <div class="container">
+    <h2>Overview</h2>
+    <p>
+      Structured review of housing program execution, participant experience, and administrative behavior within publicly funded systems.
+    </p>
 
-<section>
-  <h2>Overview</h2>
-  <p>
-    Structured review of housing program execution, participant experience, and administrative consistency within publicly funded systems.
-  </p>
+    <div class="divider"></div>
+
+    <h2>Focus</h2>
+    <p>
+      Identifying where systems diverge from intended function—particularly during moments requiring coordination, clarity, and stabilization.
+    </p>
+  </div>
 </section>
 
-<section>
-  <h2>Current Focus</h2>
-  <ul>
-    <li>Program execution and oversight gaps</li>
-    <li>Participant stabilization failures</li>
-    <li>Administrative consistency breakdowns</li>
-    <li>Grievance pathway clarity</li>
-  </ul>
-</section>
+<section class="section-light">
+  <div class="container">
+    <h2>Explore</h2>
 
-<section>
-  <h2>Position</h2>
-  <p>
-    This work is based on direct program exposure, structured documentation, and analysis of system behavior over time.
-  </p>
-  <p>
-    The objective is clarity—identifying where systems diverge from their intended function.
-  </p>
-</section>
+    <div class="grid">
+      <div class="card">
+        <a href="audit.html">Analysis</a>
+        <p>Observed system behavior and patterns</p>
+      </div>
 
-</main>
+      <div class="card">
+        <a href="initiatives.html">Framework</a>
+        <p>Structural principles and system design</p>
+      </div>
+
+      <div class="card">
+        <a href="timeline.html">Timeline</a>
+        <p>Sequence and escalation</p>
+      </div>
+
+      <div class="card">
+        <a href="evidence.html">Evidence</a>
+        <p>Supporting documentation</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
