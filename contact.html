@@ -3,57 +3,391 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Walter Escobar</title>
+<title>Walter Escobar</title>
+
 <style>
-:root{--black:#020617;--navy:#0b1c2c;--gold:#d6b46d;--white:#fff;--muted:#cbd5e1;--soft:#f8fafc}
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--black);color:white;line-height:1.7}
-header{padding:110px 24px;background:linear-gradient(135deg,#020617,#0b1c2c);text-align:center}
-h1{font-size:clamp(52px,9vw,96px);letter-spacing:-.07em;margin:0}
-header p{color:var(--muted);font-size:22px;max-width:780px;margin:26px auto 0}
-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);padding:15px;text-align:center;overflow-x:auto;white-space:nowrap}
-nav a{color:var(--black);text-decoration:none;font-weight:800;margin:0 12px} nav a:hover{color:var(--gold)}
-main{max-width:900px;margin:auto;padding:70px 24px}
-.box{background:white;color:var(--black);padding:34px;border-radius:24px;margin-bottom:26px;box-shadow:0 20px 45px rgba(0,0,0,.18)}
-.email{background:#f8fafc;border:1px solid rgba(214,180,109,.35);padding:18px;border-radius:14px;margin:14px 0;font-weight:900}
-.email a{color:var(--black);text-decoration:none}
-footer{text-align:center;padding:44px;color:#94a3b8}
+:root {
+  --black: #020617;
+  --navy: #0b1c2c;
+  --blue: #10243a;
+  --gold: #d6b46d;
+  --white: #ffffff;
+  --muted: #cbd5e1;
+  --soft: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.7;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(214,180,109,.18), transparent 28%),
+    radial-gradient(circle at 85% 25%, rgba(255,255,255,.07), transparent 24%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 24px;
+  background:
+    linear-gradient(135deg, rgba(2,6,23,.96), rgba(11,28,44,.92)),
+    radial-gradient(circle at 30% 20%, rgba(214,180,109,.25), transparent 30%);
+}
+
+.hero {
+  max-width: 1050px;
+  margin: auto;
+  animation: rise 1s ease both;
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(58px, 11vw, 124px);
+  line-height: .88;
+  letter-spacing: -.08em;
+  margin: 0;
+}
+
+.hero p {
+  max-width: 850px;
+  font-size: clamp(21px, 3vw, 31px);
+  color: var(--muted);
+  margin-top: 32px;
+}
+
+.location-line {
+  margin-top: 14px;
+  font-size: 14px;
+  letter-spacing: .14em;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hero-line {
+  max-width: 820px;
+  margin-top: 36px;
+  padding-left: 22px;
+  border-left: 5px solid var(--gold);
+  font-size: 20px;
+  color: #e5e7eb;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(14px);
+  padding: 15px 10px;
+  text-align: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-shadow: 0 12px 35px rgba(0,0,0,.12);
+}
+
+nav a {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 800;
+  margin: 0 12px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+section {
+  padding: 90px 24px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+}
+
+.light {
+  background: var(--white);
+  color: var(--black);
+}
+
+.dark-panel {
+  background:
+    linear-gradient(135deg, rgba(11,28,44,.95), rgba(2,6,23,.98));
+}
+
+h2 {
+  font-size: clamp(36px, 6vw, 62px);
+  line-height: 1;
+  letter-spacing: -.06em;
+  margin-top: 0;
+}
+
+.lead {
+  font-size: 22px;
+  color: var(--muted);
+  max-width: 850px;
+}
+
+.light .lead {
+  color: #334155;
+}
+
+.statement {
+  font-size: 24px;
+  font-weight: 850;
+  border-left: 5px solid var(--gold);
+  padding-left: 22px;
+  margin: 34px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 24px;
+  margin-top: 42px;
+}
+
+.card {
+  background: var(--soft);
+  color: var(--black);
+  padding: 30px;
+  border-radius: 22px;
+  min-height: 190px;
+  transition: transform .25s ease, box-shadow .25s ease;
+  border: 1px solid rgba(214,180,109,.25);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(0,0,0,.18);
+}
+
+.card a {
+  color: var(--black);
+  font-size: 22px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.number {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 900;
+  letter-spacing: .15em;
+  margin-bottom: 12px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.panel {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(214,180,109,.25);
+  padding: 32px;
+  border-radius: 24px;
+}
+
+footer {
+  padding: 44px 24px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 58px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Contact</h1>
-<p>Professional correspondence for housing systems, policy, and accountability work.</p>
+  <div class="hero">
+    <div class="eyebrow">Housing systems · Public accountability · Lived experience translated into structure</div>
+    <h1>Walter Escobar</h1>
+
+    <div class="location-line">
+      Los Angeles · Housing Systems · Public Accountability
+    </div>
+
+    <p>
+      I turn lived experience into systems analysis, public accountability, and tools that expose where housing programs break down.
+    </p>
+
+    <div class="hero-line">
+      Systems do not fail randomly. They fail in patterns. Once those patterns are documented, they can be challenged and rebuilt.
+    </div>
+  </div>
 </header>
 
 <nav>
-<a href="index.html">Home</a>
-<a href="audit.html">Analysis</a>
-<a href="initiatives.html">Initiatives</a>
-<a href="timeline.html">Timeline</a>
-<a href="evidence.html">Evidence</a>
-<a href="contact.html">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="audit.html">Analysis</a>
+  <a href="initiatives.html">Initiatives</a>
+  <a href="timeline.html">Timeline</a>
+  <a href="evidence.html">Evidence</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
-<main>
-<div class="box">
-<h2>Direct Contact</h2>
-<p>For matters related to housing systems, public accountability, documentation strategy, or policy work:</p>
-<div class="email"><a href="mailto:walter@walterescobar.org">walter@walterescobar.org</a></div>
-<div class="email"><a href="mailto:contact@walterescobar.org">contact@walterescobar.org</a></div>
-</div>
+<section class="dark-panel">
+  <div class="container split">
+    <div>
+      <h2>My Story</h2>
+      <p class="lead">
+        I did not arrive at this work through theory. I arrived through direct experience navigating housing instability, institutional gaps, and systems that often speak in policy while people live the consequences.
+      </p>
+    </div>
 
-<div class="box">
-<h2>Engagement Areas</h2>
-<ul>
-<li>Housing system analysis</li>
-<li>Program oversight and accountability</li>
-<li>Participant protection frameworks</li>
-<li>Documentation and evidence organization</li>
-</ul>
-</div>
-</main>
+    <div class="panel">
+      <p>
+        My perspective was shaped by navigating different systems with very different expectations. That experience made one thing clear: how a system is designed and how it actually operates are often not the same.
+      </p>
+      <p>
+        What I experienced was not random. The same breakdowns appeared again and again: unclear communication, shifting responsibility, and a lack of meaningful accountability when stability was on the line.
+      </p>
+      <p>
+        Over time, I stopped viewing those moments as isolated incidents. I began documenting them, organizing them, and identifying the patterns behind them.
+      </p>
+      <p>
+        That shift, from experiencing the system to analyzing it, became the foundation of my work.
+      </p>
+    </div>
+  </div>
+</section>
 
-<footer>© 2026 Walter Escobar · walter@walterescobar.org</footer>
+<section class="light">
+  <div class="container">
+    <h2>What This Work Teaches</h2>
+    <p class="statement">
+      A system’s failure is rarely one moment. It is usually a chain of unclear responsibility, weak communication, missing controls, and no meaningful correction.
+    </p>
+    <p>
+      My work focuses on identifying those chains. Not to make noise. To create clarity.
+    </p>
+    <p>
+      When housing programs are funded to stabilize vulnerable communities, accountability cannot be decorative. It has to operate in real time.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Initiatives</h2>
+    <p class="lead">
+      These initiatives are the practical expression of the work: documenting failure, translating it into structure, and building tools for accountability.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="number">01</div>
+        <a href="audit.html">Systems Analysis</a>
+        <p>Reviewing program behavior, breakdowns, and patterns in execution.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">02</div>
+        <a href="timeline.html">Timeline Development</a>
+        <p>Organizing events into sequence so escalation becomes visible.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">03</div>
+        <a href="evidence.html">Evidence Architecture</a>
+        <p>Preserving documentation in a way that supports clarity and review.</p>
+      </div>
+
+      <div class="card">
+        <div class="number">04</div>
+        <a href="initiatives.html">Accountability Framework</a>
+        <p>Building principles for better housing-system design and participant protection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="container split">
+    <div>
+      <h2>Purpose</h2>
+      <p>
+        My purpose is rooted in love for my community and a refusal to accept systems that destabilize the people they are funded to protect.
+      </p>
+      <p>
+        I believe lived experience becomes powerful when it is organized, documented, and translated into language institutions cannot easily dismiss.
+      </p>
+    </div>
+    <div>
+      <h2>Direction</h2>
+      <p>
+        I am building toward public policy, housing oversight, and systems accountability work that makes participant protection more than a promise.
+      </p>
+      <p>
+        This site is the platform where that work begins to take shape.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Core Thesis</h2>
+    <p class="lead">
+      Housing systems are designed to stabilize people. When they create confusion, pressure, or displacement instead, the failure is not individual. It is structural.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Walter Escobar · walter@walterescobar.org
+</footer>
+
 </body>
 </html>
