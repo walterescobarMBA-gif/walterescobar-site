@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study | Walter Escobar</title>
+
+<style>
+:root {
+  --black:#020617;
+  --navy:#0b1c2c;
+  --gold:#d6b46d;
+  --white:#ffffff;
+  --muted:#cbd5e1;
+  --soft:#f8fafc;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--black);
+  color:white;
+  line-height:1.7;
+}
+
+header {
+  padding:120px 24px;
+  text-align:center;
+  background:
+    linear-gradient(135deg,rgba(2,6,23,.97),rgba(11,28,44,.94)),
+    radial-gradient(circle at 30% 20%,rgba(214,180,109,.22),transparent 30%);
+}
+
+h1 {
+  font-size:clamp(54px,10vw,105px);
+  letter-spacing:-.07em;
+  line-height:.9;
+  margin:0;
+}
+
+header p {
+  color:var(--muted);
+  font-size:22px;
+  max-width:850px;
+  margin:28px auto 0;
+}
+
+nav {
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  padding:15px 10px;
+  text-align:center;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+nav a {
+  color:var(--black);
+  text-decoration:none;
+  font-weight:800;
+  margin:0 12px;
+}
+
+nav a:hover { color:var(--gold); }
+
+section { padding:90px 24px; }
+
+.container {
+  max-width:1050px;
+  margin:auto;
+}
+
+.light {
+  background:white;
+  color:var(--black);
+}
+
+h2 {
+  font-size:clamp(36px,6vw,64px);
+  line-height:1;
+  letter-spacing:-.06em;
+  margin-top:0;
+}
+
+.lead {
+  font-size:22px;
+  color:var(--muted);
+  max-width:900px;
+}
+
+.light .lead { color:#334155; }
+
+.statement {
+  font-size:26px;
+  font-weight:900;
+  border-left:5px solid var(--gold);
+  padding-left:22px;
+  margin:34px 0;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
+  margin-top:46px;
+}
+
+.card {
+  background:var(--soft);
+  color:var(--black);
+  padding:30px;
+  border-radius:22px;
+  border:1px solid rgba(214,180,109,.25);
+  min-height:210px;
+}
+
+.number {
+  color:var(--gold);
+  font-weight:900;
+  letter-spacing:.15em;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+footer {
+  padding:44px 24px;
+  text-align:center;
+  color:#94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Case Study</h1>
+  <p>
+    This is not a personal narrative. It is a documented example of how a housing system behaves when accountability, control, and participant protection fail simultaneously.
+  </p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="audit.html">Audit</a>
+  <a href="casestudy.html">Case Study</a>
+  <a href="initiatives.html">Initiatives</a>
+  <a href="timeline.html">Timeline</a>
+  <a href="evidence.html">Evidence</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <div class="container">
+    <h2>Position</h2>
+    <p class="lead">
+      This case study is derived from a participant-prepared compliance audit documenting systemic failures within a publicly funded housing program. It reflects documented events, not isolated impressions.
+    </p>
+
+    <p class="statement">
+      Systems do not collapse without warning. They reveal themselves through repeated failures that go uncorrected.
+    </p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="container">
+    <h2>Context</h2>
+
+    <p>
+      The subject of this case study is a housing placement operating within a federally funded framework, where stability depends on structured services, consistent policy application, and functioning oversight.
+    </p>
+
+    <p>
+      Instead of those safeguards operating as designed, the system relied on inconsistent communication, undocumented practices, and reactive decision-making during critical moments.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>System Breakdown</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="number">01</div>
+        <h3>Failure of Core Obligations</h3>
+        <p>
+          Required supportive services and transition planning were not delivered in a structured or timely manner, despite their central role in preventing housing instability.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">02</div>
+        <h3>Unwritten Rules as Enforcement</h3>
+        <p>
+          Staff actions impacting housing stability were not consistently tied to written policy, creating arbitrary enforcement conditions and unequal application of authority.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">03</div>
+        <h3>Contradictory Decision-Making</h3>
+        <p>
+          Critical housing pathways were presented as unavailable, then later offered without explanation, demonstrating a lack of internal control over decision processes.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">04</div>
+        <h3>Escalation Through Pressure</h3>
+        <p>
+          Displacement threats and coercive communications occurred during periods requiring stabilization, increasing risk instead of reducing it.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="container">
+    <h2>Pattern Recognition</h2>
+
+    <p class="lead">
+      The events documented in this case do not represent isolated mistakes. They form a pattern consistent with systemic control failure.
+    </p>
+
+    <p>
+      When internal controls are not enforced, when communication is not governed, and when participant protections are not operationalized, instability becomes predictable rather than accidental.
+    </p>
+
+    <p class="statement">
+      The issue is not whether the system failed. The issue is that it failed in ways that were preventable, repeatable, and left uncorrected.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Implication</h2>
+
+    <p>
+      A system that depends on participant resilience instead of structured support is not functioning as intended. It is transferring operational failure onto the individual it is meant to stabilize.
+    </p>
+
+    <p>
+      This case study demonstrates how gaps in governance, communication, and accountability convert administrative dysfunction into real-world harm.
+    </p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="container">
+    <h2>Controlled Disclosure</h2>
+
+    <p class="lead">
+      This page presents the system-level conclusion. The full audit, evidence log, and supporting documentation are maintained separately.
+    </p>
+
+    <p>
+      Detailed findings, timelines, and evidentiary materials are available in appropriate contexts where formal review, accountability, or corrective action is being pursued.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Walter Escobar · walter@walterescobar.org
+</footer>
+
+</body>
+</html>
