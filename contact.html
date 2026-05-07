@@ -1,59 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Contact | Walter Escobar</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, sans-serif;
-  background: #020617;
-  color: white;
+:root{
+  --bg:#020617;
+  --navy:#07111f;
+  --gold:#d6b46d;
+  --white:#ffffff;
+  --muted:#cbd5e1;
+  --light:#f8fafc;
 }
 
-header {
-  padding: 100px 20px;
-  text-align: center;
-  background: linear-gradient(135deg,#020617,#0b1c2c);
+*{
+  box-sizing:border-box;
 }
 
-h1 {
-  font-size: 50px;
-  margin: 0;
+html{
+  scroll-behavior:smooth;
 }
 
-nav {
-  background: white;
-  padding: 15px;
-  text-align: center;
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.75;
 }
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #020617;
-  font-weight: bold;
+header{
+  min-height:65vh;
+  display:flex;
+  align-items:center;
+  padding:120px 24px;
+  background:
+    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.96)),
+    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
 }
 
-main {
-  max-width: 700px;
-  margin: auto;
-  padding: 40px 20px;
+.hero{
+  max-width:1100px;
+  margin:auto;
 }
 
-.card {
-  background: white;
-  color: #020617;
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 20px;
+.kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:24px;
 }
 
-.email {
-  font-weight: bold;
-  margin-top: 10px;
+h1{
+  font-size:clamp(56px,10vw,120px);
+  line-height:.9;
+  letter-spacing:-.07em;
+  margin:0 0 34px;
+}
+
+.hero p{
+  font-size:clamp(22px,4vw,36px);
+  color:var(--muted);
+  max-width:900px;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  padding:18px 12px;
+  text-align:center;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+nav a{
+  text-decoration:none;
+  color:#020617;
+  font-weight:900;
+  margin:0 14px;
+  font-size:18px;
+}
+
+nav a:hover{
+  color:var(--gold);
+}
+
+section{
+  padding:90px 24px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.section-title{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1;
+  letter-spacing:-.06em;
+  margin:0 0 26px;
+}
+
+.lead{
+  font-size:clamp(22px,3vw,30px);
+  color:var(--muted);
+  max-width:940px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+  margin-top:56px;
+}
+
+.contact-card{
+  background:var(--navy);
+  border:1px solid rgba(214,180,109,.18);
+  border-radius:28px;
+  padding:40px;
+}
+
+.contact-card h3{
+  margin-top:0;
+  font-size:30px;
+  line-height:1.1;
+}
+
+.contact-card p{
+  color:var(--muted);
+  font-size:18px;
+}
+
+.contact-label{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:16px;
+}
+
+.contact-link{
+  display:block;
+  margin-top:18px;
+  color:var(--white);
+  text-decoration:none;
+  font-size:20px;
+  font-weight:800;
+  word-break:break-word;
+}
+
+.contact-link:hover{
+  color:var(--gold);
+}
+
+.statement{
+  margin-top:60px;
+  border-left:6px solid var(--gold);
+  padding-left:30px;
+  font-size:clamp(24px,4vw,40px);
+  font-weight:850;
+  max-width:980px;
+}
+
+.light{
+  background:var(--white);
+  color:#020617;
+}
+
+.light .lead{
+  color:#334155;
+}
+
+.light .contact-card{
+  background:#f8fafc;
+  border:1px solid rgba(2,6,23,.08);
+}
+
+.light .contact-card p{
+  color:#334155;
+}
+
+footer{
+  padding:44px 24px;
+  text-align:center;
+  color:#94a3b8;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:700px){
+
+  header{
+    padding:90px 24px;
+  }
+
+  nav a{
+    font-size:16px;
+    margin:0 10px;
+  }
+
+  section{
+    padding:70px 22px;
+  }
+
 }
 </style>
 </head>
@@ -61,36 +219,192 @@ main {
 <body>
 
 <header>
-  <h1>Contact</h1>
+  <div class="hero">
+
+    <div class="kicker">
+      Contact
+    </div>
+
+    <h1>
+      Public-interest communication.
+    </h1>
+
+    <p>
+      This project focuses on housing systems accountability,
+      stabilization analysis,
+      participant-facing administration,
+      and public-interest documentation practices.
+    </p>
+
+  </div>
 </header>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="audit.html">Analysis</a>
-  <a href="initiatives.html">Initiatives</a>
+  <a href="analysis.html">Analysis</a>
+  <a href="case-study.html">Case Study</a>
   <a href="timeline.html">Timeline</a>
   <a href="evidence.html">Evidence</a>
+  <a href="initiatives.html">Initiatives</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<main>
+<section>
+  <div class="container">
 
-<div class="card">
-  <h2>Reach Me</h2>
-  <p>Email:</p>
+    <h2 class="section-title">
+      Contact Information
+    </h2>
 
-  <div class="email">walter@walterescobar.org</div>
-  <div class="email">contact@walterescobar.org</div>
-</div>
+    <p class="lead">
+      For public-interest communication,
+      documentation inquiries,
+      research discussion,
+      or housing systems accountability dialogue,
+      use the contact information below.
+    </p>
 
-<div class="card">
-  <h2>Purpose of Contact</h2>
-  <p>
-    For inquiries related to housing systems, policy work, or collaboration.
-  </p>
-</div>
+    <div class="contact-grid">
 
-</main>
+      <div class="contact-card">
+
+        <div class="contact-label">
+          Primary Contact
+        </div>
+
+        <h3>
+          Walter Escobar
+        </h3>
+
+        <p>
+          Housing Rights Advocate<br>
+          Housing Systems Accountability Project
+        </p>
+
+        <a class="contact-link" href="mailto:walter@walterescobar.org">
+          walter@walterescobar.org
+        </a>
+
+      </div>
+
+      <div class="contact-card">
+
+        <div class="contact-label">
+          Website
+        </div>
+
+        <h3>
+          Public Documentation Archive
+        </h3>
+
+        <p>
+          Housing systems analysis,
+          oversight documentation,
+          participant-centered accountability,
+          and project chronology.
+        </p>
+
+        <a class="contact-link" href="https://walterescobar.org" target="_blank">
+          walterescobar.org
+        </a>
+
+      </div>
+
+      <div class="contact-card">
+
+        <div class="contact-label">
+          Areas of Focus
+        </div>
+
+        <h3>
+          Project Scope
+        </h3>
+
+        <p>
+          Housing stabilization,
+          oversight systems,
+          participant documentation,
+          records processes,
+          continuity concerns,
+          and public-interest systems analysis.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="statement">
+      Documentation becomes powerful when it transforms isolated experiences into structured public understanding.
+    </div>
+
+  </div>
+</section>
+
+<section class="light">
+  <div class="container">
+
+    <h2 class="section-title">
+      Project Principles
+    </h2>
+
+    <p class="lead">
+      The project is guided by documentation integrity,
+      structured analysis,
+      chronology preservation,
+      and participant-centered accountability.
+    </p>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <h3>
+          Documentation Integrity
+        </h3>
+
+        <p>
+          Materials are organized carefully to preserve context,
+          chronology,
+          and factual distinction between documentation and interpretation.
+        </p>
+
+      </div>
+
+      <div class="contact-card">
+
+        <h3>
+          Public-Interest Framing
+        </h3>
+
+        <p>
+          The project focuses on broader operational and systems-level questions
+          rather than sensationalism or personal grievance narratives.
+        </p>
+
+      </div>
+
+      <div class="contact-card">
+
+        <h3>
+          Systems Accountability
+        </h3>
+
+        <p>
+          The long-term objective is greater understanding of how housing systems,
+          oversight structures,
+          and participant-facing administration operate in practice.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Walter Escobar · Housing Systems Accountability Project
+</footer>
 
 </body>
 </html>
