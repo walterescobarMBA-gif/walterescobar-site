@@ -1,66 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Evidence | Walter Escobar</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0b1c2c;
-  color: white;
-  line-height: 1.6;
+:root{
+  --bg:#020617;
+  --navy:#07111f;
+  --gold:#d6b46d;
+  --white:#ffffff;
+  --muted:#cbd5e1;
+  --light:#f8fafc;
 }
 
-header {
-  padding: 120px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #020617, #0b1c2c);
+*{
+  box-sizing:border-box;
 }
 
-h1 {
-  font-size: 56px;
-  margin: 0;
-  letter-spacing: -0.04em;
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.75;
 }
 
-header p {
-  margin-top: 15px;
-  font-size: 20px;
-  color: #cbd5e1;
+header{
+  min-height:65vh;
+  display:flex;
+  align-items:center;
+  padding:120px 24px;
+  background:
+    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.95)),
+    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
 }
 
-nav {
-  background: white;
-  padding: 15px;
-  text-align: center;
+.hero{
+  max-width:1150px;
+  margin:auto;
 }
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #0b1c2c;
-  font-weight: bold;
+.kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:24px;
 }
 
-main {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
+h1{
+  font-size:clamp(56px,10vw,120px);
+  line-height:.9;
+  letter-spacing:-.07em;
+  margin:0 0 34px;
 }
 
-.section {
-  background: white;
-  color: #0b1c2c;
-  padding: 28px;
-  margin-bottom: 22px;
-  border-radius: 12px;
+.hero p{
+  font-size:clamp(22px,4vw,36px);
+  color:var(--muted);
+  max-width:920px;
 }
 
-h2 {
-  margin-top: 0;
+nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  padding:18px 12px;
+  text-align:center;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+nav a{
+  text-decoration:none;
+  color:#020617;
+  font-weight:900;
+  margin:0 14px;
+  font-size:18px;
+}
+
+nav a:hover{
+  color:var(--gold);
+}
+
+section{
+  padding:90px 24px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+}
+
+.section-title{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1;
+  letter-spacing:-.06em;
+  margin:0 0 26px;
+}
+
+.lead{
+  font-size:clamp(22px,3vw,30px);
+  color:var(--muted);
+  max-width:940px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;
+  margin-top:56px;
+}
+
+.card{
+  background:var(--navy);
+  border:1px solid rgba(214,180,109,.18);
+  border-radius:28px;
+  padding:36px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 60px rgba(0,0,0,.2);
+}
+
+.card h3{
+  margin-top:0;
+  font-size:32px;
+  line-height:1.1;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:18px;
+}
+
+.card ul{
+  padding-left:18px;
+  margin-top:24px;
+}
+
+.card li{
+  margin-bottom:12px;
+  color:var(--white);
+}
+
+.statement{
+  margin-top:60px;
+  border-left:6px solid var(--gold);
+  padding-left:28px;
+  font-size:clamp(24px,4vw,40px);
+  font-weight:850;
+  max-width:980px;
+}
+
+.light{
+  background:var(--white);
+  color:#020617;
+}
+
+.light .lead{
+  color:#334155;
+}
+
+.light .card{
+  background:#f8fafc;
+  border:1px solid rgba(2,6,23,.08);
+}
+
+.light .card p{
+  color:#334155;
+}
+
+.quote{
+  font-size:clamp(24px,4vw,38px);
+  font-weight:850;
+  line-height:1.35;
+  max-width:980px;
+}
+
+footer{
+  padding:44px 24px;
+  text-align:center;
+  color:#94a3b8;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:700px){
+
+  header{
+    padding:90px 24px;
+  }
+
+  nav a{
+    font-size:16px;
+    margin:0 10px;
+  }
+
+  section{
+    padding:70px 22px;
+  }
+
 }
 </style>
 </head>
@@ -68,51 +215,275 @@ h2 {
 <body>
 
 <header>
-  <h1>Evidence</h1>
-  <p>Structured documentation supporting system analysis</p>
+  <div class="hero">
+
+    <div class="kicker">
+      Evidence
+    </div>
+
+    <h1>
+      Structured documentation archive.
+    </h1>
+
+    <p>
+      This section organizes selected notices, oversight directives,
+      monitoring findings, correspondence, and administrative
+      materials associated with the project chronology.
+    </p>
+
+  </div>
 </header>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="audit.html">Analysis</a>
-  <a href="initiatives.html">Framework</a>
+  <a href="analysis.html">Analysis</a>
+  <a href="case-study.html">Case Study</a>
   <a href="timeline.html">Timeline</a>
   <a href="evidence.html">Evidence</a>
+  <a href="initiatives.html">Initiatives</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<main>
+<section>
+  <div class="container">
 
-<div class="section">
-  <h2>Documentation Approach</h2>
-  <p>
-    Evidence is organized to preserve clarity, sequence, and relevance. Materials are categorized rather than displayed as raw data.
-  </p>
-</div>
+    <h2 class="section-title">
+      Documentation Categories
+    </h2>
 
-<div class="section">
-  <h2>Administrative Records</h2>
-  <p>Formal notices, communications, and documentation affecting housing status and program interaction.</p>
-</div>
+    <p class="lead">
+      Materials included throughout the project originate from
+      participant-retained records, publicly released documents,
+      oversight guidance, preserved correspondence,
+      and California Public Records Act productions.
+    </p>
 
-<div class="section">
-  <h2>Communication Records</h2>
-  <p>Written correspondence demonstrating response patterns, timing, and procedural gaps.</p>
-</div>
+    <div class="grid">
 
-<div class="section">
-  <h2>Timeline Support</h2>
-  <p>Records aligned with documented events to establish sequence and escalation.</p>
-</div>
+      <div class="card">
 
-<div class="section">
-  <h2>Position</h2>
-  <p>
-    Evidence is maintained in structured form to support clarity, accountability, and potential review.
-  </p>
-</div>
+        <h3>
+          Administrative Notices
+        </h3>
 
-</main>
+        <p>
+          Notices involving housing status, occupancy timelines,
+          vacate directives, lease-related communications,
+          and stabilization-related housing actions.
+        </p>
+
+        <ul>
+          <li>July 3, 2025 notices</li>
+          <li>July 16, 2025 vacate correspondence</li>
+          <li>Property-level notices</li>
+          <li>Housing communications</li>
+        </ul>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Oversight Directives
+        </h3>
+
+        <p>
+          Guidance and administrative materials issued through
+          oversight entities relating to stabilization,
+          housing continuity, and HOPWA operational practices.
+        </p>
+
+        <ul>
+          <li>Directive 51-3</li>
+          <li>LAHD HOPWA guidance</li>
+          <li>HUD stabilization materials</li>
+          <li>Administrative memoranda</li>
+        </ul>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Monitoring Reports
+        </h3>
+
+        <p>
+          Oversight review materials involving project sponsor
+          monitoring, documentation review, client-file evaluation,
+          and operational findings.
+        </p>
+
+        <ul>
+          <li>2023–2024 monitoring report</li>
+          <li>2024–2025 monitoring report</li>
+          <li>File review findings</li>
+          <li>Documentation observations</li>
+        </ul>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Policies & Procedures
+        </h3>
+
+        <p>
+          Policies governing records retention, client-file handling,
+          grievance procedures, confidentiality,
+          and participant documentation practices.
+        </p>
+
+        <ul>
+          <li>Records policies</li>
+          <li>Retention procedures</li>
+          <li>Client access protocols</li>
+          <li>Grievance framework materials</li>
+        </ul>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Correspondence
+        </h3>
+
+        <p>
+          Preserved communications involving oversight clarification,
+          stabilization concerns, administrative coordination,
+          and participant-facing operational issues.
+        </p>
+
+        <ul>
+          <li>Sponsor communications</li>
+          <li>Oversight correspondence</li>
+          <li>Clarification requests</li>
+          <li>Administrative responses</li>
+        </ul>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Housing Timeline Materials
+        </h3>
+
+        <p>
+          Chronologically preserved records documenting the sequence
+          of housing-related developments, oversight actions,
+          and administrative evolution across the project period.
+        </p>
+
+        <ul>
+          <li>Chronology records</li>
+          <li>Timeline documents</li>
+          <li>Stabilization events</li>
+          <li>Operational developments</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="statement">
+      The significance of documentation is not volume alone,
+      but how independent records, directives, timelines,
+      and communications begin to corroborate broader operational patterns.
+    </div>
+
+  </div>
+</section>
+
+<section class="light">
+  <div class="container">
+
+    <h2 class="section-title">
+      Documentation Standards
+    </h2>
+
+    <p class="lead">
+      Materials referenced throughout this project are organized
+      to distinguish preserved documentation from interpretation
+      and analytical commentary.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>
+          Chronological Integrity
+        </h3>
+
+        <p>
+          Documents are organized according to sequence and
+          administrative context to preserve timeline clarity
+          and operational continuity.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Source Preservation
+        </h3>
+
+        <p>
+          Publicly released records, retained notices,
+          oversight materials, and correspondence are preserved
+          as part of the broader accountability archive.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Controlled Disclosure
+        </h3>
+
+        <p>
+          The project intentionally limits publication of sensitive,
+          private, or personally identifying information while
+          preserving relevant operational context.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title">
+      Archive Purpose
+    </h2>
+
+    <p class="lead">
+      The archive exists to support public understanding of housing
+      stabilization systems, oversight structures,
+      and participant-facing administrative processes.
+    </p>
+
+    <div class="statement">
+      Documentation becomes meaningful when individual records,
+      policy guidance, oversight findings, and lived experience
+      begin forming a coherent administrative narrative.
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Walter Escobar · Housing Systems Accountability Project
+</footer>
 
 </body>
 </html>
