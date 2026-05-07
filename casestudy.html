@@ -1,136 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Case Study | Walter Escobar</title>
 
 <style>
-:root {
-  --black:#020617;
-  --navy:#0b1c2c;
+:root{
+  --bg:#020617;
+  --navy:#07111f;
   --gold:#d6b46d;
   --white:#ffffff;
   --muted:#cbd5e1;
-  --soft:#f8fafc;
+  --light:#f8fafc;
 }
 
-* { box-sizing:border-box; }
+*{
+  box-sizing:border-box;
+}
 
-body {
+html{
+  scroll-behavior:smooth;
+}
+
+body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  background:var(--black);
-  color:white;
-  line-height:1.7;
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.75;
 }
 
-header {
+header{
+  min-height:72vh;
+  display:flex;
+  align-items:center;
   padding:120px 24px;
-  text-align:center;
   background:
-    linear-gradient(135deg,rgba(2,6,23,.97),rgba(11,28,44,.94)),
-    radial-gradient(circle at 30% 20%,rgba(214,180,109,.22),transparent 30%);
+    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.96)),
+    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
 }
 
-h1 {
-  font-size:clamp(54px,10vw,105px);
-  letter-spacing:-.07em;
+.hero{
+  max-width:1150px;
+  margin:auto;
+}
+
+.kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:24px;
+}
+
+h1{
+  font-size:clamp(56px,10vw,120px);
   line-height:.9;
-  margin:0;
+  letter-spacing:-.07em;
+  margin:0 0 34px;
 }
 
-header p {
+.hero p{
+  font-size:clamp(22px,4vw,36px);
   color:var(--muted);
-  font-size:22px;
-  max-width:850px;
-  margin:28px auto 0;
+  max-width:940px;
 }
 
-nav {
+nav{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(255,255,255,.94);
+  z-index:999;
+  background:rgba(255,255,255,.95);
   backdrop-filter:blur(14px);
-  padding:15px 10px;
+  padding:18px 12px;
   text-align:center;
   overflow-x:auto;
   white-space:nowrap;
 }
 
-nav a {
-  color:var(--black);
+nav a{
   text-decoration:none;
-  font-weight:800;
-  margin:0 12px;
+  color:#020617;
+  font-weight:900;
+  margin:0 14px;
+  font-size:18px;
 }
 
-nav a:hover { color:var(--gold); }
+nav a:hover{
+  color:var(--gold);
+}
 
-section { padding:90px 24px; }
+section{
+  padding:90px 24px;
+}
 
-.container {
-  max-width:1050px;
+.container{
+  max-width:1100px;
   margin:auto;
 }
 
-.light {
-  background:white;
-  color:var(--black);
-}
-
-h2 {
-  font-size:clamp(36px,6vw,64px);
+.section-title{
+  font-size:clamp(42px,7vw,78px);
   line-height:1;
   letter-spacing:-.06em;
-  margin-top:0;
+  margin:0 0 26px;
 }
 
-.lead {
-  font-size:22px;
+.lead{
+  font-size:clamp(22px,3vw,30px);
   color:var(--muted);
-  max-width:900px;
+  max-width:940px;
 }
 
-.light .lead { color:#334155; }
-
-.statement {
-  font-size:26px;
-  font-weight:900;
-  border-left:5px solid var(--gold);
-  padding-left:22px;
-  margin:34px 0;
-}
-
-.grid {
+.story-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:26px;
-  margin-top:46px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;
+  margin-top:56px;
 }
 
-.card {
-  background:var(--soft);
-  color:var(--black);
-  padding:30px;
-  border-radius:22px;
-  border:1px solid rgba(214,180,109,.25);
-  min-height:210px;
+.story-card{
+  background:var(--navy);
+  border:1px solid rgba(214,180,109,.18);
+  border-radius:28px;
+  padding:38px;
 }
 
-.number {
+.story-card h3{
+  margin-top:0;
+  font-size:32px;
+  line-height:1.1;
+}
+
+.story-card p{
+  color:var(--muted);
+  font-size:18px;
+}
+
+.number{
   color:var(--gold);
-  font-weight:900;
-  letter-spacing:.15em;
   font-size:13px;
-  margin-bottom:12px;
+  font-weight:900;
+  letter-spacing:.18em;
+  margin-bottom:18px;
+  text-transform:uppercase;
 }
 
-footer {
+.statement{
+  margin-top:60px;
+  border-left:6px solid var(--gold);
+  padding-left:30px;
+  font-size:clamp(24px,4vw,40px);
+  font-weight:850;
+  max-width:980px;
+}
+
+.light{
+  background:var(--white);
+  color:#020617;
+}
+
+.light .lead{
+  color:#334155;
+}
+
+.light .story-card{
+  background:#f8fafc;
+  border:1px solid rgba(2,6,23,.08);
+}
+
+.light .story-card p{
+  color:#334155;
+}
+
+.quote{
+  font-size:clamp(24px,4vw,40px);
+  line-height:1.35;
+  font-weight:850;
+  max-width:980px;
+}
+
+footer{
   padding:44px 24px;
   text-align:center;
   color:#94a3b8;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:700px){
+
+  header{
+    padding:90px 24px;
+  }
+
+  nav a{
+    font-size:16px;
+    margin:0 10px;
+  }
+
+  section{
+    padding:70px 22px;
+  }
+
 }
 </style>
 </head>
@@ -138,139 +212,298 @@ footer {
 <body>
 
 <header>
-  <h1>Case Study</h1>
-  <p>
-    This is not a personal narrative. It is a documented example of how a housing system behaves when accountability, control, and participant protection fail simultaneously.
-  </p>
+  <div class="hero">
+
+    <div class="kicker">
+      Case Study
+    </div>
+
+    <h1>
+      From instability to systems analysis.
+    </h1>
+
+    <p>
+      This case study examines how housing instability,
+      administrative uncertainty, oversight escalation,
+      and participant-led documentation evolved into a broader
+      housing systems accountability project.
+    </p>
+
+  </div>
 </header>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="audit.html">Audit</a>
-  <a href="casestudy.html">Case Study</a>
-  <a href="initiatives.html">Initiatives</a>
+  <a href="analysis.html">Analysis</a>
+  <a href="case-study.html">Case Study</a>
   <a href="timeline.html">Timeline</a>
   <a href="evidence.html">Evidence</a>
+  <a href="initiatives.html">Initiatives</a>
   <a href="contact.html">Contact</a>
 </nav>
 
 <section>
   <div class="container">
-    <h2>Position</h2>
+
+    <h2 class="section-title">
+      Project Background
+    </h2>
+
     <p class="lead">
-      This case study is derived from a participant-prepared compliance audit documenting systemic failures within a publicly funded housing program. It reflects documented events, not isolated impressions.
+      The project originated from participant-facing housing instability
+      involving transitional housing placement uncertainty,
+      evolving administrative communication,
+      and concerns surrounding continuity and stabilization.
     </p>
 
-    <p class="statement">
-      Systems do not collapse without warning. They reveal themselves through repeated failures that go uncorrected.
-    </p>
-  </div>
-</section>
+    <div class="story-grid">
 
-<section class="light">
-  <div class="container">
-    <h2>Context</h2>
+      <div class="story-card">
 
-    <p>
-      The subject of this case study is a housing placement operating within a federally funded framework, where stability depends on structured services, consistent policy application, and functioning oversight.
-    </p>
+        <div class="number">
+          Phase 01
+        </div>
 
-    <p>
-      Instead of those safeguards operating as designed, the system relied on inconsistent communication, undocumented practices, and reactive decision-making during critical moments.
-    </p>
-  </div>
-</section>
+        <h3>
+          Housing Uncertainty
+        </h3>
 
-<section>
-  <div class="container">
-    <h2>System Breakdown</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="number">01</div>
-        <h3>Failure of Core Obligations</h3>
         <p>
-          Required supportive services and transition planning were not delivered in a structured or timely manner, despite their central role in preventing housing instability.
+          The initial phase involved notices, vacate communications,
+          administrative ambiguity, and rapidly changing housing-related
+          circumstances affecting long-term stability.
         </p>
+
       </div>
 
-      <div class="card">
-        <div class="number">02</div>
-        <h3>Unwritten Rules as Enforcement</h3>
+      <div class="story-card">
+
+        <div class="number">
+          Phase 02
+        </div>
+
+        <h3>
+          Documentation Preservation
+        </h3>
+
         <p>
-          Staff actions impacting housing stability were not consistently tied to written policy, creating arbitrary enforcement conditions and unequal application of authority.
+          Notices, emails, timelines, correspondence,
+          and operational developments began being preserved
+          contemporaneously as part of a growing chronology.
         </p>
+
       </div>
 
-      <div class="card">
-        <div class="number">03</div>
-        <h3>Contradictory Decision-Making</h3>
-        <p>
-          Critical housing pathways were presented as unavailable, then later offered without explanation, demonstrating a lack of internal control over decision processes.
-        </p>
-      </div>
+      <div class="story-card">
 
-      <div class="card">
-        <div class="number">04</div>
-        <h3>Escalation Through Pressure</h3>
+        <div class="number">
+          Phase 03
+        </div>
+
+        <h3>
+          Oversight Navigation
+        </h3>
+
         <p>
-          Displacement threats and coercive communications occurred during periods requiring stabilization, increasing risk instead of reducing it.
+          Escalation pathways expanded to include oversight entities,
+          administrative clarification requests,
+          public records requests,
+          and analysis of program guidance.
         </p>
+
       </div>
 
     </div>
+
+    <div class="statement">
+      The project evolved not from a single event,
+      but from the accumulation of notices,
+      policy contradictions,
+      operational uncertainty,
+      and participant-led documentation over time.
+    </div>
+
   </div>
 </section>
 
 <section class="light">
   <div class="container">
-    <h2>Pattern Recognition</h2>
+
+    <h2 class="section-title">
+      Administrative Evolution
+    </h2>
 
     <p class="lead">
-      The events documented in this case do not represent isolated mistakes. They form a pattern consistent with systemic control failure.
+      As additional records were obtained through oversight correspondence
+      and California Public Records Act requests,
+      the project expanded beyond individual experience
+      into broader systems analysis.
     </p>
 
-    <p>
-      When internal controls are not enforced, when communication is not governed, and when participant protections are not operationalized, instability becomes predictable rather than accidental.
-    </p>
+    <div class="story-grid">
 
-    <p class="statement">
-      The issue is not whether the system failed. The issue is that it failed in ways that were preventable, repeatable, and left uncorrected.
-    </p>
+      <div class="story-card">
+
+        <h3>
+          Policies & Procedures
+        </h3>
+
+        <p>
+          Internal sponsor policies and administrative manuals
+          established formal procedures involving records retention,
+          participant access, grievance processes,
+          and stabilization-related operations.
+        </p>
+
+      </div>
+
+      <div class="story-card">
+
+        <h3>
+          Monitoring Findings
+        </h3>
+
+        <p>
+          Oversight monitoring reports identified documentation gaps,
+          incomplete client information,
+          and operational inconsistencies within reviewed files.
+        </p>
+
+      </div>
+
+      <div class="story-card">
+
+        <h3>
+          Oversight Directives
+        </h3>
+
+        <p>
+          Subsequent directives emphasized individualized review,
+          stabilization objectives,
+          and continuity considerations within HOPWA-funded housing systems.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Implication</h2>
 
-    <p>
-      A system that depends on participant resilience instead of structured support is not functioning as intended. It is transferring operational failure onto the individual it is meant to stabilize.
+    <h2 class="section-title">
+      Participant Impact
+    </h2>
+
+    <p class="lead">
+      Housing instability affects far more than physical placement.
+      Administrative uncertainty can directly impact education,
+      continuity of care,
+      emotional regulation,
+      long-term planning,
+      and personal recovery trajectories.
     </p>
 
-    <p>
-      This case study demonstrates how gaps in governance, communication, and accountability convert administrative dysfunction into real-world harm.
-    </p>
+    <div class="statement">
+      The case study ultimately examines how a participant navigated instability while simultaneously building a documented administrative record in real time.
+    </div>
+
   </div>
 </section>
 
 <section class="light">
   <div class="container">
-    <h2>Controlled Disclosure</h2>
+
+    <h2 class="section-title">
+      Systems Perspective
+    </h2>
 
     <p class="lead">
-      This page presents the system-level conclusion. The full audit, evidence log, and supporting documentation are maintained separately.
+      The purpose of this project is not sensationalism,
+      but examination:
+      identifying how policy goals,
+      oversight structures,
+      administrative processes,
+      and participant-facing experiences intersect over time.
     </p>
 
-    <p>
-      Detailed findings, timelines, and evidentiary materials are available in appropriate contexts where formal review, accountability, or corrective action is being pursued.
+    <p class="quote">
+      The most important question raised by the project is not whether systems exist on paper, but whether they function consistently when participants experience instability.
     </p>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title">
+      Ongoing Development
+    </h2>
+
+    <p class="lead">
+      The project continues evolving as additional records,
+      oversight materials,
+      timelines,
+      and administrative context are incorporated into the broader archive.
+    </p>
+
+    <div class="story-grid">
+
+      <div class="story-card">
+
+        <h3>
+          Timeline Expansion
+        </h3>
+
+        <p>
+          The chronology continues being refined to preserve
+          operational sequence,
+          oversight context,
+          and administrative developments.
+        </p>
+
+      </div>
+
+      <div class="story-card">
+
+        <h3>
+          Public-Interest Documentation
+        </h3>
+
+        <p>
+          Materials are curated to support broader understanding
+          of stabilization systems,
+          oversight structures,
+          and participant-facing housing administration.
+        </p>
+
+      </div>
+
+      <div class="story-card">
+
+        <h3>
+          Systems Accountability
+        </h3>
+
+        <p>
+          The long-term direction of the project focuses on
+          policy literacy,
+          documentation practices,
+          and constructive systems accountability.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
 
 <footer>
-  © 2026 Walter Escobar · walter@walterescobar.org
+  © 2026 Walter Escobar · Housing Systems Accountability Project
 </footer>
 
 </body>
