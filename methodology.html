@@ -4,534 +4,257 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Methodology | Walter Escobar</title>
+<title>Executive Chronology | Walter Escobar</title>
 
 <style>
-:root{
-  --bg:#020617;
-  --navy:#07111f;
-  --gold:#d6b46d;
-  --white:#ffffff;
-  --muted:#cbd5e1;
-  --light:#f8fafc;
+body {
+    margin: 0;
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
 }
 
-*{
-  box-sizing:border-box;
+header {
+    padding: 80px 20px 60px;
+    text-align: center;
+    background: linear-gradient(to bottom, #111827, #0d1117);
 }
 
-html{
-  scroll-behavior:smooth;
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
 }
 
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  background:var(--bg);
-  color:var(--white);
-  line-height:1.75;
+header p {
+    max-width: 850px;
+    margin: auto;
+    color: #9ca3af;
+    font-size: 1.1rem;
 }
 
-header{
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  padding:120px 24px;
-  background:
-    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.96)),
-    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
+nav {
+    background: #111827;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #1f2937;
+    position: sticky;
+    top: 0;
 }
 
-.hero{
-  max-width:1150px;
-  margin:auto;
+nav a {
+    color: #60a5fa;
+    text-decoration: none;
+    margin: 0 14px;
+    font-weight: bold;
 }
 
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:24px;
+nav a:hover {
+    color: #93c5fd;
 }
 
-h1{
-  font-size:clamp(56px,10vw,120px);
-  line-height:.9;
-  letter-spacing:-.07em;
-  margin:0 0 34px;
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
 }
 
-.hero p{
-  font-size:clamp(22px,4vw,36px);
-  color:var(--muted);
-  max-width:940px;
+.timeline-item {
+    position: relative;
+    margin-bottom: 55px;
+    padding-left: 30px;
+    border-left: 3px solid #3b82f6;
 }
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  padding:18px 12px;
-  text-align:center;
-  overflow-x:auto;
-  white-space:nowrap;
+.timeline-item h2 {
+    color: #93c5fd;
+    margin-bottom: 10px;
 }
 
-nav a{
-  text-decoration:none;
-  color:#020617;
-  font-weight:900;
-  margin:0 14px;
-  font-size:18px;
+.timeline-item p {
+    color: #d1d5db;
 }
 
-nav a:hover{
-  color:var(--gold);
+.badge {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 12px;
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 999px;
+    color: #60a5fa;
+    font-size: 0.9rem;
 }
 
-section{
-  padding:90px 24px;
+.statement {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 14px;
+    padding: 28px;
+    margin-top: 70px;
 }
 
-.container{
-  max-width:1150px;
-  margin:auto;
+.statement h3 {
+    margin-top: 0;
+    color: #93c5fd;
 }
 
-.section-title{
-  font-size:clamp(42px,7vw,78px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:0 0 26px;
-}
-
-.lead{
-  font-size:clamp(22px,3vw,30px);
-  color:var(--muted);
-  max-width:940px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
-  margin-top:56px;
-}
-
-.card{
-  background:var(--navy);
-  border:1px solid rgba(214,180,109,.18);
-  border-radius:28px;
-  padding:38px;
-}
-
-.card h3{
-  margin-top:0;
-  font-size:32px;
-  line-height:1.1;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:18px;
-}
-
-.label{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:13px;
-  font-weight:900;
-  margin-bottom:18px;
-}
-
-.statement{
-  margin-top:60px;
-  border-left:6px solid var(--gold);
-  padding-left:30px;
-  font-size:clamp(24px,4vw,40px);
-  font-weight:850;
-  max-width:980px;
-}
-
-.light{
-  background:var(--white);
-  color:#020617;
-}
-
-.light .lead{
-  color:#334155;
-}
-
-.light .card{
-  background:#f8fafc;
-  border:1px solid rgba(2,6,23,.08);
-}
-
-.light .card p{
-  color:#334155;
-}
-
-footer{
-  padding:44px 24px;
-  text-align:center;
-  color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-
-@media(max-width:700px){
-
-  header{
-    padding:90px 24px;
-  }
-
-  nav a{
-    font-size:16px;
-    margin:0 10px;
-  }
-
-  section{
-    padding:70px 22px;
-  }
-
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid #1f2937;
+    color: #6b7280;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
-
-    <div class="kicker">
-      Methodology
-    </div>
-
-    <h1>
-      How the project is built.
-    </h1>
-
-    <p>
-      This page explains how records are collected,
-      organized,
-      reviewed,
-      summarized,
-      and separated from analysis within this public-interest housing systems project.
-    </p>
-
-  </div>
-</header>
-
 <nav>
-  <a href="index.html">Home</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="case-study.html">Case Study</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="initiatives.html">Initiatives</a>
-  <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="executive-chronology.html">Executive Chronology</a>
+    <a href="systems-themes.html">Systems Themes</a>
+    <a href="evidence.html">Evidence</a>
+    <a href="analysis.html">Analysis</a>
 </nav>
 
-<section>
-  <div class="container">
+<header>
+    <h1>Executive Chronology</h1>
 
-    <h2 class="section-title">
-      Research Approach
-    </h2>
-
-    <p class="lead">
-      This project uses a participant-centered documentation method.
-      It combines preserved communications,
-      administrative notices,
-      oversight records,
-      public records productions,
-      monitoring materials,
-      and timeline reconstruction.
+    <p>
+        This page provides a condensed overview of major procedural,
+        oversight,
+        stabilization,
+        and administrative events documented throughout the project chronology.
     </p>
+</header>
 
-    <div class="grid">
+<div class="container">
 
-      <div class="card">
-        <div class="label">
-          Method 01
-        </div>
-
-        <h3>
-          Document Preservation
-        </h3>
+    <div class="timeline-item">
+        <h2>June–July 2025</h2>
 
         <p>
-          Notices,
-          emails,
-          records,
-          directives,
-          and communications are preserved to maintain chronology,
-          context,
-          and administrative sequence.
+            Transitional housing instability intensified following the expiration
+            of a federally funded transitional placement period.
+            Conflicting notices,
+            lease cancellation communications,
+            vacate directives,
+            and evolving housing expectations emerged during this period.
         </p>
-      </div>
 
-      <div class="card">
-        <div class="label">
-          Method 02
+        <div class="badge">
+            Transition Instability
         </div>
+    </div>
 
-        <h3>
-          Public Records Review
-        </h3>
+    <div class="timeline-item">
+        <h2>August 2025</h2>
 
         <p>
-          Public records requests are used to obtain policies,
-          procedures,
-          oversight materials,
-          monitoring reports,
-          and administrative guidance relevant to housing systems.
+            Municipal oversight activity increased substantially.
+            Los Angeles Housing Department communications reflected concern regarding
+            ongoing eviction-related activity,
+            leading to requests that eviction processes pause pending investigation.
+            Extensions and housing transition coordination simultaneously continued.
         </p>
-      </div>
 
-      <div class="card">
-        <div class="label">
-          Method 03
+        <div class="badge">
+            Oversight Escalation
         </div>
+    </div>
 
-        <h3>
-          Timeline Reconstruction
-        </h3>
+    <div class="timeline-item">
+        <h2>September–October 2025</h2>
 
         <p>
-          Events are organized chronologically to identify administrative sequence,
-          operational changes,
-          oversight responses,
-          and stabilization-related developments.
+            Administrative tensions continued surrounding housing stabilization,
+            oversight coordination,
+            participant status,
+            and procedural accountability.
+            Additional escalation efforts and record preservation activities expanded.
         </p>
-      </div>
 
+        <div class="badge">
+            Escalation & Documentation
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <h2>November–December 2025</h2>
+
+        <p>
+            Inspection and monitoring disputes intensified.
+            Oversight visits,
+            habitability reviews,
+            clarification requests,
+            procedural objections,
+            and anti-harassment concerns increasingly intersected with participant chronology.
+        </p>
+
+        <div class="badge">
+            Monitoring & Inspection Activity
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <h2>January 2026</h2>
+
+        <p>
+            Administrative workflow instability surrounding housing-transition processing
+            became increasingly visible.
+            Evolving documentation requirements,
+            RE-26 routing disputes,
+            monitor review references,
+            and accommodation-related communications continued throughout the month.
+        </p>
+
+        <div class="badge">
+            Workflow Instability
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <h2>February 2026</h2>
+
+        <p>
+            Formal housing-transition approval activity occurred following prolonged
+            procedural review.
+            TBRA voucher authorization,
+            housing locator assignment,
+            and implementation-stage transition planning moved forward.
+        </p>
+
+        <div class="badge">
+            Housing Transition Approval
+        </div>
     </div>
 
     <div class="statement">
-      The methodology is designed to turn fragmented experiences into structured documentation without overstating what the records show.
+        <h3>Project Observation</h3>
+
+        <p>
+            Across the chronology,
+            the participant increasingly became responsible for preserving continuity,
+            reconstructing administrative timelines,
+            clarifying workflow ownership,
+            and coordinating fragmented procedural communication between multiple entities.
+        </p>
+
+        <p>
+            The resulting archive evolved into a structured chronology documenting
+            participant interaction with layered housing,
+            oversight,
+            monitoring,
+            and stabilization systems over time.
+        </p>
     </div>
 
-  </div>
-</section>
-
-<section class="light">
-  <div class="container">
-
-    <h2 class="section-title">
-      Fact vs. Analysis
-    </h2>
-
-    <p class="lead">
-      The project distinguishes between documented facts,
-      preserved records,
-      administrative chronology,
-      and interpretive analysis.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>
-          Documented Facts
-        </h3>
-
-        <p>
-          Dates,
-          notices,
-          correspondence,
-          directives,
-          reports,
-          and policy materials are treated as source records.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>
-          Interpretation
-        </h3>
-
-        <p>
-          Analysis focuses on patterns,
-          operational structure,
-          stabilization concerns,
-          and how administrative systems appear to function over time.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>
-          Limits
-        </h3>
-
-        <p>
-          The project avoids unsupported legal conclusions,
-          personal attacks,
-          or claims that exceed what the available documentation can reasonably support.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <div class="container">
-
-    <h2 class="section-title">
-      Privacy & Controlled Disclosure
-    </h2>
-
-    <p class="lead">
-      The project intentionally limits publication of sensitive,
-      private,
-      medical,
-      identifying,
-      or unnecessary personal information.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>
-          Selective Publication
-        </h3>
-
-        <p>
-          Not every document is published.
-          Some materials are summarized,
-          withheld,
-          redacted,
-          or referenced only at a high level to preserve privacy and context.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>
-          Program Neutrality
-        </h3>
-
-        <p>
-          Public language is intentionally framed around federally funded housing systems,
-          stabilization,
-          oversight,
-          and administration rather than sensitive program identifiers.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>
-          Context Protection
-        </h3>
-
-        <p>
-          Documentation is presented only where it supports public-interest understanding of systems,
-          chronology,
-          accountability,
-          or stabilization-related concerns.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="statement">
-      The goal is public understanding, not overexposure.
-    </div>
-
-  </div>
-</section>
-
-<section class="light">
-  <div class="container">
-
-    <h2 class="section-title">
-      Source Categories
-    </h2>
-
-    <p class="lead">
-      The project draws from several categories of records and materials.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>
-          Participant-Retained Records
-        </h3>
-
-        <p>
-          Notices,
-          emails,
-          photographs,
-          timeline notes,
-          and preserved communications retained during the housing instability period.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>
-          Public Records Productions
-        </h3>
-
-        <p>
-          Documents obtained through California Public Records Act requests,
-          including policies,
-          reports,
-          directives,
-          and administrative materials.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>
-          Oversight Materials
-        </h3>
-
-        <p>
-          Guidance,
-          monitoring records,
-          correspondence,
-          and administrative materials connected to housing stabilization systems.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <div class="container">
-
-    <h2 class="section-title">
-      Analytical Purpose
-    </h2>
-
-    <p class="lead">
-      The project uses documentation to examine how housing systems operate when participants encounter instability,
-      unclear authority,
-      fragmented communication,
-      or delayed stabilization.
-    </p>
-
-    <div class="statement">
-      The purpose is to preserve chronology,
-      identify patterns,
-      support public understanding,
-      and contribute to more participant-centered housing systems analysis.
-    </div>
-
-  </div>
-</section>
+</div>
 
 <footer>
-  © 2026 Walter Escobar · Housing Systems Accountability Project
+    © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
