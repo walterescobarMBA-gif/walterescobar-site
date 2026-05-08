@@ -2,622 +2,300 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Walter Escobar | Housing Systems Analysis</title>
+<title>Walter Escobar | Housing Systems Accountability Project</title>
 
 <style>
-:root{
-  --bg:#020617;
-  --navy:#07111f;
-  --gold:#d6b46d;
-  --white:#ffffff;
-  --muted:#cbd5e1;
-  --light:#f8fafc;
+body {
+    margin: 0;
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
 }
 
-*{
-  box-sizing:border-box;
+nav {
+    background: #111827;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #1f2937;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
-html{
-  scroll-behavior:smooth;
+nav a {
+    color: #60a5fa;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+    font-size: 0.95rem;
 }
 
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  background:var(--bg);
-  color:var(--white);
-  line-height:1.75;
+nav a:hover {
+    color: #93c5fd;
 }
 
-header{
-  min-height:95vh;
-  display:flex;
-  align-items:center;
-  padding:120px 24px;
-  background:
-    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.96)),
-    radial-gradient(circle at top left,rgba(214,180,109,.20),transparent 35%);
+.hero {
+    padding: 110px 20px 90px;
+    text-align: center;
+    background: linear-gradient(to bottom, #111827, #0d1117);
 }
 
-.hero{
-  max-width:1150px;
-  margin:auto;
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
 }
 
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:24px;
+.hero p {
+    max-width: 950px;
+    margin: auto;
+    color: #9ca3af;
+    font-size: 1.15rem;
 }
 
-h1{
-  font-size:clamp(56px,10vw,118px);
-  line-height:.9;
-  letter-spacing:-.07em;
-  margin:0 0 34px;
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 20px;
 }
 
-.hero p{
-  max-width:920px;
-  font-size:clamp(22px,4vw,38px);
-  color:var(--muted);
+.section {
+    margin-bottom: 80px;
 }
 
-.quote{
-  margin-top:60px;
-  border-left:6px solid var(--gold);
-  padding-left:28px;
-  max-width:920px;
-  font-size:clamp(24px,4vw,38px);
-  font-weight:850;
-  line-height:1.35;
+.section h2 {
+    color: #93c5fd;
+    border-left: 4px solid #3b82f6;
+    padding-left: 14px;
+    margin-bottom: 28px;
 }
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  padding:18px 12px;
-  text-align:center;
-  overflow-x:auto;
-  white-space:nowrap;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 24px;
 }
 
-nav a{
-  text-decoration:none;
-  color:#020617;
-  font-weight:900;
-  margin:0 14px;
-  font-size:18px;
+.card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 28px;
+    transition: 0.25s ease;
 }
 
-nav a:hover{
-  color:var(--gold);
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #3b82f6;
 }
 
-section{
-  padding:95px 24px;
+.card h3 {
+    margin-top: 0;
+    color: #60a5fa;
 }
 
-.container{
-  max-width:1150px;
-  margin:auto;
+.card p {
+    color: #d1d5db;
 }
 
-.light{
-  background:var(--white);
-  color:#020617;
+.card a {
+    display: inline-block;
+    margin-top: 18px;
+    color: #93c5fd;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.section-title{
-  font-size:clamp(44px,7vw,80px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:0 0 28px;
+.statement {
+    background: #0b1220;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 34px;
 }
 
-.lead{
-  font-size:clamp(22px,3vw,32px);
-  color:var(--muted);
-  max-width:950px;
+.statement p {
+    color: #d1d5db;
+    margin-bottom: 20px;
 }
 
-.light .lead{
-  color:#334155;
+.highlight {
+    color: #93c5fd;
+    font-weight: bold;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:28px;
-  margin-top:56px;
-}
-
-.card{
-  background:var(--navy);
-  border:1px solid rgba(214,180,109,.18);
-  border-radius:28px;
-  padding:38px;
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 24px 60px rgba(0,0,0,.20);
-}
-
-.light .card{
-  background:#f8fafc;
-  border:1px solid rgba(2,6,23,.08);
-}
-
-.card h3{
-  margin-top:0;
-  font-size:30px;
-  line-height:1.1;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:18px;
-}
-
-.light .card p{
-  color:#334155;
-}
-
-.number{
-  color:var(--gold);
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-weight:900;
-  margin-bottom:18px;
-}
-
-.statement{
-  margin-top:60px;
-  border-left:6px solid var(--gold);
-  padding-left:30px;
-  font-size:clamp(24px,4vw,40px);
-  font-weight:850;
-  max-width:980px;
-}
-
-.path-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-  margin-top:48px;
-}
-
-.path-card{
-  background:#07111f;
-  border:1px solid rgba(214,180,109,.18);
-  border-radius:26px;
-  padding:34px;
-}
-
-.path-card h3{
-  margin-top:0;
-  font-size:28px;
-}
-
-.path-card p{
-  color:var(--muted);
-}
-
-.path-card a{
-  display:inline-block;
-  margin-top:20px;
-  color:var(--gold);
-  text-decoration:none;
-  font-weight:900;
-}
-
-.disclaimer{
-  margin-top:28px;
-  font-size:15px;
-  color:#94a3b8;
-}
-
-footer{
-  padding:48px 24px;
-  text-align:center;
-  color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-
-@media(max-width:700px){
-
-  header{
-    min-height:85vh;
-    padding:90px 24px;
-  }
-
-  nav a{
-    font-size:16px;
-    margin:0 10px;
-  }
-
-  section{
-    padding:72px 22px;
-  }
-
+footer {
+    text-align: center;
+    padding: 45px 20px;
+    border-top: 1px solid #1f2937;
+    color: #6b7280;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-
-  <div class="hero">
-
-    <div class="kicker">
-      Housing Systems Analysis
-    </div>
-
-    <h1>
-      Documenting instability as systems evidence.
-    </h1>
-
-    <p>
-      A participant-developed public-interest project examining
-      housing stability,
-      administrative processes,
-      oversight structures,
-      operational continuity,
-      and participant-facing systems navigation within federally funded housing systems.
-    </p>
-
-    <div class="quote">
-      Systems rarely fail all at once.
-      They fail through accumulated uncertainty,
-      fragmented communication,
-      unstable coordination,
-      and delayed stabilization.
-    </div>
-
-  </div>
-
-</header>
-
 <nav>
   <a href="index.html">Home</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="case-study.html">Case Study</a>
+  <a href="executive-chronology.html">Executive Chronology</a>
+  <a href="systems-themes.html">Systems Themes</a>
+  <a href="documented-contradictions.html">Documented Contradictions</a>
+  <a href="participant-perspective.html">Participant Perspective</a>
+  <a href="casestudy.html">Case Study</a>
   <a href="timeline.html">Timeline</a>
   <a href="evidence.html">Evidence</a>
+  <a href="analysis.html">Analysis</a>
+  <a href="methodology.html">Methodology</a>
   <a href="initiatives.html">Initiatives</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<section>
-
-  <div class="container">
-
-    <h2 class="section-title">
-      What This Project Is
-    </h2>
-
-    <p class="lead">
-      This project examines how housing instability,
-      administrative uncertainty,
-      oversight structures,
-      records processes,
-      and participant-facing systems interactions evolve over time within federally funded housing systems.
-    </p>
-
-    <p class="statement">
-      The project combines chronology,
-      preserved documentation,
-      public records research,
-      oversight analysis,
-      and participant experience into a structured public-interest archive.
-    </p>
-
-  </div>
-
-</section>
-
-<section class="light">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Case Study Snapshot
-    </h2>
-
-    <p class="lead">
-      The project originated from rapidly evolving housing instability involving notices,
-      occupancy uncertainty,
-      administrative fragmentation,
-      and shifting communication involving a federally funded transitional housing placement.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <div class="number">
-          Phase 01
-        </div>
-
-        <h3>
-          Housing Instability
-        </h3>
-
-        <p>
-          The chronology began with notices,
-          placement uncertainty,
-          vacate communications,
-          and evolving operational circumstances affecting long-term stability.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="number">
-          Phase 02
-        </div>
-
-        <h3>
-          Documentation & Preservation
-        </h3>
-
-        <p>
-          Notices,
-          correspondence,
-          directives,
-          and timeline events began being preserved in real time as administrative conditions evolved.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="number">
-          Phase 03
-        </div>
-
-        <h3>
-          Oversight & Research
-        </h3>
-
-        <p>
-          The project expanded through oversight communications,
-          records requests,
-          monitoring review,
-          policy analysis,
-          and systems-level examination.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section>
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Why This Matters
-    </h2>
-
-    <p class="lead">
-      Housing systems are not abstract policy structures.
-      They directly affect stability,
-      education,
-      continuity,
-      planning,
-      and long-term participant outcomes.
-    </p>
-
-    <div class="statement">
-      When stabilization systems generate uncertainty instead of continuity,
-      documentation becomes a form of public understanding and systems analysis.
-    </div>
-
-  </div>
-
-</section>
-
-<section class="light">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      How To Read This Site
-    </h2>
-
-    <p class="lead">
-      The site is organized to separate chronology,
-      evidence,
-      methodology,
-      interpretation,
-      and systems analysis into distinct sections.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>
-          Methodology
-        </h3>
-
-        <p>
-          Explains how documentation is preserved,
-          organized,
-          reviewed,
-          summarized,
-          and separated from analysis.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Timeline
-        </h3>
-
-        <p>
-          Presents a chronological sequence of notices,
-          directives,
-          communications,
-          and operational developments.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Analysis
-        </h3>
-
-        <p>
-          Examines operational patterns,
-          stabilization structures,
-          oversight systems,
-          and participant-facing administrative processes.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section>
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Start Here
-    </h2>
-
-    <p class="lead">
-      New readers should begin with the Case Study page for project background,
-      followed by the Methodology,
-      Timeline,
-      and Analysis sections for operational context and systems interpretation.
-    </p>
-
-    <div class="path-grid">
-
-      <div class="path-card">
-
-        <h3>
-          Read the Case Study
-        </h3>
-
-        <p>
-          Understand how the project originated through housing instability,
-          documentation,
-          oversight escalation,
-          and systems analysis.
-        </p>
-
-        <a href="case-study.html">
-          Open Case Study →
-        </a>
-
-      </div>
-
-      <div class="path-card">
-
-        <h3>
-          Review Methodology
-        </h3>
-
-        <p>
-          Examine how records are preserved,
-          organized,
-          summarized,
-          and separated from interpretation.
-        </p>
-
-        <a href="methodology.html">
-          View Methodology →
-        </a>
-
-      </div>
-
-      <div class="path-card">
-
-        <h3>
-          Explore the Analysis
-        </h3>
-
-        <p>
-          Review systems-focused analysis involving oversight,
-          operational coordination,
-          records structures,
-          and participant-facing administration.
-        </p>
-
-        <a href="analysis.html">
-          Read Analysis →
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="light">
-
-  <div class="container">
-
-    <h2 class="section-title">
-      Public-Interest Framing
-    </h2>
-
-    <p class="lead">
-      The materials presented throughout this project are organized to distinguish documented facts from interpretation and analysis.
-    </p>
+<section class="hero">
+    <h1>Housing Systems Accountability Project</h1>
 
     <p>
-      Certain sensitive records and identifying details are selectively summarized or withheld where appropriate.
-      The project prioritizes chronology,
-      operational context,
-      systems understanding,
-      and documentation integrity.
+        A participant-perspective chronology and systems-analysis project examining
+        administrative fragmentation,
+        procedural instability,
+        oversight escalation,
+        and housing-transition workflows within a layered stabilization ecosystem.
     </p>
-
-    <div class="disclaimer">
-      Materials presented are for public-interest documentation and systems analysis.
-      Some records are summarized or selectively withheld to preserve privacy and contextual integrity.
-    </div>
-
-  </div>
-
 </section>
 
+<div class="container">
+
+    <section class="section">
+
+        <h2>Project Overview</h2>
+
+        <div class="statement">
+
+            <p>
+                This project began as an effort to preserve records during a period
+                of housing instability and administrative uncertainty.
+            </p>
+
+            <p>
+                Over time,
+                the accumulation of municipal correspondence,
+                oversight activity,
+                participant communications,
+                procedural notices,
+                and chronology reconstruction evolved into a broader systems-oriented analysis.
+            </p>
+
+            <p class="highlight">
+                The archive examines how layered administrative systems are experienced,
+                navigated,
+                and documented from the participant perspective in real time.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>Core Sections</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Executive Chronology</h3>
+
+                <p>
+                    Condensed overview of major procedural,
+                    oversight,
+                    and stabilization events across the project timeline.
+                </p>
+
+                <a href="executive-chronology.html">
+                    View Section →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Systems Themes</h3>
+
+                <p>
+                    Analysis of recurring operational patterns including
+                    workflow instability,
+                    fragmentation,
+                    and participant reliance.
+                </p>
+
+                <a href="systems-themes.html">
+                    View Section →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Documented Contradictions</h3>
+
+                <p>
+                    Examination of evolving operational explanations,
+                    procedural reversals,
+                    and changing institutional framing.
+                </p>
+
+                <a href="documented-contradictions.html">
+                    View Section →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Participant Perspective</h3>
+
+                <p>
+                    Documentation of the lived administrative experience of navigating
+                    layered housing and oversight systems in real time.
+                </p>
+
+                <a href="participant-perspective.html">
+                    View Section →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Case Study</h3>
+
+                <p>
+                    Central narrative and analytical framework connecting
+                    chronology,
+                    oversight,
+                    workflow,
+                    and stabilization themes.
+                </p>
+
+                <a href="casestudy.html">
+                    View Section →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Methodology</h3>
+
+                <p>
+                    Documentation standards,
+                    chronology methods,
+                    source categories,
+                    and systems-analysis framework.
+                </p>
+
+                <a href="methodology.html">
+                    View Section →
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
 <footer>
-  © 2026 Walter Escobar · Housing Systems Accountability Project
+    © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
