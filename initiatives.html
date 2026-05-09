@@ -23,35 +23,41 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.8;
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,38 +120,39 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
-  padding:100px 20px 80px;
+.hero{
+  padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
-  font-size:clamp(2.7rem,7vw,5rem);
-  line-height:1.05;
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
+  line-height:1.05;
 }
 
-header p{
-  max-width:1000px;
+.hero p{
+  max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.18rem;
+  font-size:1.2rem;
 }
 
 .container{
-  max-width:1120px;
+  max-width:1150px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .section{
-  margin-bottom:90px;
+  margin-bottom:95px;
 }
 
 .section h2{
@@ -155,11 +162,17 @@ header p{
   margin-bottom:30px;
 }
 
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+
 .card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
-  padding:34px;
+  padding:32px;
 }
 
 .card h3{
@@ -180,30 +193,12 @@ li{
   margin-bottom:10px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
-
-.initiative{
-  background:var(--panel2);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-}
-
-.initiative h4{
-  margin-top:0;
-  color:var(--blue);
-}
-
 .statement{
+  margin-top:45px;
   background:#09101d;
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-  margin-top:28px;
+  border-radius:16px;
+  padding:28px;
 }
 
 .highlight{
@@ -213,7 +208,7 @@ li{
 
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -251,14 +246,18 @@ footer{
   .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
 
   .dropdown-content a{
     padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
   }
 }
 </style>
@@ -267,185 +266,185 @@ footer{
 <body>
 
 <nav>
+
   <div class="nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
       Walter Escobar
     </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
 
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
           <a href="systems-themes.html">Systems Themes</a>
           <a href="documented-contradictions.html">Documented Contradictions</a>
           <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </nav>
 
-<header>
+<section class="hero">
 
-  <h1>Initiatives</h1>
+  <h1>
+    Initiatives
+  </h1>
 
   <p>
-    This section outlines broader public-interest goals connected to the project,
-    including transparency,
-    procedural clarity,
-    participant-centered administration,
-    oversight awareness,
-    and systems-accountability research.
+    Ongoing and future-facing accountability,
+    research,
+    documentation,
+    and public-interest initiatives connected to the broader Housing Systems Accountability Project.
   </p>
 
-</header>
+</section>
 
 <div class="container">
 
   <section class="section">
 
-    <h2>Project Direction</h2>
-
-    <div class="card">
-
-      <p>
-        The project evolved beyond chronology preservation into a broader effort to examine how housing and stabilization systems function operationally from the participant perspective.
-      </p>
-
-      <p>
-        The goal is not merely to preserve records,
-        but to identify recurring structural patterns that may help improve transparency,
-        workflow clarity,
-        and participant navigation outcomes in the future.
-      </p>
-
-      <div class="statement">
-
-        <p class="highlight">
-          The project focuses on systems behavior,
-          not isolated conflict.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Core Initiatives</h2>
+    <h2>Current Initiatives</h2>
 
     <div class="grid">
 
-      <div class="initiative">
+      <div class="card">
 
-        <h4>Administrative Transparency</h4>
+        <h3>
+          Housing Systems Accountability Project
+        </h3>
 
         <p>
-          Encouraging clearer communication regarding workflow ownership,
-          review timelines,
+          Expansion of the chronology-based systems-analysis archive documenting participant interaction with layered housing and stabilization systems over time.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Chronology Preservation Initiative
+        </h3>
+
+        <p>
+          Longitudinal preservation of operational records,
+          workflow disputes,
+          oversight interaction,
+          and institutional sequence analysis.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Participant Perspective Documentation
+        </h3>
+
+        <p>
+          Development of participant-centered analytical frameworks examining how administrative systems function operationally in practice.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Oversight and Public Accountability Research
+        </h3>
+
+        <p>
+          Examination of how municipal oversight,
           escalation structures,
-          and participant obligations.
+          and administrative accountability interact during housing-transition periods.
         </p>
 
       </div>
 
-      <div class="initiative">
+      <div class="card">
 
-        <h4>Participant-Centered Processing</h4>
+        <h3>
+          Educational and Policy Development
+        </h3>
 
         <p>
-          Supporting more accessible administrative practices,
-          including written clarification,
-          electronic processing,
-          flexible workflow implementation,
-          and reduced duplication.
+          Long-term development of public-interest educational materials focused on systems accountability,
+          participant advocacy,
+          and chronology-based analysis.
         </p>
 
       </div>
 
-      <div class="initiative">
+      <div class="card">
 
-        <h4>Procedural Clarity</h4>
-
-        <p>
-          Promoting stable and understandable guidance regarding housing transitions,
-          document routing,
-          monitoring review,
-          and escalation pathways.
-        </p>
-
-      </div>
-
-      <div class="initiative">
-
-        <h4>Oversight Awareness</h4>
+        <h3>
+          Archive Structuring and Public Documentation
+        </h3>
 
         <p>
-          Examining how municipal oversight,
-          monitoring systems,
-          and participant protections intersect operationally during periods of instability.
-        </p>
-
-      </div>
-
-      <div class="initiative">
-
-        <h4>Systems Research</h4>
-
-        <p>
-          Using chronology-based analysis to identify recurring operational themes across layered stabilization systems.
-        </p>
-
-      </div>
-
-      <div class="initiative">
-
-        <h4>Documentation Literacy</h4>
-
-        <p>
-          Encouraging participants to preserve records,
-          maintain chronology,
-          and understand procedural communication during high-risk transition periods.
+          Continued organization,
+          standardization,
+          and preservation of the broader institutional chronology reflected throughout the project.
         </p>
 
       </div>
@@ -456,29 +455,31 @@ footer{
 
   <section class="section">
 
-    <h2>Long-Term Vision</h2>
+    <h2>Long-Term Direction</h2>
 
     <div class="card">
 
-      <h3>From Archive to Public Resource</h3>
+      <h3>
+        From Documentation to Systems Analysis
+      </h3>
 
       <p>
-        The long-term goal is to develop the project into a broader educational and analytical resource examining:
+        What began as participant-driven documentation preservation evolved into a broader systems-analysis initiative examining operational behavior,
+        workflow instability,
+        escalation dependency,
+        and chronology-based accountability.
       </p>
 
-      <ul>
-        <li>Housing-system navigation</li>
-        <li>Administrative continuity challenges</li>
-        <li>Workflow instability</li>
-        <li>Participant reliance on disclosed procedures</li>
-        <li>Oversight interaction patterns</li>
-        <li>Chronology-based systems analysis</li>
-      </ul>
+      <p>
+        The long-term objective is to contribute to broader public understanding regarding how administrative systems function in practice during periods of instability and transition.
+      </p>
 
       <div class="statement">
 
         <p class="highlight">
-          The archive demonstrates how documentation, chronology, and procedural literacy can become stabilization tools during periods of uncertainty.
+          The project prioritizes observable chronology,
+          operational transparency,
+          and participant-centered systems analysis.
         </p>
 
       </div>
