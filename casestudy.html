@@ -7,101 +7,260 @@
 <title>Case Study | Walter Escobar</title>
 
 <style>
-body {
-    margin: 0;
-    background: #0d1117;
-    color: #e6edf3;
-    font-family: Arial, sans-serif;
-    line-height: 1.8;
+:root{
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
 }
 
-header {
-    padding: 90px 20px 70px;
-    text-align: center;
-    background: linear-gradient(to bottom, #111827, #0d1117);
+*{
+  box-sizing:border-box;
 }
 
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 14px;
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  line-height:1.75;
 }
 
-header p {
-    max-width: 900px;
-    margin: auto;
-    color: #9ca3af;
-    font-size: 1.1rem;
+nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
-nav {
-    background: #111827;
-    padding: 16px;
-    text-align: center;
-    border-bottom: 1px solid #1f2937;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
 }
 
-nav a {
-    color: #60a5fa;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
-    font-size: 0.95rem;
+.logo{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:bold;
 }
 
-nav a:hover {
-    color: #93c5fd;
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-.container {
-    max-width: 1050px;
-    margin: auto;
-    padding: 60px 20px;
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
 }
 
-.section {
-    margin-bottom: 70px;
+.menu a:hover,
+.dropbtn:hover{
+  color:var(--blue2);
 }
 
-.section h2 {
-    color: #93c5fd;
-    border-left: 4px solid #3b82f6;
-    padding-left: 14px;
-    margin-bottom: 24px;
+.dropdown{
+  position:relative;
 }
 
-.card {
-    background: #111827;
-    border: 1px solid #1f2937;
-    border-radius: 14px;
-    padding: 32px;
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
 }
 
-.card p {
-    color: #d1d5db;
-    margin-bottom: 20px;
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
 }
 
-.highlight {
-    color: #93c5fd;
-    font-weight: bold;
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
 }
 
-.statement {
-    background: #0b1220;
-    border: 1px solid #1f2937;
-    border-radius: 14px;
-    padding: 28px;
-    margin-top: 28px;
+.dropdown:hover .dropdown-content{
+  display:block;
 }
 
-footer {
-    text-align: center;
-    padding: 45px 20px;
-    border-top: 1px solid #1f2937;
-    color: #6b7280;
+.menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+header{
+  padding:100px 20px 80px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
+}
+
+header h1{
+  font-size:clamp(2.7rem,7vw,5rem);
+  line-height:1.05;
+  margin:0 0 24px;
+}
+
+header p{
+  max-width:1000px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.18rem;
+}
+
+.container{
+  max-width:1120px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.section{
+  margin-bottom:90px;
+}
+
+.section h2{
+  color:var(--blue2);
+  border-left:4px solid var(--blue);
+  padding-left:14px;
+  margin-bottom:30px;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:34px;
+}
+
+.card h3{
+  margin-top:0;
+  color:var(--blue);
+}
+
+.card p,
+.card li{
+  color:var(--soft);
+}
+
+ul{
+  padding-left:22px;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+.statement{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:26px;
+  margin-top:28px;
+}
+
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+  margin-top:24px;
+}
+
+.grid-card{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+}
+
+.grid-card h4{
+  margin-top:0;
+  color:var(--blue);
+}
+
+footer{
+  text-align:center;
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
+}
+
+@media(max-width:800px){
+
+  .nav-wrap{
+    flex-wrap:wrap;
+  }
+
+  .menu-icon{
+    display:block;
+  }
+
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
+  }
+
+  .menu-toggle:checked ~ .menu{
+    display:flex;
+  }
+
+  .dropdown{
+    width:100%;
+  }
+
+  .dropbtn{
+    padding:8px 0;
+  }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{
+    padding:8px 0;
+  }
 }
 </style>
 </head>
@@ -109,141 +268,241 @@ footer {
 <body>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="executive-chronology.html">Executive Chronology</a>
-  <a href="systems-themes.html">Systems Themes</a>
-  <a href="documented-contradictions.html">Documented Contradictions</a>
-  <a href="participant-perspective.html">Participant Perspective</a>
-  <a href="casestudy.html">Case Study</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="initiatives.html">Initiatives</a>
-  <a href="contact.html">Contact</a>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      Walter Escobar
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </nav>
 
 <header>
-    <h1>Case Study</h1>
 
-    <p>
-        This case study documents participant interaction with a layered
-        federally funded housing and stabilization ecosystem over time,
-        including oversight activity,
-        procedural escalation,
-        workflow instability,
-        and evolving administrative coordination.
-    </p>
+  <h1>Case Study</h1>
+
+  <p>
+    This case study examines participant interaction with a layered housing and stabilization environment involving transition planning, oversight escalation, workflow instability, administrative time compression, and evolving procedural interpretation across multiple entities over time.
+  </p>
+
 </header>
 
 <div class="container">
 
-    <div class="section">
-        <h2>Overview</h2>
+  <section class="section">
 
-        <div class="card">
+    <h2>Central Project Thesis</h2>
 
-            <p>
-                The project began as an effort to preserve records during
-                a period of housing instability and administrative uncertainty.
-            </p>
+    <div class="card">
 
-            <p>
-                Over time,
-                the accumulation of participant communications,
-                municipal records,
-                oversight correspondence,
-                procedural notices,
-                and policy materials evolved into a broader systems-oriented analysis.
-            </p>
+      <p>
+        The central finding reflected across the chronology is that the participant increasingly became responsible for preserving continuity within a fragmented administrative environment.
+      </p>
 
-            <p class="highlight">
-                The archive examines not only individual events,
-                but the operational structure surrounding those events.
-            </p>
+      <p>
+        Rather than functioning solely as a recipient of services,
+        the participant repeatedly assumed responsibility for:
+      </p>
 
-        </div>
+      <ul>
+        <li>Clarifying workflow ownership</li>
+        <li>Tracking procedural changes</li>
+        <li>Preserving chronology</li>
+        <li>Reconstructing timelines</li>
+        <li>Coordinating communication between entities</li>
+        <li>Requesting written authority for evolving requirements</li>
+      </ul>
+
+      <div class="statement">
+
+        <p class="highlight">
+          The resulting archive evolved from personal record preservation into a broader systems-analysis project documenting administrative behavior over time.
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="section">
-        <h2>Central Themes</h2>
+  </section>
 
-        <div class="card">
+  <section class="section">
 
-            <p>
-                Recurring themes identified throughout the chronology include:
-            </p>
+    <h2>Core Systems Findings</h2>
 
-            <ul>
-                <li>Administrative fragmentation</li>
-                <li>Workflow instability</li>
-                <li>Participant reliance on published procedures</li>
-                <li>Oversight escalation</li>
-                <li>Reactive versus proactive stabilization</li>
-                <li>Procedural ambiguity across interconnected entities</li>
-            </ul>
+    <div class="grid">
 
-            <div class="statement">
-                The participant increasingly became responsible for preserving continuity,
-                reconstructing chronology,
-                clarifying workflow ownership,
-                and coordinating fragmented procedural communication between entities.
-            </div>
+      <div class="grid-card">
+        <h4>Administrative Fragmentation</h4>
 
-        </div>
+        <p>
+          Operational authority and responsibility appeared increasingly segmented during escalation periods.
+        </p>
+      </div>
+
+      <div class="grid-card">
+        <h4>Procedural Burden Transfer</h4>
+
+        <p>
+          The participant repeatedly became responsible for maintaining workflow continuity.
+        </p>
+      </div>
+
+      <div class="grid-card">
+        <h4>Administrative Time Compression</h4>
+
+        <p>
+          Significant housing decisions frequently emerged under compressed timelines.
+        </p>
+      </div>
+
+      <div class="grid-card">
+        <h4>Reactive Stabilization</h4>
+
+        <p>
+          Stabilization efforts often intensified after escalation and documentation activity.
+        </p>
+      </div>
+
+      <div class="grid-card">
+        <h4>Workflow Instability</h4>
+
+        <p>
+          Requirements, review timelines, and procedural explanations evolved repeatedly across the chronology.
+        </p>
+      </div>
+
+      <div class="grid-card">
+        <h4>Oversight Escalation</h4>
+
+        <p>
+          Municipal oversight and monitoring activity became increasingly intertwined with daily administration.
+        </p>
+      </div>
+
     </div>
 
-    <div class="section">
-        <h2>Documentation Scope</h2>
+  </section>
 
-        <div class="card">
+  <section class="section">
 
-            <p>
-                Documentation preserved throughout the project includes:
-            </p>
+    <h2>Why the Chronology Matters</h2>
 
-            <ul>
-                <li>Housing program notices</li>
-                <li>Oversight correspondence</li>
-                <li>Municipal intervention letters</li>
-                <li>Inspection and monitoring communications</li>
-                <li>Grievance procedures and intake materials</li>
-                <li>Administrative workflow records</li>
-                <li>Voucher-transition communications</li>
-                <li>Public records obtained through CPRA requests</li>
-                <li>Chronology reconstruction matrices</li>
-            </ul>
+    <div class="card">
 
-        </div>
+      <h3>Sequence as Evidence</h3>
+
+      <p>
+        The project relies heavily on chronology because sequence itself reveals operational behavior.
+      </p>
+
+      <p>
+        Across the archive,
+        major patterns emerge through timing:
+      </p>
+
+      <ul>
+        <li>Approvals following escalation</li>
+        <li>Workflow clarification following documentation requests</li>
+        <li>Operational flexibility following procedural challenge</li>
+        <li>Shifting authority explanations during accountability periods</li>
+        <li>Compressed decision-making windows after prolonged uncertainty</li>
+      </ul>
+
+      <div class="statement">
+
+        <p class="highlight">
+          The chronology demonstrates how administrative systems evolve in practice, not merely how they are described procedurally.
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="section">
-        <h2>Analytical Purpose</h2>
+  </section>
 
-        <div class="card">
+  <section class="section">
 
-            <p>
-                The purpose of the project is to examine how complex administrative
-                systems are experienced and navigated from the participant perspective
-                during periods of instability,
-                oversight escalation,
-                and procedural uncertainty.
-            </p>
+    <h2>Scope of the Archive</h2>
 
-            <p>
-                The archive is structured to preserve chronology,
-                identify recurring operational patterns,
-                and support broader public understanding of participant interaction
-                with layered housing and stabilization systems.
-            </p>
+    <div class="card">
 
-        </div>
+      <h3>Integrated Documentation Record</h3>
+
+      <p>
+        The archive incorporates:
+      </p>
+
+      <ul>
+        <li>Participant-generated correspondence</li>
+        <li>Oversight communications</li>
+        <li>Transition-processing records</li>
+        <li>Municipal intervention documents</li>
+        <li>Inspection and monitoring communications</li>
+        <li>Published grievance procedures</li>
+        <li>Workflow documentation</li>
+        <li>Administrative notices</li>
+        <li>Public records obtained through CPRA processes</li>
+      </ul>
+
+      <p>
+        These materials are analyzed together rather than as isolated records in order to identify recurring operational themes and evolving institutional behavior.
+      </p>
+
     </div>
+
+  </section>
 
 </div>
 
 <footer>
-    © 2026 Walter Escobar | Housing Systems Accountability Project
+  © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
