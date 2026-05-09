@@ -8,493 +8,489 @@
 
 <style>
 :root{
-  --bg:#020617;
-  --navy:#07111f;
-  --gold:#d6b46d;
-  --white:#ffffff;
-  --muted:#cbd5e1;
-  --light:#f8fafc;
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
 }
 
 *{
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   background:var(--bg);
-  color:var(--white);
+  color:var(--text);
+  font-family:Arial,sans-serif;
   line-height:1.75;
 }
 
-header{
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  padding:120px 24px;
-  background:
-    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.96)),
-    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
-}
-
-.hero{
-  max-width:1150px;
-  margin:auto;
-}
-
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:24px;
-}
-
-h1{
-  font-size:clamp(56px,10vw,120px);
-  line-height:.9;
-  letter-spacing:-.07em;
-  margin:0 0 34px;
-}
-
-.hero p{
-  font-size:clamp(22px,4vw,36px);
-  color:var(--muted);
-  max-width:920px;
-}
-
 nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  padding:18px 12px;
-  text-align:center;
-  overflow-x:auto;
-  white-space:nowrap;
 }
 
-nav a{
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+}
+
+.logo{
+  color:var(--text);
   text-decoration:none;
-  color:#020617;
-  font-weight:900;
-  margin:0 14px;
-  font-size:18px;
+  font-weight:bold;
 }
 
-nav a:hover{
-  color:var(--gold);
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-section{
-  padding:90px 24px;
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
+}
+
+.menu a:hover,
+.dropbtn:hover{
+  color:var(--blue2);
+}
+
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
+}
+
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+.menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+header{
+  padding:100px 20px 80px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
+}
+
+header h1{
+  font-size:clamp(2.7rem,7vw,5rem);
+  line-height:1.05;
+  margin:0 0 24px;
+}
+
+header p{
+  max-width:1000px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.18rem;
 }
 
 .container{
-  max-width:1150px;
+  max-width:1120px;
   margin:auto;
+  padding:75px 20px;
 }
 
-.section-title{
-  font-size:clamp(42px,7vw,78px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:0 0 26px;
+.section{
+  margin-bottom:90px;
 }
 
-.lead{
-  font-size:clamp(22px,3vw,30px);
-  color:var(--muted);
-  max-width:940px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
-  margin-top:56px;
+.section h2{
+  color:var(--blue2);
+  border-left:4px solid var(--blue);
+  padding-left:14px;
+  margin-bottom:30px;
 }
 
 .card{
-  background:var(--navy);
-  border:1px solid rgba(214,180,109,.18);
-  border-radius:28px;
-  padding:38px;
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 24px 60px rgba(0,0,0,.22);
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:34px;
 }
 
 .card h3{
   margin-top:0;
-  font-size:32px;
-  line-height:1.1;
+  color:var(--blue);
 }
 
-.card p{
-  color:var(--muted);
-  font-size:18px;
+.card p,
+.card li{
+  color:var(--soft);
 }
 
-.label{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:13px;
-  font-weight:900;
-  margin-bottom:18px;
+ul{
+  padding-left:22px;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+.initiative{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+}
+
+.initiative h4{
+  margin-top:0;
+  color:var(--blue);
 }
 
 .statement{
-  margin-top:60px;
-  border-left:6px solid var(--gold);
-  padding-left:30px;
-  font-size:clamp(24px,4vw,40px);
-  font-weight:850;
-  max-width:980px;
+  background:#09101d;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+  margin-top:28px;
 }
 
-.light{
-  background:var(--white);
-  color:#020617;
-}
-
-.light .lead{
-  color:#334155;
-}
-
-.light .card{
-  background:#f8fafc;
-  border:1px solid rgba(2,6,23,.08);
-}
-
-.light .card p{
-  color:#334155;
-}
-
-.quote{
-  font-size:clamp(24px,4vw,40px);
-  line-height:1.35;
-  font-weight:850;
-  max-width:980px;
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
 }
 
 footer{
-  padding:44px 24px;
   text-align:center;
-  color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,.08);
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-  header{
-    padding:90px 24px;
+  .nav-wrap{
+    flex-wrap:wrap;
   }
 
-  nav a{
-    font-size:16px;
-    margin:0 10px;
+  .menu-icon{
+    display:block;
   }
 
-  section{
-    padding:70px 22px;
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
   }
 
+  .menu-toggle:checked ~ .menu{
+    display:flex;
+  }
+
+  .dropdown{
+    width:100%;
+  }
+
+  .dropbtn{
+    padding:8px 0;
+  }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{
+    padding:8px 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
-
-    <div class="kicker">
-      Initiatives
-    </div>
-
-    <h1>
-      Expanding beyond documentation.
-    </h1>
-
-    <p>
-      This section outlines the broader public-interest direction
-      of the project, including housing systems literacy,
-      stabilization awareness,
-      documentation practices,
-      and participant-centered accountability initiatives.
-    </p>
-
-  </div>
-</header>
-
 <nav>
-  <a href="index.html">Home</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="case-study.html">Case Study</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="initiatives.html">Initiatives</a>
-  <a href="contact.html">Contact</a>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      Walter Escobar
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </nav>
 
-<section>
-  <div class="container">
+<header>
 
-    <h2 class="section-title">
-      Initiative Areas
-    </h2>
+  <h1>Initiatives</h1>
 
-    <p class="lead">
-      The long-term purpose of the project is not limited to
-      documenting a single experience.
-      It is intended to support broader understanding of
-      housing stabilization systems,
-      oversight structures,
-      administrative processes,
-      and participant-facing operational realities.
-    </p>
+  <p>
+    This section outlines broader public-interest goals connected to the project,
+    including transparency,
+    procedural clarity,
+    participant-centered administration,
+    oversight awareness,
+    and systems-accountability research.
+  </p>
+
+</header>
+
+<div class="container">
+
+  <section class="section">
+
+    <h2>Project Direction</h2>
+
+    <div class="card">
+
+      <p>
+        The project evolved beyond chronology preservation into a broader effort to examine how housing and stabilization systems function operationally from the participant perspective.
+      </p>
+
+      <p>
+        The goal is not merely to preserve records,
+        but to identify recurring structural patterns that may help improve transparency,
+        workflow clarity,
+        and participant navigation outcomes in the future.
+      </p>
+
+      <div class="statement">
+
+        <p class="highlight">
+          The project focuses on systems behavior,
+          not isolated conflict.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Core Initiatives</h2>
 
     <div class="grid">
 
-      <div class="card">
+      <div class="initiative">
 
-        <div class="label">
-          Initiative 01
-        </div>
-
-        <h3>
-          Housing Systems Literacy
-        </h3>
+        <h4>Administrative Transparency</h4>
 
         <p>
-          Increasing public understanding of how federally funded
-          housing systems operate across oversight entities,
-          sponsors,
-          subcontractors,
-          stabilization programs,
-          and participant-facing services.
+          Encouraging clearer communication regarding workflow ownership,
+          review timelines,
+          escalation structures,
+          and participant obligations.
         </p>
 
       </div>
 
-      <div class="card">
+      <div class="initiative">
 
-        <div class="label">
-          Initiative 02
-        </div>
-
-        <h3>
-          Documentation Practices
-        </h3>
+        <h4>Participant-Centered Processing</h4>
 
         <p>
-          Encouraging preservation of notices,
-          timelines,
-          communications,
-          and administrative records in ways that support
-          participant clarity and institutional accountability.
+          Supporting more accessible administrative practices,
+          including written clarification,
+          electronic processing,
+          flexible workflow implementation,
+          and reduced duplication.
         </p>
 
       </div>
 
-      <div class="card">
+      <div class="initiative">
 
-        <div class="label">
-          Initiative 03
-        </div>
-
-        <h3>
-          Stabilization Awareness
-        </h3>
+        <h4>Procedural Clarity</h4>
 
         <p>
-          Highlighting the relationship between housing stability,
-          continuity,
-          education,
-          recovery,
-          and long-term participant outcomes.
+          Promoting stable and understandable guidance regarding housing transitions,
+          document routing,
+          monitoring review,
+          and escalation pathways.
         </p>
 
       </div>
 
-    </div>
+      <div class="initiative">
 
-    <div class="statement">
-      Housing instability is rarely a single moment.
-      It is often the cumulative effect of administrative friction,
-      communication breakdown,
-      unclear authority,
-      and delayed stabilization.
-    </div>
-
-  </div>
-</section>
-
-<section class="light">
-  <div class="container">
-
-    <h2 class="section-title">
-      Public-Interest Direction
-    </h2>
-
-    <p class="lead">
-      The project increasingly focuses on constructive systems analysis,
-      policy literacy,
-      and participant-centered accountability rather than isolated dispute narratives.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>
-          Research & Analysis
-        </h3>
+        <h4>Oversight Awareness</h4>
 
         <p>
-          Continuing analysis involving oversight guidance,
-          stabilization frameworks,
-          monitoring findings,
-          and housing administration practices.
+          Examining how municipal oversight,
+          monitoring systems,
+          and participant protections intersect operationally during periods of instability.
         </p>
 
       </div>
 
-      <div class="card">
+      <div class="initiative">
 
-        <h3>
-          Educational Resources
-        </h3>
+        <h4>Systems Research</h4>
 
         <p>
-          Developing participant-accessible explanations of
-          housing systems,
-          oversight processes,
-          records procedures,
-          and documentation strategies.
+          Using chronology-based analysis to identify recurring operational themes across layered stabilization systems.
         </p>
 
       </div>
 
-      <div class="card">
+      <div class="initiative">
 
-        <h3>
-          Policy Context
-        </h3>
+        <h4>Documentation Literacy</h4>
 
         <p>
-          Connecting lived participant experience to broader
-          operational questions involving continuity,
-          stabilization,
-          oversight,
-          and systems coordination.
+          Encouraging participants to preserve records,
+          maintain chronology,
+          and understand procedural communication during high-risk transition periods.
         </p>
 
       </div>
 
     </div>
 
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container">
+  <section class="section">
 
-    <h2 class="section-title">
-      Future Development
-    </h2>
+    <h2>Long-Term Vision</h2>
 
-    <p class="lead">
-      The project continues evolving through documentation review,
-      systems analysis,
-      academic development,
-      and ongoing public-interest research connected to housing stability.
-    </p>
+    <div class="card">
 
-    <p class="quote">
-      The broader goal is not only accountability,
-      but deeper understanding of how systems function when participants are forced to navigate instability in real time.
-    </p>
+      <h3>From Archive to Public Resource</h3>
 
-  </div>
-</section>
+      <p>
+        The long-term goal is to develop the project into a broader educational and analytical resource examining:
+      </p>
 
-<section class="light">
-  <div class="container">
+      <ul>
+        <li>Housing-system navigation</li>
+        <li>Administrative continuity challenges</li>
+        <li>Workflow instability</li>
+        <li>Participant reliance on disclosed procedures</li>
+        <li>Oversight interaction patterns</li>
+        <li>Chronology-based systems analysis</li>
+      </ul>
 
-    <h2 class="section-title">
-      Long-Term Vision
-    </h2>
+      <div class="statement">
 
-    <p class="lead">
-      Over time,
-      the project aims to contribute to broader conversations involving:
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>
-          Housing Stability
-        </h3>
-
-        <p>
-          Understanding how stabilization practices affect
-          long-term outcomes for participants
-          navigating transitional systems.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Administrative Transparency
-        </h3>
-
-        <p>
-          Examining how communication structures,
-          records practices,
-          and oversight coordination influence participant experience.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Participant-Centered Policy
-        </h3>
-
-        <p>
-          Supporting approaches that recognize participants
-          not simply as program recipients,
-          but as individuals navigating complex systems with real-world consequences.
+        <p class="highlight">
+          The archive demonstrates how documentation, chronology, and procedural literacy can become stabilization tools during periods of uncertainty.
         </p>
 
       </div>
 
     </div>
 
-  </div>
-</section>
+  </section>
+
+</div>
 
 <footer>
-  © 2026 Walter Escobar · Housing Systems Accountability Project
+  © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
