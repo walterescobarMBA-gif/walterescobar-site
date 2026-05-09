@@ -7,103 +7,283 @@
 <title>Executive Chronology | Walter Escobar</title>
 
 <style>
-body {
-    margin: 0;
-    background: #0d1117;
-    color: #e6edf3;
-    font-family: Arial, sans-serif;
-    line-height: 1.7;
+:root{
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
 }
 
-header {
-    padding: 80px 20px 60px;
-    text-align: center;
-    background: linear-gradient(to bottom, #111827, #0d1117);
+*{
+  box-sizing:border-box;
 }
 
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 12px;
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  line-height:1.75;
 }
 
-header p {
-    max-width: 850px;
-    margin: auto;
-    color: #9ca3af;
-    font-size: 1.1rem;
+nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
-nav {
-    background: #111827;
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #1f2937;
-    position: sticky;
-    top: 0;
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
 }
 
-nav a {
-    color: #60a5fa;
-    text-decoration: none;
-    margin: 0 14px;
-    font-weight: bold;
+.logo{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:bold;
 }
 
-nav a:hover {
-    color: #93c5fd;
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 60px 20px;
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
 }
 
-.timeline-item {
-    position: relative;
-    margin-bottom: 55px;
-    padding-left: 30px;
-    border-left: 3px solid #3b82f6;
+.menu a:hover,
+.dropbtn:hover{
+  color:var(--blue2);
 }
 
-.timeline-item h2 {
-    color: #93c5fd;
-    margin-bottom: 10px;
+.dropdown{
+  position:relative;
 }
 
-.timeline-item p {
-    color: #d1d5db;
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
 }
 
-.badge {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 6px 12px;
-    background: #111827;
-    border: 1px solid #1f2937;
-    border-radius: 999px;
-    color: #60a5fa;
-    font-size: 0.9rem;
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
 }
 
-.statement {
-    background: #111827;
-    border: 1px solid #1f2937;
-    border-radius: 14px;
-    padding: 28px;
-    margin-top: 70px;
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
 }
 
-.statement h3 {
-    margin-top: 0;
-    color: #93c5fd;
+.dropdown:hover .dropdown-content{
+  display:block;
 }
 
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid #1f2937;
-    color: #6b7280;
+.menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+header{
+  padding:95px 20px 75px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
+}
+
+header h1{
+  font-size:clamp(2.6rem,7vw,4.8rem);
+  line-height:1.05;
+  margin:0 0 24px;
+}
+
+header p{
+  max-width:980px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.16rem;
+}
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.timeline{
+  position:relative;
+  margin-top:30px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:20px;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:var(--blue);
+}
+
+.item{
+  position:relative;
+  padding-left:70px;
+  margin-bottom:70px;
+}
+
+.dot{
+  position:absolute;
+  left:10px;
+  top:8px;
+  width:22px;
+  height:22px;
+  background:var(--blue);
+  border-radius:50%;
+  border:4px solid var(--bg);
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:30px;
+}
+
+.card h2{
+  margin-top:0;
+  color:var(--blue2);
+}
+
+.card p,
+.card li{
+  color:var(--soft);
+}
+
+.badge{
+  display:inline-block;
+  margin-top:18px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  color:var(--blue2);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:.92rem;
+  font-weight:bold;
+}
+
+.summary{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:32px;
+  margin-top:50px;
+}
+
+.summary h3{
+  margin-top:0;
+  color:var(--blue);
+}
+
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
+}
+
+@media(max-width:800px){
+
+  .nav-wrap{
+    flex-wrap:wrap;
+  }
+
+  .menu-icon{
+    display:block;
+  }
+
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
+  }
+
+  .menu-toggle:checked ~ .menu{
+    display:flex;
+  }
+
+  .dropdown{
+    width:100%;
+  }
+
+  .dropbtn{
+    padding:8px 0;
+  }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{
+    padding:8px 0;
+  }
+
+  .timeline::before{
+    left:12px;
+  }
+
+  .item{
+    padding-left:45px;
+  }
+
+  .dot{
+    left:2px;
+  }
 }
 </style>
 </head>
@@ -111,150 +291,231 @@ footer {
 <body>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="timeline.html">Timeline</a>
-    <a href="executive-chronology.html">Executive Chronology</a>
-    <a href="systems-themes.html">Systems Themes</a>
-    <a href="evidence.html">Evidence</a>
-    <a href="analysis.html">Analysis</a>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      Walter Escobar
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </nav>
 
 <header>
-    <h1>Executive Chronology</h1>
 
-    <p>
-        This page provides a condensed overview of major procedural,
-        oversight,
-        stabilization,
-        and administrative events documented throughout the project chronology.
-    </p>
+  <h1>Executive Chronology</h1>
+
+  <p>
+    This page provides a condensed chronology of major transition,
+    oversight, workflow, and stabilization events reflected across the project archive.
+  </p>
+
 </header>
 
 <div class="container">
 
-    <div class="timeline-item">
-        <h2>June–July 2025</h2>
+  <div class="timeline">
+
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Mid-2025 — Transition Instability Emerges</h2>
 
         <p>
-            Transitional housing instability intensified following the expiration
-            of a federally funded transitional placement period.
-            Conflicting notices,
-            lease cancellation communications,
-            vacate directives,
-            and evolving housing expectations emerged during this period.
+          Housing instability intensified following the conclusion of a federally funded transitional placement period.
+          The chronology reflects evolving expectations, transition pressure,
+          procedural uncertainty, and active attempts to clarify long-term housing pathways.
         </p>
 
         <div class="badge">
-            Transition Instability
+          Transition Instability
         </div>
+
+      </div>
     </div>
 
-    <div class="timeline-item">
-        <h2>August 2025</h2>
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Summer 2025 — Oversight Activity Expands</h2>
 
         <p>
-            Municipal oversight activity increased substantially.
-            Los Angeles Housing Department communications reflected concern regarding
-            ongoing eviction-related activity,
-            leading to requests that eviction processes pause pending investigation.
-            Extensions and housing transition coordination simultaneously continued.
+          Municipal oversight increasingly became part of the chronology.
+          Administrative escalation, housing-related complaints,
+          inspection activity, and anti-harassment concerns began intersecting with transition planning and participant documentation.
         </p>
 
         <div class="badge">
-            Oversight Escalation
+          Oversight Escalation
         </div>
+
+      </div>
     </div>
 
-    <div class="timeline-item">
-        <h2>September–October 2025</h2>
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Late 2025 — Workflow Complexity Intensifies</h2>
 
         <p>
-            Administrative tensions continued surrounding housing stabilization,
-            oversight coordination,
-            participant status,
-            and procedural accountability.
-            Additional escalation efforts and record preservation activities expanded.
+          The record reflects increasing procedural complexity surrounding rental-assistance processing,
+          monitoring review, inspection coordination, and evolving documentation requirements.
+        </p>
+
+        <p>
+          The participant repeatedly sought clarification regarding timelines,
+          workflow ownership, procedural authority, and submission requirements.
         </p>
 
         <div class="badge">
-            Escalation & Documentation
+          Workflow Instability
         </div>
+
+      </div>
     </div>
 
-    <div class="timeline-item">
-        <h2>November–December 2025</h2>
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Late 2025 — Administrative Time Compression</h2>
 
         <p>
-            Inspection and monitoring disputes intensified.
-            Oversight visits,
-            habitability reviews,
-            clarification requests,
-            procedural objections,
-            and anti-harassment concerns increasingly intersected with participant chronology.
+          Major housing-transition decisions began occurring under compressed timelines.
+          Housing opportunities emerged rapidly following prolonged uncertainty,
+          while participants simultaneously attempted to understand complex requirements and preserve educational continuity.
         </p>
 
         <div class="badge">
-            Monitoring & Inspection Activity
+          Time Compression
         </div>
+
+      </div>
     </div>
 
-    <div class="timeline-item">
-        <h2>January 2026</h2>
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Late 2025 to Early 2026 — Procedural Burden Transfer</h2>
 
         <p>
-            Administrative workflow instability surrounding housing-transition processing
-            became increasingly visible.
-            Evolving documentation requirements,
-            RE-26 routing disputes,
-            monitor review references,
-            and accommodation-related communications continued throughout the month.
+          The chronology increasingly reflects the participant functioning as a continuity mechanism between entities.
+          Documentation preservation, chronology reconstruction, workflow clarification,
+          and communication coordination became recurring participant responsibilities.
         </p>
 
         <div class="badge">
-            Workflow Instability
+          Burden Transfer
         </div>
+
+      </div>
     </div>
 
-    <div class="timeline-item">
-        <h2>February 2026</h2>
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Early 2026 — Formal Transition Approval Activity</h2>
 
         <p>
-            Formal housing-transition approval activity occurred following prolonged
-            procedural review.
-            TBRA voucher authorization,
-            housing locator assignment,
-            and implementation-stage transition planning moved forward.
+          Following prolonged procedural uncertainty and repeated workflow clarification efforts,
+          formal rental-assistance approval activity moved forward.
+          Transition planning became more concrete through voucher authorization,
+          housing locator coordination, and implementation-stage processing.
         </p>
 
         <div class="badge">
-            Housing Transition Approval
+          Stabilization Activation
         </div>
+
+      </div>
     </div>
 
-    <div class="statement">
-        <h3>Project Observation</h3>
+  </div>
 
-        <p>
-            Across the chronology,
-            the participant increasingly became responsible for preserving continuity,
-            reconstructing administrative timelines,
-            clarifying workflow ownership,
-            and coordinating fragmented procedural communication between multiple entities.
-        </p>
+  <div class="summary">
 
-        <p>
-            The resulting archive evolved into a structured chronology documenting
-            participant interaction with layered housing,
-            oversight,
-            monitoring,
-            and stabilization systems over time.
-        </p>
-    </div>
+    <h3>Executive Observation</h3>
+
+    <p>
+      Across the chronology,
+      the participant increasingly became responsible for preserving procedural continuity inside a fragmented administrative environment involving housing operations,
+      oversight systems, monitoring review, transition planning,
+      and evolving workflow requirements.
+    </p>
+
+    <p class="highlight">
+      The resulting archive evolved from personal record preservation into a broader systems-analysis project documenting participant interaction with layered stabilization systems in real time.
+    </p>
+
+  </div>
 
 </div>
 
 <footer>
-    © 2026 Walter Escobar | Housing Systems Accountability Project
+  © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
