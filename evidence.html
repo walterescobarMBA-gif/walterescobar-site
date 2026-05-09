@@ -4,16 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Evidence | Walter Escobar</title>
+<title>Evidence Archive | Walter Escobar</title>
 
 <style>
 :root{
-  --bg:#020617;
-  --navy:#07111f;
-  --gold:#d6b46d;
-  --white:#ffffff;
-  --muted:#cbd5e1;
-  --light:#f8fafc;
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
 }
 
 *{
@@ -22,483 +25,493 @@
 
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   background:var(--bg);
-  color:var(--white);
+  color:var(--text);
+  font-family:Arial,sans-serif;
   line-height:1.75;
 }
 
-header{
-  min-height:65vh;
-  display:flex;
-  align-items:center;
-  padding:120px 24px;
-  background:
-    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.95)),
-    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
-}
-
-.hero{
-  max-width:1150px;
-  margin:auto;
-}
-
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:24px;
-}
-
-h1{
-  font-size:clamp(56px,10vw,120px);
-  line-height:.9;
-  letter-spacing:-.07em;
-  margin:0 0 34px;
-}
-
-.hero p{
-  font-size:clamp(22px,4vw,36px);
-  color:var(--muted);
-  max-width:920px;
-}
-
 nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  padding:18px 12px;
-  text-align:center;
-  overflow-x:auto;
-  white-space:nowrap;
 }
 
-nav a{
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+}
+
+.logo{
+  color:var(--text);
   text-decoration:none;
-  color:#020617;
-  font-weight:900;
-  margin:0 14px;
-  font-size:18px;
+  font-weight:bold;
 }
 
-nav a:hover{
-  color:var(--gold);
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-section{
-  padding:90px 24px;
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
+}
+
+.menu a:hover,
+.dropbtn:hover{
+  color:var(--blue2);
+}
+
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
+}
+
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+.menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+header{
+  padding:100px 20px 80px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
+}
+
+header h1{
+  font-size:clamp(2.7rem,7vw,5rem);
+  line-height:1.05;
+  margin:0 0 24px;
+}
+
+header p{
+  max-width:1000px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.18rem;
 }
 
 .container{
-  max-width:1150px;
+  max-width:1120px;
   margin:auto;
+  padding:75px 20px;
 }
 
-.section-title{
-  font-size:clamp(42px,7vw,78px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:0 0 26px;
+.section{
+  margin-bottom:85px;
 }
 
-.lead{
-  font-size:clamp(22px,3vw,30px);
-  color:var(--muted);
-  max-width:940px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:28px;
-  margin-top:56px;
+.section h2{
+  color:var(--blue2);
+  border-left:4px solid var(--blue);
+  padding-left:14px;
+  margin-bottom:30px;
 }
 
 .card{
-  background:var(--navy);
-  border:1px solid rgba(214,180,109,.18);
-  border-radius:28px;
-  padding:36px;
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 24px 60px rgba(0,0,0,.2);
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:34px;
 }
 
 .card h3{
   margin-top:0;
-  font-size:32px;
-  line-height:1.1;
+  color:var(--blue);
 }
 
-.card p{
-  color:var(--muted);
-  font-size:18px;
-}
-
-.card ul{
-  padding-left:18px;
-  margin-top:24px;
-}
-
+.card p,
 .card li{
-  margin-bottom:12px;
-  color:var(--white);
+  color:var(--soft);
+}
+
+ul{
+  padding-left:22px;
+}
+
+li{
+  margin-bottom:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+.evidence-box{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+}
+
+.evidence-box h4{
+  margin-top:0;
+  color:var(--blue);
 }
 
 .statement{
-  margin-top:60px;
-  border-left:6px solid var(--gold);
-  padding-left:28px;
-  font-size:clamp(24px,4vw,40px);
-  font-weight:850;
-  max-width:980px;
+  background:#09101d;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+  margin-top:28px;
 }
 
-.light{
-  background:var(--white);
-  color:#020617;
-}
-
-.light .lead{
-  color:#334155;
-}
-
-.light .card{
-  background:#f8fafc;
-  border:1px solid rgba(2,6,23,.08);
-}
-
-.light .card p{
-  color:#334155;
-}
-
-.light .card li{
-  color:#020617;
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
 }
 
 footer{
-  padding:44px 24px;
   text-align:center;
-  color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,.08);
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-  header{
-    padding:90px 24px;
+  .nav-wrap{
+    flex-wrap:wrap;
   }
 
-  nav a{
-    font-size:16px;
-    margin:0 10px;
+  .menu-icon{
+    display:block;
   }
 
-  section{
-    padding:70px 22px;
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
   }
 
+  .menu-toggle:checked ~ .menu{
+    display:flex;
+  }
+
+  .dropdown{
+    width:100%;
+  }
+
+  .dropbtn{
+    padding:8px 0;
+  }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{
+    padding:8px 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
-
-    <div class="kicker">
-      Evidence
-    </div>
-
-    <h1>
-      Structured documentation archive.
-    </h1>
-
-    <p>
-      This section organizes selected notices,
-      oversight directives,
-      monitoring findings,
-      correspondence,
-      public records,
-      and administrative materials associated with the project chronology.
-    </p>
-
-  </div>
-</header>
-
 <nav>
-  <a href="index.html">Home</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="case-study.html">Case Study</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="initiatives.html">Initiatives</a>
-  <a href="contact.html">Contact</a>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      Walter Escobar
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </nav>
 
-<section>
-  <div class="container">
+<header>
 
-    <h2 class="section-title">
-      Documentation Categories
-    </h2>
+  <h1>Evidence Archive</h1>
 
-    <p class="lead">
-      Materials included throughout the project originate from
-      participant-retained records,
-      publicly released documents,
-      oversight guidance,
-      preserved correspondence,
-      and California Public Records Act productions.
-    </p>
+  <p>
+    This archive organizes the primary record categories used throughout the project,
+    including participant correspondence,
+    oversight communications,
+    workflow records,
+    transition-processing materials,
+    municipal documentation,
+    and chronology preservation materials.
+  </p>
+
+</header>
+
+<div class="container">
+
+  <section class="section">
+
+    <h2>Archive Structure</h2>
+
+    <div class="card">
+
+      <p>
+        The archive is organized by operational category rather than by isolated incident.
+        This structure allows recurring procedural patterns to be identified across multiple record types over time.
+      </p>
+
+      <div class="statement">
+
+        <p class="highlight">
+          The evidentiary value of the archive emerges through chronology, repetition, sequence, and cross-referenced operational behavior.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Primary Record Categories</h2>
 
     <div class="grid">
 
-      <div class="card">
+      <div class="evidence-box">
 
-        <h3>
-          Administrative Notices
-        </h3>
+        <h4>Participant Correspondence</h4>
 
         <p>
-          Notices involving housing status,
-          occupancy timelines,
-          vacate directives,
-          lease-related communications,
-          and stabilization-related housing actions.
-        </p>
-
-        <ul>
-          <li>July 2025 administrative notices</li>
-          <li>Vacate-related correspondence</li>
-          <li>Property-level notices</li>
-          <li>Housing status communications</li>
-        </ul>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Oversight Directives
-        </h3>
-
-        <p>
-          Guidance and administrative materials issued through
-          oversight entities relating to stabilization,
-          housing continuity,
-          and federal housing operational practices.
-        </p>
-
-        <ul>
-          <li>Local oversight directives</li>
-          <li>Federal housing guidance</li>
-          <li>Stabilization-related guidance</li>
-          <li>Administrative memoranda</li>
-        </ul>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Monitoring Reports
-        </h3>
-
-        <p>
-          Oversight review materials involving project sponsor monitoring,
-          documentation review,
-          participant-file evaluation,
-          and operational findings.
-        </p>
-
-        <ul>
-          <li>2023–2024 monitoring report</li>
-          <li>2024–2025 monitoring report</li>
-          <li>File review findings</li>
-          <li>Documentation observations</li>
-        </ul>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Policies & Procedures
-        </h3>
-
-        <p>
-          Policies governing records retention,
-          participant-file handling,
-          grievance procedures,
-          confidentiality,
-          and documentation practices.
-        </p>
-
-        <ul>
-          <li>Records policies</li>
-          <li>Retention procedures</li>
-          <li>Participant access protocols</li>
-          <li>Grievance framework materials</li>
-        </ul>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Correspondence
-        </h3>
-
-        <p>
-          Preserved communications involving oversight clarification,
-          stabilization concerns,
-          administrative coordination,
-          and participant-facing operational issues.
-        </p>
-
-        <ul>
-          <li>Sponsor communications</li>
-          <li>Oversight correspondence</li>
-          <li>Clarification requests</li>
-          <li>Administrative responses</li>
-        </ul>
-
-      </div>
-
-      <div class="card">
-
-        <h3>
-          Housing Timeline Materials
-        </h3>
-
-        <p>
-          Chronologically preserved records documenting the sequence
-          of housing-related developments,
-          oversight actions,
-          and administrative evolution across the project period.
-        </p>
-
-        <ul>
-          <li>Chronology records</li>
-          <li>Timeline documents</li>
-          <li>Stabilization events</li>
-          <li>Operational developments</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-    <div class="statement">
-      The significance of documentation is not volume alone,
-      but how independent records,
-      directives,
-      timelines,
-      and communications begin to corroborate broader operational patterns.
-    </div>
-
-  </div>
-</section>
-
-<section class="light">
-  <div class="container">
-
-    <h2 class="section-title">
-      Documentation Standards
-    </h2>
-
-    <p class="lead">
-      Materials referenced throughout this project are organized
-      to distinguish preserved documentation from interpretation
-      and analytical commentary.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>
-          Chronological Integrity
-        </h3>
-
-        <p>
-          Documents are organized according to sequence
-          and administrative context to preserve timeline clarity
-          and operational continuity.
+          Emails, clarification requests, escalation communications,
+          workflow questions, accommodation discussions,
+          and participant-generated chronology preservation.
         </p>
 
       </div>
 
-      <div class="card">
+      <div class="evidence-box">
 
-        <h3>
-          Source Preservation
-        </h3>
+        <h4>Oversight Communications</h4>
 
         <p>
-          Publicly released records,
-          retained notices,
-          oversight materials,
-          and correspondence are preserved as part of the broader accountability archive.
+          Municipal correspondence, anti-harassment notices,
+          monitoring activity, inspection coordination,
+          and oversight escalation records.
         </p>
 
       </div>
 
-      <div class="card">
+      <div class="evidence-box">
 
-        <h3>
-          Controlled Disclosure
-        </h3>
+        <h4>Housing Transition Records</h4>
 
         <p>
-          The project intentionally limits publication of sensitive,
-          private,
-          or identifying information while preserving relevant operational context.
+          Extension notices, rental-assistance discussions,
+          voucher coordination, locator communications,
+          and transition-planning records.
+        </p>
+
+      </div>
+
+      <div class="evidence-box">
+
+        <h4>Workflow Documentation</h4>
+
+        <p>
+          Routing disputes, deadline tracking,
+          monitor references, evolving requirements,
+          and procedural clarification requests.
+        </p>
+
+      </div>
+
+      <div class="evidence-box">
+
+        <h4>Published Procedures</h4>
+
+        <p>
+          Intake materials, grievance pathways,
+          participant-facing procedures,
+          and operational guidance relied upon during escalation periods.
+        </p>
+
+      </div>
+
+      <div class="evidence-box">
+
+        <h4>Public Records</h4>
+
+        <p>
+          Municipal filings, public-record responses,
+          inspection references,
+          property-related documentation,
+          and independently verifiable chronology records.
         </p>
 
       </div>
 
     </div>
 
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container">
+  <section class="section">
 
-    <h2 class="section-title">
-      Archive Purpose
-    </h2>
+    <h2>Operational Themes Reflected Across the Archive</h2>
 
-    <p class="lead">
-      The archive exists to support public understanding of housing stabilization systems,
-      oversight structures,
-      administrative process,
-      and participant-facing housing operations.
-    </p>
+    <div class="card">
 
-    <div class="statement">
-      Documentation becomes meaningful when individual records,
-      policy guidance,
-      oversight findings,
-      and lived experience begin forming a coherent administrative narrative.
+      <ul>
+        <li>Administrative fragmentation</li>
+        <li>Procedural burden transfer</li>
+        <li>Administrative time compression</li>
+        <li>Workflow instability</li>
+        <li>Participant reliance on published procedures</li>
+        <li>Oversight escalation</li>
+        <li>Reactive stabilization</li>
+        <li>Evolving operational explanations</li>
+      </ul>
+
+      <div class="statement">
+
+        <p>
+          No single document establishes the project’s analytical conclusions in isolation.
+          The significance emerges through cumulative chronology and repeated operational patterns across multiple systems.
+        </p>
+
+      </div>
+
     </div>
 
-  </div>
-</section>
+  </section>
+
+  <section class="section">
+
+    <h2>Preservation Purpose</h2>
+
+    <div class="card">
+
+      <h3>Continuity and Accountability</h3>
+
+      <p>
+        The archive was preserved in order to reduce ambiguity,
+        maintain continuity,
+        and preserve procedural clarity during periods of instability and evolving administrative interpretation.
+      </p>
+
+      <p>
+        Over time,
+        the archive evolved beyond simple recordkeeping and became a systems-analysis framework documenting participant interaction with layered stabilization systems in real time.
+      </p>
+
+      <div class="statement">
+
+        <p class="highlight">
+          Documentation became both a preservation mechanism and a stabilization mechanism.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
 
 <footer>
-  © 2026 Walter Escobar · Housing Systems Accountability Project
+  © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
