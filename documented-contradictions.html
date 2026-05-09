@@ -23,35 +23,41 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.8;
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,84 +120,89 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
-  padding:95px 20px 75px;
+.hero{
+  padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
-  font-size:clamp(2.6rem,7vw,4.8rem);
-  line-height:1.05;
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
+  line-height:1.05;
 }
 
-header p{
+.hero p{
   max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.16rem;
+  font-size:1.2rem;
 }
 
 .container{
-  max-width:1120px;
+  max-width:1150px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .section{
-  margin-bottom:85px;
+  margin-bottom:95px;
 }
 
 .section h2{
   color:var(--blue2);
   border-left:4px solid var(--blue);
   padding-left:14px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .card{
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:32px;
+  border-radius:18px;
+  padding:36px;
+}
+
+.card h3{
+  margin-top:0;
+  color:var(--blue);
+}
+
+.card p{
+  color:var(--soft);
 }
 
 .compare-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:22px;
-  margin-top:24px;
+  gap:24px;
+  margin-top:28px;
 }
 
-.side{
+.compare-box{
   background:var(--panel2);
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:22px;
+  border-radius:16px;
+  padding:26px;
 }
 
-.side h3{
+.compare-box h4{
   margin-top:0;
   color:var(--blue);
 }
 
-.side p,
-.card p{
-  color:var(--soft);
-}
-
-.analysis-box{
+.statement{
+  margin-top:28px;
   background:#09101d;
   border:1px solid var(--line);
   border-radius:14px;
-  padding:22px;
-  margin-top:24px;
+  padding:24px;
 }
 
 .highlight{
@@ -201,7 +212,7 @@ header p{
 
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -246,14 +257,18 @@ footer{
   .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
 
   .dropdown-content a{
     padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
   }
 }
 </style>
@@ -262,113 +277,147 @@ footer{
 <body>
 
 <nav>
+
   <div class="nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
       Walter Escobar
     </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
 
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
           <a href="systems-themes.html">Systems Themes</a>
           <a href="documented-contradictions.html">Documented Contradictions</a>
           <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </nav>
 
-<header>
+<section class="hero">
 
-  <h1>Documented Contradictions</h1>
+  <h1>
+    Documented Contradictions
+  </h1>
 
   <p>
     This section examines evolving procedural explanations,
-    shifting operational framing,
     workflow reversals,
-    and inconsistencies reflected across the chronology.
+    operational inconsistencies,
+    and shifting administrative interpretations reflected throughout the chronology.
   </p>
 
-</header>
+</section>
 
 <div class="container">
 
   <section class="section">
 
-    <h2>Housing Availability Reversal</h2>
+    <h2>Published Procedures vs Operational Interpretation</h2>
 
     <div class="card">
 
+      <h3>Participant Reliance and Later Narrowing</h3>
+
       <p>
-        The chronology reflects a rapid operational shift regarding rental-assistance availability.
+        Participant-facing materials,
+        grievance pathways,
+        escalation structures,
+        and intake guidance were repeatedly relied upon in good faith throughout the chronology.
       </p>
 
       <div class="compare-grid">
 
-        <div class="side">
-          <h3>Earlier Position</h3>
+        <div class="compare-box">
+
+          <h4>Participant Understanding</h4>
 
           <p>
-            Housing-transition uncertainty remained unresolved while the participant attempted to understand available long-term options.
+            Published procedures suggested broader escalation and oversight structures were appropriate and available.
           </p>
+
         </div>
 
-        <div class="side">
-          <h3>Subsequent Position</h3>
+        <div class="compare-box">
+
+          <h4>Later Interpretation</h4>
 
           <p>
-            Rental assistance later became available under compressed timelines with urgent response expectations and active deadlines.
+            Jurisdictional explanations later evolved,
+            narrowed,
+            or became operationally segmented during escalation periods.
           </p>
+
         </div>
 
       </div>
 
-      <div class="analysis-box">
+      <div class="statement">
 
         <p class="highlight">
-          Observation:
-          Major housing opportunities appeared after prolonged uncertainty,
-          creating administrative time compression during a critical transition period.
+          The chronology reflects tension between participant reliance on disclosed procedures and later operational interpretation.
         </p>
 
       </div>
@@ -379,41 +428,48 @@ footer{
 
   <section class="section">
 
-    <h2>Participant-Centered Processing</h2>
+    <h2>Workflow Rigidity vs Workflow Flexibility</h2>
 
     <div class="card">
 
+      <h3>Procedural Inflexibility Later Became Operationally Feasible</h3>
+
       <p>
-        The participant repeatedly requested electronic processing,
-        written review,
-        and workflow flexibility in order to reduce delay and improve clarity.
+        Certain workflow requirements were initially presented as rigid,
+        fixed,
+        or procedurally constrained during active transition periods.
       </p>
 
       <div class="compare-grid">
 
-        <div class="side">
-          <h3>Initial Framing</h3>
+        <div class="compare-box">
+
+          <h4>Initial Position</h4>
 
           <p>
-            Certain procedures were initially presented as requiring rigid or in-person handling.
+            Some requests for electronic processing,
+            accommodation,
+            or workflow flexibility were initially resisted or delayed.
           </p>
+
         </div>
 
-        <div class="side">
-          <h3>Later Outcome</h3>
+        <div class="compare-box">
+
+          <h4>Subsequent Outcome</h4>
 
           <p>
-            Virtual accommodation and electronic coordination later became operationally feasible and were ultimately implemented.
+            Similar flexibility later became operationally feasible following escalation or further clarification.
           </p>
+
         </div>
 
       </div>
 
-      <div class="analysis-box">
+      <div class="statement">
 
         <p class="highlight">
-          Observation:
-          Operational flexibility emerged after escalation despite earlier representations suggesting procedural rigidity.
+          Operational flexibility often emerged after procedural challenge rather than before workflow instability developed.
         </p>
 
       </div>
@@ -424,41 +480,46 @@ footer{
 
   <section class="section">
 
-    <h2>Published Procedures vs. Jurisdictional Narrowing</h2>
+    <h2>Extended Uncertainty vs Rapid Activation</h2>
 
     <div class="card">
 
+      <h3>Compressed Stabilization Windows</h3>
+
       <p>
-        Participant-facing grievance materials and escalation pathways directed participants toward specific external contacts and reporting mechanisms.
+        The chronology reflects prolonged periods of uncertainty followed by rapid activation of major housing-transition decisions.
       </p>
 
       <div class="compare-grid">
 
-        <div class="side">
-          <h3>Participant Understanding</h3>
+        <div class="compare-box">
+
+          <h4>Earlier Conditions</h4>
 
           <p>
-            Published intake and grievance materials suggested certain oversight pathways and escalation structures were appropriate points of contact.
+            Housing pathways,
+            transition expectations,
+            and procedural sequencing remained unclear for extended periods.
           </p>
+
         </div>
 
-        <div class="side">
-          <h3>Later Clarification</h3>
+        <div class="compare-box">
+
+          <h4>Later Conditions</h4>
 
           <p>
-            Jurisdictional responsibility later became narrower,
-            more segmented,
-            or operationally disputed during escalation periods.
+            Significant decisions and processing requirements later emerged under compressed timelines with urgent response expectations.
           </p>
+
         </div>
 
       </div>
 
-      <div class="analysis-box">
+      <div class="statement">
 
         <p class="highlight">
-          Observation:
-          Participant reliance on disclosed procedures later collided with evolving interpretations of institutional responsibility.
+          Major stabilization activity frequently occurred after extended procedural ambiguity.
         </p>
 
       </div>
@@ -469,94 +530,49 @@ footer{
 
   <section class="section">
 
-    <h2>Workflow Clarity vs. Workflow Reality</h2>
+    <h2>Routine Administration vs Oversight Escalation</h2>
 
     <div class="card">
 
+      <h3>Evolving Significance of Administrative Activity</h3>
+
       <p>
-        Administrative communications frequently referenced monitor review,
-        pending evaluation,
-        or unresolved processing activity while workflow ownership remained unclear.
+        Administrative actions initially framed as routine increasingly became connected to broader oversight,
+        monitoring,
+        inspection,
+        and accountability activity over time.
       </p>
 
       <div class="compare-grid">
 
-        <div class="side">
-          <h3>Expected Workflow</h3>
+        <div class="compare-box">
+
+          <h4>Initial Framing</h4>
 
           <p>
-            Administrative systems generally imply centralized workflow ownership,
-            clear sequencing,
-            and stable procedural expectations.
+            Certain activities were presented as ordinary operational administration.
           </p>
+
         </div>
 
-        <div class="side">
-          <h3>Observed Workflow</h3>
+        <div class="compare-box">
+
+          <h4>Expanded Context</h4>
 
           <p>
-            The participant repeatedly reconstructed deadlines,
-            clarified routing,
-            tracked evolving requirements,
-            and coordinated communication between entities.
+            Municipal oversight,
+            anti-harassment concerns,
+            and escalation chronology later altered the operational significance of those same activities.
           </p>
+
         </div>
 
       </div>
 
-      <div class="analysis-box">
+      <div class="statement">
 
         <p class="highlight">
-          Observation:
-          The participant increasingly became responsible for maintaining procedural continuity within a fragmented workflow environment.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Inspection and Oversight Framing</h2>
-
-    <div class="card">
-
-      <p>
-        Inspection and monitoring activity evolved significantly across the chronology.
-      </p>
-
-      <div class="compare-grid">
-
-        <div class="side">
-          <h3>Initial Framing</h3>
-
-          <p>
-            Inspection activity was at times described as routine,
-            administrative,
-            or non-enforcement oriented.
-          </p>
-        </div>
-
-        <div class="side">
-          <h3>Subsequent Framing</h3>
-
-          <p>
-            Later communications referenced corrections,
-            oversight escalation,
-            anti-harassment review,
-            and ongoing monitoring concerns.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="analysis-box">
-
-        <p class="highlight">
-          Observation:
-          The operational purpose and significance of inspection activity evolved considerably throughout the chronology.
+          Oversight escalation transformed isolated events into components of a broader institutional chronology.
         </p>
 
       </div>
