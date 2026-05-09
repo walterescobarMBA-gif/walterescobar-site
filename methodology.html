@@ -23,35 +23,41 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.8;
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,52 +120,53 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
-  padding:95px 20px 75px;
+.hero{
+  padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
-  font-size:clamp(2.6rem,7vw,4.8rem);
-  line-height:1.05;
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
+  line-height:1.05;
 }
 
-header p{
+.hero p{
   max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.16rem;
+  font-size:1.2rem;
 }
 
 .container{
-  max-width:1100px;
+  max-width:1150px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .section{
-  margin-bottom:85px;
+  margin-bottom:95px;
 }
 
 .section h2{
   color:var(--blue2);
   border-left:4px solid var(--blue);
   padding-left:14px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .card{
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:32px;
+  border-radius:18px;
+  padding:36px;
 }
 
 .card h3{
@@ -180,12 +187,34 @@ li{
   margin-bottom:10px;
 }
 
-.method-box{
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.grid-card{
   background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:26px;
+}
+
+.grid-card h3{
+  margin-top:0;
+  color:var(--blue);
+}
+
+.grid-card p{
+  color:var(--soft);
+}
+
+.statement{
+  margin-top:28px;
+  background:#09101d;
   border:1px solid var(--line);
   border-radius:14px;
   padding:24px;
-  margin-top:24px;
 }
 
 .highlight{
@@ -195,7 +224,7 @@ li{
 
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -233,14 +262,18 @@ footer{
   .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
 
   .dropdown-content a{
     padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
   }
 }
 </style>
@@ -249,102 +282,134 @@ footer{
 <body>
 
 <nav>
+
   <div class="nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
       Walter Escobar
     </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
 
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
           <a href="systems-themes.html">Systems Themes</a>
           <a href="documented-contradictions.html">Documented Contradictions</a>
           <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </nav>
 
-<header>
+<section class="hero">
 
-  <h1>Methodology</h1>
+  <h1>
+    Methodology
+  </h1>
 
   <p>
-    This project uses chronology reconstruction,
-    participant-preserved records,
-    oversight correspondence,
-    administrative notices,
-    and systems-oriented analysis to examine interactions within a layered housing and stabilization environment.
+    This section explains the chronology-based analytical approach used throughout the project,
+    including documentation preservation,
+    sequence reconstruction,
+    cross-referenced workflow analysis,
+    and participant-centered systems evaluation.
   </p>
 
-</header>
+</section>
 
 <div class="container">
 
   <section class="section">
 
-    <h2>Project Framework</h2>
+    <h2>Core Methodological Approach</h2>
 
     <div class="card">
 
-      <h3>Chronology-Based Analysis</h3>
+      <h3>Chronology as Analytical Infrastructure</h3>
 
       <p>
-        The project is organized chronologically in order to preserve sequence,
-        procedural evolution, oversight escalation,
-        workflow instability, and changing operational explanations over time.
+        The project prioritizes chronology because sequence itself reveals operational behavior.
       </p>
 
       <p>
-        Rather than relying entirely on retrospective interpretation,
-        the archive prioritizes contemporaneous records created during active periods of housing instability,
-        transition planning, and procedural uncertainty.
+        Administrative systems often appear coherent when individual records are viewed in isolation.
+        However,
+        longitudinal review frequently reveals:
       </p>
 
-      <div class="method-box">
+      <ul>
+        <li>Evolving procedural explanations</li>
+        <li>Workflow reversals</li>
+        <li>Escalation-dependent flexibility</li>
+        <li>Administrative fragmentation</li>
+        <li>Compressed decision windows</li>
+        <li>Reactive stabilization behavior</li>
+      </ul>
+
+      <div class="statement">
 
         <p class="highlight">
-          The chronology itself functions as evidence of evolving administrative conditions.
+          Sequence transformed isolated documents into a systems-analysis archive.
         </p>
 
       </div>
@@ -355,29 +420,81 @@ footer{
 
   <section class="section">
 
-    <h2>Documentation Sources</h2>
+    <h2>Primary Analytical Inputs</h2>
 
-    <div class="card">
+    <div class="grid">
 
-      <h3>Integrated Record Categories</h3>
+      <div class="grid-card">
 
-      <ul>
-        <li>Participant-generated correspondence</li>
-        <li>Housing notices and transition communications</li>
-        <li>Municipal oversight records</li>
-        <li>Inspection and monitoring communications</li>
-        <li>Administrative workflow documents</li>
-        <li>Voucher and rental-assistance processing records</li>
-        <li>Published grievance procedures and intake materials</li>
-        <li>Oversight escalation communications</li>
-        <li>Public records obtained through CPRA requests</li>
-      </ul>
-
-      <div class="method-box">
+        <h3>Participant Correspondence</h3>
 
         <p>
-          Multiple categories of records were cross-referenced in order to identify consistency,
-          procedural evolution, timeline overlap, and operational contradictions.
+          Emails,
+          clarification requests,
+          escalation communications,
+          and participant-preserved chronology records.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Oversight Activity</h3>
+
+        <p>
+          Municipal communication,
+          inspection coordination,
+          monitoring references,
+          and escalation interaction.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Workflow Documentation</h3>
+
+        <p>
+          Routing disputes,
+          timeline changes,
+          document requests,
+          and evolving procedural expectations.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Published Procedures</h3>
+
+        <p>
+          Intake guidance,
+          grievance structures,
+          participant-facing materials,
+          and disclosed escalation pathways.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Chronology Reconstruction</h3>
+
+        <p>
+          Sequence comparison across communication,
+          oversight,
+          transition activity,
+          and administrative response timing.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Participant Experience</h3>
+
+        <p>
+          Real-time operational experience treated as systems-level observational data.
         </p>
 
       </div>
@@ -388,65 +505,27 @@ footer{
 
   <section class="section">
 
-    <h2>Record Preservation Standards</h2>
+    <h2>Why Participant Perspective Was Included</h2>
 
     <div class="card">
 
-      <h3>Preservation and Continuity</h3>
+      <h3>Operational Instability Is Experienced Before It Is Formally Acknowledged</h3>
 
       <p>
-        Records were preserved in their original form whenever possible,
-        including timestamps, sender information,
-        attachments, municipal references,
-        and procedural language.
+        Many institutional patterns reflected throughout the archive became visible first through participant experience rather than formal procedural disclosure.
       </p>
 
-      <ul>
-        <li>Emails were preserved chronologically.</li>
-        <li>Notices and forms were retained with associated metadata.</li>
-        <li>Timeline entries were compared against municipal filings and oversight activity.</li>
-        <li>Participant-facing procedures were compared against later operational explanations.</li>
-      </ul>
-
-      <div class="method-box">
-
-        <p class="highlight">
-          Documentation became necessary because procedural continuity itself increasingly required active preservation.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Analytical Focus</h2>
-
-    <div class="card">
-
-      <h3>Systems-Oriented Themes</h3>
-
       <p>
-        The project focuses on recurring operational themes reflected across the chronology rather than isolated incidents alone.
+        Routing confusion,
+        escalating uncertainty,
+        repeated clarification requests,
+        and workflow instability collectively functioned as indicators of broader operational conditions.
       </p>
 
-      <ul>
-        <li>Administrative fragmentation</li>
-        <li>Workflow instability</li>
-        <li>Administrative time compression</li>
-        <li>Participant reliance on published procedures</li>
-        <li>Procedural burden transfer</li>
-        <li>Reactive stabilization</li>
-        <li>Oversight escalation</li>
-        <li>Evolving procedural explanations</li>
-      </ul>
-
-      <div class="method-box">
+      <div class="statement">
 
         <p class="highlight">
-          The archive examines how administrative systems are experienced from the participant perspective in real time.
+          Participant experience was treated as a valid source of operational systems data.
         </p>
 
       </div>
@@ -457,37 +536,26 @@ footer{
 
   <section class="section">
 
-    <h2>Scope and Limitations</h2>
+    <h2>Scope Limitations</h2>
 
     <div class="card">
 
-      <h3>Project Boundaries</h3>
+      <h3>Project Scope</h3>
 
       <p>
-        This project is not presented as a judicial finding,
-        formal legal pleading,
-        or government investigative report.
+        The project does not attempt to universally characterize all housing or stabilization systems.
       </p>
 
       <p>
         Instead,
-        it functions as a structured chronology and systems-analysis archive examining:
+        it documents a specific chronology of participant interaction with layered administrative structures over time,
+        using preserved records and sequence analysis to identify recurring operational themes.
       </p>
 
-      <ul>
-        <li>Administrative workflow behavior</li>
-        <li>Operational continuity challenges</li>
-        <li>Participant navigation burdens</li>
-        <li>Oversight interaction patterns</li>
-        <li>Procedural evolution over time</li>
-      </ul>
-
-      <div class="method-box">
+      <div class="statement">
 
         <p class="highlight">
-          The focus is institutional process analysis,
-          chronology preservation,
-          and participant-perspective documentation.
+          The archive focuses on observable chronology and documented operational behavior rather than speculation regarding institutional intent.
         </p>
 
       </div>
