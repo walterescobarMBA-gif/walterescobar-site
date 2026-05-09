@@ -23,35 +23,41 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.8;
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,45 +120,45 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
-  padding:95px 20px 75px;
+.hero{
+  padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
-  font-size:clamp(2.6rem,7vw,4.8rem);
-  line-height:1.05;
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
+  line-height:1.05;
 }
 
-header p{
+.hero p{
   max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.16rem;
+  font-size:1.2rem;
 }
 
 .container{
-  max-width:1050px;
+  max-width:1100px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .timeline{
   position:relative;
-  margin-top:30px;
 }
 
 .timeline::before{
   content:"";
   position:absolute;
-  left:20px;
+  left:22px;
   top:0;
   bottom:0;
   width:3px;
@@ -161,26 +167,26 @@ header p{
 
 .item{
   position:relative;
-  padding-left:70px;
-  margin-bottom:70px;
+  padding-left:80px;
+  margin-bottom:75px;
 }
 
 .dot{
   position:absolute;
-  left:10px;
-  top:8px;
-  width:22px;
-  height:22px;
-  background:var(--blue);
+  left:11px;
+  top:10px;
+  width:24px;
+  height:24px;
   border-radius:50%;
+  background:var(--blue);
   border:4px solid var(--bg);
 }
 
 .card{
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:30px;
+  border-radius:18px;
+  padding:36px;
 }
 
 .card h2{
@@ -188,34 +194,28 @@ header p{
   color:var(--blue2);
 }
 
-.card p,
-.card li{
+.card p{
   color:var(--soft);
 }
 
-.badge{
+.tag{
   display:inline-block;
-  margin-top:18px;
+  margin-top:22px;
   background:var(--panel2);
   border:1px solid var(--line);
   color:var(--blue2);
-  padding:8px 14px;
+  padding:9px 16px;
   border-radius:999px;
-  font-size:.92rem;
+  font-size:.9rem;
   font-weight:bold;
 }
 
-.summary{
-  background:var(--panel2);
+.statement{
+  margin-top:45px;
+  background:#09101d;
   border:1px solid var(--line);
   border-radius:16px;
-  padding:32px;
-  margin-top:50px;
-}
-
-.summary h3{
-  margin-top:0;
-  color:var(--blue);
+  padding:28px;
 }
 
 .highlight{
@@ -225,7 +225,7 @@ header p{
 
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -263,8 +263,8 @@ footer{
   .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
@@ -273,16 +273,20 @@ footer{
     padding:8px 0;
   }
 
+  .hero{
+    padding:95px 20px 80px;
+  }
+
   .timeline::before{
     left:12px;
   }
 
   .item{
-    padding-left:45px;
+    padding-left:48px;
   }
 
   .dot{
-    left:2px;
+    left:1px;
   }
 }
 </style>
@@ -291,72 +295,100 @@ footer{
 <body>
 
 <nav>
+
   <div class="nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
       Walter Escobar
     </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
 
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
           <a href="systems-themes.html">Systems Themes</a>
           <a href="documented-contradictions.html">Documented Contradictions</a>
           <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </nav>
 
-<header>
+<section class="hero">
 
-  <h1>Executive Chronology</h1>
+  <h1>
+    Executive Chronology
+  </h1>
 
   <p>
-    This page provides a condensed chronology of major transition,
-    oversight, workflow, and stabilization events reflected across the project archive.
+    A condensed chronology documenting major transition activity,
+    oversight escalation,
+    workflow instability,
+    procedural evolution,
+    and stabilization developments reflected across the archive.
   </p>
 
-</header>
+</section>
 
 <div class="container">
 
@@ -371,16 +403,18 @@ footer{
         <h2>Mid-2025 — Transition Instability Emerges</h2>
 
         <p>
-          Housing instability intensified following the conclusion of a federally funded transitional placement period.
-          The chronology reflects evolving expectations, transition pressure,
-          procedural uncertainty, and active attempts to clarify long-term housing pathways.
+          Housing-transition uncertainty intensified following the conclusion of a federally funded placement period.
+          The chronology reflects escalating concern regarding long-term stabilization pathways,
+          evolving expectations,
+          and administrative uncertainty.
         </p>
 
-        <div class="badge">
-          Transition Instability
+        <div class="tag">
+          Transition Activity
         </div>
 
       </div>
+
     </div>
 
     <div class="item">
@@ -389,19 +423,22 @@ footer{
 
       <div class="card">
 
-        <h2>Summer 2025 — Oversight Activity Expands</h2>
+        <h2>Summer 2025 — Oversight Expansion</h2>
 
         <p>
-          Municipal oversight increasingly became part of the chronology.
-          Administrative escalation, housing-related complaints,
-          inspection activity, and anti-harassment concerns began intersecting with transition planning and participant documentation.
+          Municipal oversight increasingly intersected with participant chronology.
+          Inspection activity,
+          anti-harassment concerns,
+          escalation communication,
+          and administrative review activity became integrated into the operational record.
         </p>
 
-        <div class="badge">
+        <div class="tag">
           Oversight Escalation
         </div>
 
       </div>
+
     </div>
 
     <div class="item">
@@ -410,23 +447,22 @@ footer{
 
       <div class="card">
 
-        <h2>Late 2025 — Workflow Complexity Intensifies</h2>
+        <h2>Late 2025 — Workflow Instability Intensifies</h2>
 
         <p>
-          The record reflects increasing procedural complexity surrounding rental-assistance processing,
-          monitoring review, inspection coordination, and evolving documentation requirements.
+          Rental-assistance processing,
+          routing clarification,
+          monitor references,
+          evolving document requirements,
+          and procedural sequencing became recurring sources of instability throughout the chronology.
         </p>
 
-        <p>
-          The participant repeatedly sought clarification regarding timelines,
-          workflow ownership, procedural authority, and submission requirements.
-        </p>
-
-        <div class="badge">
+        <div class="tag">
           Workflow Instability
         </div>
 
       </div>
+
     </div>
 
     <div class="item">
@@ -438,16 +474,19 @@ footer{
         <h2>Late 2025 — Administrative Time Compression</h2>
 
         <p>
-          Major housing-transition decisions began occurring under compressed timelines.
-          Housing opportunities emerged rapidly following prolonged uncertainty,
-          while participants simultaneously attempted to understand complex requirements and preserve educational continuity.
+          Significant housing-transition decisions increasingly emerged under compressed timelines following prolonged periods of uncertainty.
         </p>
 
-        <div class="badge">
+        <p>
+          Participants were simultaneously expected to understand evolving obligations while preserving educational and procedural continuity.
+        </p>
+
+        <div class="tag">
           Time Compression
         </div>
 
       </div>
+
     </div>
 
     <div class="item">
@@ -459,16 +498,19 @@ footer{
         <h2>Late 2025 to Early 2026 — Procedural Burden Transfer</h2>
 
         <p>
-          The chronology increasingly reflects the participant functioning as a continuity mechanism between entities.
-          Documentation preservation, chronology reconstruction, workflow clarification,
-          and communication coordination became recurring participant responsibilities.
+          The participant increasingly became responsible for preserving chronology,
+          reconstructing timelines,
+          coordinating communication,
+          clarifying workflow ownership,
+          and maintaining continuity across fragmented administrative systems.
         </p>
 
-        <div class="badge">
-          Burden Transfer
+        <div class="tag">
+          Procedural Burden Transfer
         </div>
 
       </div>
+
     </div>
 
     <div class="item">
@@ -477,37 +519,33 @@ footer{
 
       <div class="card">
 
-        <h2>Early 2026 — Formal Transition Approval Activity</h2>
+        <h2>Early 2026 — Stabilization Activation</h2>
 
         <p>
-          Following prolonged procedural uncertainty and repeated workflow clarification efforts,
-          formal rental-assistance approval activity moved forward.
-          Transition planning became more concrete through voucher authorization,
-          housing locator coordination, and implementation-stage processing.
+          Following prolonged procedural uncertainty,
+          formal rental-assistance implementation activity moved forward through voucher authorization,
+          housing locator coordination,
+          and transition-processing activation.
         </p>
 
-        <div class="badge">
-          Stabilization Activation
+        <div class="tag">
+          Stabilization Activity
         </div>
 
       </div>
+
     </div>
 
   </div>
 
-  <div class="summary">
-
-    <h3>Executive Observation</h3>
-
-    <p>
-      Across the chronology,
-      the participant increasingly became responsible for preserving procedural continuity inside a fragmented administrative environment involving housing operations,
-      oversight systems, monitoring review, transition planning,
-      and evolving workflow requirements.
-    </p>
+  <div class="statement">
 
     <p class="highlight">
-      The resulting archive evolved from personal record preservation into a broader systems-analysis project documenting participant interaction with layered stabilization systems in real time.
+      Across the chronology,
+      procedural continuity increasingly depended on participant-generated documentation,
+      chronology preservation,
+      escalation tracking,
+      and workflow clarification efforts.
     </p>
 
   </div>
