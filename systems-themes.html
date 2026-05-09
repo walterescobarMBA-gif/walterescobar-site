@@ -23,35 +23,41 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.8;
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,52 +120,53 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
-  padding:95px 20px 75px;
+.hero{
+  padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
-  font-size:clamp(2.6rem,7vw,4.8rem);
-  line-height:1.05;
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
+  line-height:1.05;
 }
 
-header p{
+.hero p{
   max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.16rem;
+  font-size:1.2rem;
 }
 
 .container{
-  max-width:1120px;
+  max-width:1150px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .section{
-  margin-bottom:85px;
+  margin-bottom:95px;
 }
 
 .section h2{
   color:var(--blue2);
   border-left:4px solid var(--blue);
   padding-left:14px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .card{
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:32px;
+  border-radius:18px;
+  padding:36px;
 }
 
 .card h3{
@@ -180,12 +187,12 @@ li{
   margin-bottom:10px;
 }
 
-.theme-box{
-  background:var(--panel2);
+.statement{
+  margin-top:28px;
+  background:#09101d;
   border:1px solid var(--line);
   border-radius:14px;
   padding:24px;
-  margin-top:24px;
 }
 
 .highlight{
@@ -193,9 +200,31 @@ li{
   font-weight:bold;
 }
 
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.grid-card{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:26px;
+}
+
+.grid-card h3{
+  margin-top:0;
+  color:var(--blue);
+}
+
+.grid-card p{
+  color:var(--soft);
+}
+
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -233,14 +262,18 @@ footer{
   .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
 
   .dropdown-content a{
     padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
   }
 }
 </style>
@@ -249,102 +282,169 @@ footer{
 <body>
 
 <nav>
+
   <div class="nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
       Walter Escobar
     </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
 
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
           <a href="systems-themes.html">Systems Themes</a>
           <a href="documented-contradictions.html">Documented Contradictions</a>
           <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </nav>
 
-<header>
+<section class="hero">
 
-  <h1>Systems Themes</h1>
+  <h1>
+    Systems Themes
+  </h1>
 
   <p>
-    This section identifies recurring operational patterns reflected across
-    participant correspondence, oversight activity, workflow disputes,
-    transition planning, monitoring activity, and procedural chronology.
+    This section identifies recurring operational patterns reflected across participant correspondence,
+    oversight activity,
+    workflow disputes,
+    transition processing,
+    and chronology reconstruction throughout the archive.
   </p>
 
-</header>
+</section>
 
 <div class="container">
 
   <section class="section">
 
-    <h2>Administrative Fragmentation</h2>
+    <h2>Core Operational Themes</h2>
 
-    <div class="card">
+    <div class="grid">
 
-      <h3>Observed Pattern</h3>
+      <div class="grid-card">
 
-      <p>
-        The chronology reflects repeated movement between healthcare administration,
-        housing coordination, subcontracted operations, municipal oversight,
-        monitoring review, and transition planning systems.
-      </p>
+        <h3>Administrative Fragmentation</h3>
 
-      <ul>
-        <li>Operational authority shifted depending on the issue being discussed.</li>
-        <li>Entities appeared integrated during intake and participation periods.</li>
-        <li>Responsibility boundaries became less clear during escalation.</li>
-        <li>Jurisdictional explanations evolved over time.</li>
-      </ul>
-
-      <div class="theme-box">
-        <p class="highlight">
-          Core Theme:
-          Administrative integration appeared strongest during intake and weakest during accountability escalation.
+        <p>
+          Operational authority and responsibility evolved across entities during escalation and transition periods.
         </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Workflow Instability</h3>
+
+        <p>
+          Routing structures,
+          review timelines,
+          and procedural explanations repeatedly shifted over time.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Procedural Burden Transfer</h3>
+
+        <p>
+          The participant increasingly became responsible for preserving continuity across systems.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Administrative Time Compression</h3>
+
+        <p>
+          Significant housing decisions frequently emerged under compressed timelines.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Reactive Stabilization</h3>
+
+        <p>
+          Stabilization measures often intensified after escalation or chronology preservation activity.
+        </p>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Oversight Expansion</h3>
+
+        <p>
+          Municipal oversight and monitoring increasingly became part of the operational chronology itself.
+        </p>
+
       </div>
 
     </div>
@@ -353,29 +453,30 @@ footer{
 
   <section class="section">
 
-    <h2>Administrative Time Compression</h2>
+    <h2>Administrative Fragmentation</h2>
 
     <div class="card">
 
-      <h3>Observed Pattern</h3>
+      <h3>Evolving Institutional Boundaries</h3>
 
       <p>
-        Major housing decisions were frequently introduced under compressed timelines.
-        The participant often sought clarification while simultaneously navigating short response windows and evolving expectations.
+        The chronology reflects repeated movement between housing coordination,
+        municipal oversight,
+        subcontracted operations,
+        transition processing,
+        and participant-facing administrative systems.
       </p>
 
-      <ul>
-        <li>Housing opportunities appeared suddenly after periods of uncertainty.</li>
-        <li>Response expectations were compressed relative to decision complexity.</li>
-        <li>Procedural requirements evolved while deadlines remained active.</li>
-        <li>Long-term housing choices were expected during unstable conditions.</li>
-      </ul>
+      <p>
+        Institutional boundaries often appeared more integrated during intake and participation periods than during escalation or accountability periods.
+      </p>
 
-      <div class="theme-box">
+      <div class="statement">
+
         <p class="highlight">
-          Core Theme:
-          Time pressure became a recurring operational feature of the transition process.
+          Administrative integration appeared strongest during onboarding and weakest during procedural dispute or escalation.
         </p>
+
       </div>
 
     </div>
@@ -388,25 +489,27 @@ footer{
 
     <div class="card">
 
-      <h3>Observed Pattern</h3>
+      <h3>Continuity Preservation Shifted Toward the Participant</h3>
 
       <p>
-        The participant repeatedly absorbed procedural labor required to maintain continuity across fragmented administrative systems.
+        The participant increasingly became responsible for:
       </p>
 
       <ul>
-        <li>Tracking deadlines and shifting instructions.</li>
-        <li>Clarifying workflow ownership.</li>
-        <li>Requesting policy authority and written explanations.</li>
-        <li>Coordinating communication between agencies and stakeholders.</li>
-        <li>Preserving chronology to reduce ambiguity.</li>
+        <li>Timeline reconstruction</li>
+        <li>Workflow clarification</li>
+        <li>Deadline tracking</li>
+        <li>Communication coordination</li>
+        <li>Procedural interpretation</li>
+        <li>Documentation preservation</li>
       </ul>
 
-      <div class="theme-box">
+      <div class="statement">
+
         <p class="highlight">
-          Core Theme:
-          Documentation became a stabilization mechanism because procedural continuity was not consistently centralized.
+          Documentation became both a record-preservation mechanism and a stabilization mechanism.
         </p>
+
       </div>
 
     </div>
@@ -415,122 +518,26 @@ footer{
 
   <section class="section">
 
-    <h2>Participant Reliance</h2>
+    <h2>Administrative Time Compression</h2>
 
     <div class="card">
 
-      <h3>Observed Pattern</h3>
+      <h3>Compressed Decision Windows</h3>
 
       <p>
-        Participant-facing procedures, grievance materials,
-        escalation pathways, and published instructions were repeatedly relied upon in good faith.
+        Significant housing-transition decisions repeatedly emerged under compressed timelines following extended uncertainty.
       </p>
-
-      <ul>
-        <li>Participants followed disclosed escalation pathways.</li>
-        <li>Published grievance numbers were used as instructed.</li>
-        <li>Intake materials shaped participant understanding of authority structures.</li>
-        <li>Later jurisdictional clarification complicated prior guidance.</li>
-      </ul>
-
-      <div class="theme-box">
-        <p class="highlight">
-          Core Theme:
-          Participant reliance on published procedures later collided with evolving operational interpretation.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Workflow Instability</h2>
-
-    <div class="card">
-
-      <h3>Observed Pattern</h3>
 
       <p>
-        Housing-transition workflows reflected repeated procedural evolution during active compliance periods.
+        Participants were often expected to make consequential long-term decisions while simultaneously attempting to understand evolving procedural requirements.
       </p>
 
-      <ul>
-        <li>Document requirements changed during review.</li>
-        <li>Review timelines remained unclear.</li>
-        <li>Responsibility allocation shifted repeatedly.</li>
-        <li>Monitor review became a recurring explanation for delay.</li>
-        <li>Workflow sequencing was not always transparent.</li>
-      </ul>
+      <div class="statement">
 
-      <div class="theme-box">
         <p class="highlight">
-          Core Theme:
-          Workflow instability increased participant reliance on self-generated procedural organization.
+          Time pressure became a recurring operational characteristic of the transition process.
         </p>
-      </div>
 
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Reactive Stabilization</h2>
-
-    <div class="card">
-
-      <h3>Observed Pattern</h3>
-
-      <p>
-        Stabilization efforts frequently intensified after participant escalation,
-        documentation preservation, oversight involvement, or procedural clarification requests.
-      </p>
-
-      <ul>
-        <li>Extensions emerged after instability escalation.</li>
-        <li>Transition pathways became clearer after prolonged uncertainty.</li>
-        <li>Approvals followed extended workflow disputes.</li>
-        <li>Oversight involvement increasingly intersected with stabilization activity.</li>
-      </ul>
-
-      <div class="theme-box">
-        <p class="highlight">
-          Core Theme:
-          Stabilization frequently appeared reactive rather than anticipatory.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Oversight Escalation</h2>
-
-    <div class="card">
-
-      <h3>Observed Pattern</h3>
-
-      <p>
-        Municipal oversight, monitoring review, inspection coordination,
-        anti-harassment activity, and state-level review increasingly became intertwined with routine housing chronology.
-      </p>
-
-      <ul>
-        <li>Municipal agencies became active participants in the chronology.</li>
-        <li>Inspection activity evolved over time.</li>
-        <li>Oversight records independently corroborated timeline events.</li>
-        <li>Administrative review expanded beyond internal program communication.</li>
-      </ul>
-
-      <div class="theme-box">
-        <p class="highlight">
-          Core Theme:
-          Oversight escalation transformed the chronology into a multi-layered administrative record.
-        </p>
       </div>
 
     </div>
