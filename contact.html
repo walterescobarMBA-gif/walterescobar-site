@@ -23,35 +23,41 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.8;
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,41 +120,42 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
-  padding:100px 20px 80px;
+.hero{
+  padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
-  font-size:clamp(2.7rem,7vw,5rem);
-  line-height:1.05;
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
+  line-height:1.05;
 }
 
-header p{
-  max-width:950px;
+.hero p{
+  max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.18rem;
+  font-size:1.2rem;
 }
 
 .container{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
-  padding:36px;
+  padding:40px;
 }
 
 .card h2{
@@ -160,12 +167,18 @@ header p{
   color:var(--soft);
 }
 
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+  margin-top:32px;
+}
+
 .contact-box{
   background:var(--panel2);
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-  margin-top:26px;
+  border-radius:16px;
+  padding:26px;
 }
 
 .contact-box h3{
@@ -173,20 +186,22 @@ header p{
   color:var(--blue);
 }
 
-.contact-item{
-  margin-bottom:18px;
+.contact-box a{
+  color:var(--blue2);
+  text-decoration:none;
+  word-break:break-word;
 }
 
-.contact-item strong{
-  color:var(--blue2);
+.contact-box a:hover{
+  text-decoration:underline;
 }
 
 .statement{
+  margin-top:36px;
   background:#09101d;
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-  margin-top:28px;
+  border-radius:16px;
+  padding:28px;
 }
 
 .highlight{
@@ -196,7 +211,7 @@ header p{
 
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -215,4 +230,218 @@ footer{
     display:none;
     width:100%;
     flex-direction:column;
-    align-items:flex
+    align-items:flex-start;
+    padding-top:16px;
+  }
+
+  .menu-toggle:checked ~ .menu{
+    display:flex;
+  }
+
+  .dropdown{
+    width:100%;
+  }
+
+  .dropbtn{
+    padding:8px 0;
+  }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    border:none;
+    box-shadow:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{
+    padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
+  }
+
+  .card{
+    padding:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+  <div class="nav-wrap">
+
+    <a href="index.html" class="logo">
+      Walter Escobar
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
+
+    <div class="menu">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
+
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+
+      </div>
+
+      <div class="dropdown">
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
+
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
+        </div>
+
+      </div>
+
+      <div class="dropdown">
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
+
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+
+      </div>
+
+      <div class="dropdown">
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
+
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<section class="hero">
+
+  <h1>
+    Contact
+  </h1>
+
+  <p>
+    Contact information related to the Housing Systems Accountability Project,
+    chronology archive,
+    participant-centered systems analysis,
+    and public-interest documentation initiatives.
+  </p>
+
+</section>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>
+      Project Contact Information
+    </h2>
+
+    <p>
+      This project focuses on chronology-based systems analysis,
+      administrative accountability,
+      participant-centered documentation,
+      and operational transparency relating to housing-transition systems.
+    </p>
+
+    <div class="contact-grid">
+
+      <div class="contact-box">
+
+        <h3>
+          Email
+        </h3>
+
+        <a href="mailto:WalterEscobar@proton.me">
+          WalterEscobar@proton.me
+        </a>
+
+      </div>
+
+      <div class="contact-box">
+
+        <h3>
+          Website
+        </h3>
+
+        <a href="https://walterescobar.org">
+          walterescobar.org
+        </a>
+
+      </div>
+
+      <div class="contact-box">
+
+        <h3>
+          Project Focus
+        </h3>
+
+        <p>
+          Housing systems accountability,
+          chronology analysis,
+          oversight transparency,
+          and participant-centered operational research.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="statement">
+
+      <p class="highlight">
+        The Housing Systems Accountability Project prioritizes chronology preservation,
+        operational transparency,
+        and participant-centered systems analysis.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Walter Escobar | Housing Systems Accountability Project
+</footer>
+
+</body>
+</html>
