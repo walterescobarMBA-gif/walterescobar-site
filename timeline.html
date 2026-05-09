@@ -8,508 +8,518 @@
 
 <style>
 :root{
-  --bg:#020617;
-  --navy:#07111f;
-  --gold:#d6b46d;
-  --white:#ffffff;
-  --muted:#cbd5e1;
-  --light:#f8fafc;
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
 }
 
 *{
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   background:var(--bg);
-  color:var(--white);
+  color:var(--text);
+  font-family:Arial,sans-serif;
   line-height:1.75;
 }
 
-header{
-  min-height:65vh;
-  display:flex;
-  align-items:center;
-  padding:120px 24px;
-  background:
-    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.96)),
-    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
-}
-
-.hero{
-  max-width:1150px;
-  margin:auto;
-}
-
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:24px;
-}
-
-h1{
-  font-size:clamp(56px,10vw,120px);
-  line-height:.9;
-  letter-spacing:-.07em;
-  margin:0 0 34px;
-}
-
-.hero p{
-  font-size:clamp(22px,4vw,36px);
-  color:var(--muted);
-  max-width:900px;
-}
-
 nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  padding:18px 12px;
-  text-align:center;
-  overflow-x:auto;
-  white-space:nowrap;
 }
 
-nav a{
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+}
+
+.logo{
+  color:var(--text);
   text-decoration:none;
-  color:#020617;
-  font-weight:900;
-  margin:0 14px;
-  font-size:18px;
+  font-weight:bold;
 }
 
-nav a:hover{
-  color:var(--gold);
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-section{
-  padding:90px 24px;
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
+}
+
+.menu a:hover,
+.dropbtn:hover{
+  color:var(--blue2);
+}
+
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
+}
+
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+.menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+header{
+  padding:100px 20px 80px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
+}
+
+header h1{
+  font-size:clamp(2.7rem,7vw,5rem);
+  line-height:1.05;
+  margin:0 0 24px;
+}
+
+header p{
+  max-width:1000px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.18rem;
 }
 
 .container{
-  max-width:1100px;
+  max-width:1050px;
   margin:auto;
-}
-
-.section-title{
-  font-size:clamp(42px,7vw,78px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:0 0 28px;
-}
-
-.lead{
-  font-size:clamp(22px,3vw,30px);
-  color:var(--muted);
-  max-width:920px;
+  padding:75px 20px;
 }
 
 .timeline{
   position:relative;
-  margin-top:70px;
 }
 
 .timeline::before{
   content:"";
   position:absolute;
-  left:22px;
+  left:20px;
   top:0;
-  width:4px;
-  height:100%;
-  background:rgba(214,180,109,.35);
+  bottom:0;
+  width:3px;
+  background:var(--blue);
 }
 
-.timeline-item{
+.item{
   position:relative;
-  margin-bottom:46px;
-  padding-left:80px;
+  padding-left:72px;
+  margin-bottom:70px;
 }
 
-.timeline-dot{
+.dot{
   position:absolute;
-  left:8px;
-  top:10px;
-  width:32px;
-  height:32px;
+  left:10px;
+  top:8px;
+  width:22px;
+  height:22px;
   border-radius:50%;
-  background:var(--gold);
-  border:6px solid var(--bg);
+  background:var(--blue);
+  border:4px solid var(--bg);
 }
 
-.timeline-card{
-  background:var(--navy);
-  border:1px solid rgba(214,180,109,.18);
-  border-radius:28px;
-  padding:36px;
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:32px;
 }
 
-.timeline-date{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:13px;
-  font-weight:900;
-  margin-bottom:14px;
-}
-
-.timeline-card h3{
+.card h2{
   margin-top:0;
-  font-size:34px;
-  line-height:1.05;
+  color:var(--blue2);
 }
 
-.timeline-card p{
-  color:var(--muted);
-  font-size:18px;
+.card p,
+.card li{
+  color:var(--soft);
 }
 
-.note{
-  margin-top:20px;
-  border-left:4px solid var(--gold);
-  padding-left:18px;
-  color:var(--white);
-  font-weight:700;
+.tag{
+  display:inline-block;
+  margin-top:18px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  color:var(--blue2);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:.9rem;
+  font-weight:bold;
 }
 
-.statement{
-  margin-top:60px;
-  border-left:6px solid var(--gold);
-  padding-left:30px;
-  font-size:clamp(24px,4vw,40px);
-  font-weight:850;
-  max-width:980px;
+.summary{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:30px;
+  margin-top:50px;
 }
 
-.light{
-  background:var(--white);
-  color:#020617;
+.summary h3{
+  margin-top:0;
+  color:var(--blue);
 }
 
-.light .lead{
-  color:#334155;
-}
-
-.light .timeline-card{
-  background:#f8fafc;
-  border:1px solid rgba(2,6,23,.08);
-}
-
-.light .timeline-card p{
-  color:#334155;
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
 }
 
 footer{
-  padding:44px 24px;
   text-align:center;
-  color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,.08);
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-  header{
-    padding:90px 24px;
+  .nav-wrap{
+    flex-wrap:wrap;
   }
 
-  nav a{
-    font-size:16px;
-    margin:0 10px;
+  .menu-icon{
+    display:block;
   }
 
-  section{
-    padding:70px 22px;
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
   }
 
-  .timeline-item{
-    padding-left:70px;
+  .menu-toggle:checked ~ .menu{
+    display:flex;
   }
 
+  .dropdown{
+    width:100%;
+  }
+
+  .dropbtn{
+    padding:8px 0;
+  }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{
+    padding:8px 0;
+  }
+
+  .timeline::before{
+    left:12px;
+  }
+
+  .item{
+    padding-left:45px;
+  }
+
+  .dot{
+    left:2px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
-
-    <div class="kicker">
-      Timeline
-    </div>
-
-    <h1>
-      Documented chronology.
-    </h1>
-
-    <p>
-      This timeline organizes major notices,
-      policy developments,
-      oversight actions,
-      correspondence,
-      and stabilization-related events within the broader project chronology.
-    </p>
-
-  </div>
-</header>
-
 <nav>
-  <a href="index.html">Home</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="case-study.html">Case Study</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="initiatives.html">Initiatives</a>
-  <a href="contact.html">Contact</a>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      Walter Escobar
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </nav>
 
-<section>
-  <div class="container">
+<header>
 
-    <h2 class="section-title">
-      Administrative Timeline
-    </h2>
+  <h1>Timeline</h1>
 
-    <p class="lead">
-      Events below are presented chronologically using preserved notices,
-      correspondence,
-      oversight directives,
-      monitoring records,
-      and participant-retained documentation.
-    </p>
+  <p>
+    This page preserves the broader chronology of transition activity,
+    oversight escalation, workflow instability,
+    inspection activity, procedural disputes,
+    and stabilization developments reflected throughout the archive.
+  </p>
 
-    <div class="timeline">
+</header>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
+<div class="container">
 
-        <div class="timeline-card">
-          <div class="timeline-date">
-            July 3, 2025
-          </div>
+  <div class="timeline">
 
-          <h3>
-            Lease Cancellation Notice
-          </h3>
+    <div class="item">
 
-          <p>
-            Documentation issued regarding cancellation of a proposed move-in arrangement
-            associated with unpaid move-in fee requirements and housing placement uncertainty.
-          </p>
+      <div class="dot"></div>
 
-          <div class="note">
-            The notice became part of the broader stabilization chronology preserved within the project archive.
-          </div>
+      <div class="card">
+
+        <h2>Mid-2025</h2>
+
+        <p>
+          Transition instability intensified during the conclusion of a federally funded placement period.
+          The chronology reflects evolving expectations, extension discussions,
+          housing uncertainty, and escalating concern regarding long-term stabilization pathways.
+        </p>
+
+        <div class="tag">
+          Transition Activity
         </div>
-      </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card">
-          <div class="timeline-date">
-            July 3, 2025
-          </div>
-
-          <h3>
-            Transitional Housing Communication
-          </h3>
-
-          <p>
-            Additional correspondence referenced transitional housing occupancy timelines,
-            courtesy extensions,
-            and operational concerns regarding the property environment.
-          </p>
-
-          <div class="note">
-            Multiple administrative framings began appearing simultaneously during this period.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card">
-          <div class="timeline-date">
-            July 16, 2025
-          </div>
-
-          <h3>
-            Federal Housing Program Vacate Notice
-          </h3>
-
-          <p>
-            Formal notice referenced expiration of an approved transitional housing extension period
-            and directed vacatur from the placement.
-          </p>
-
-          <div class="note">
-            The notice later became contextually significant following updated oversight guidance.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card">
-          <div class="timeline-date">
-            September 27, 2025
-          </div>
-
-          <h3>
-            Property-Level Pay or Quit Notice
-          </h3>
-
-          <p>
-            A property-level three-day notice to pay or quit was issued involving substantial arrears
-            connected to the housing location associated with participant placements.
-          </p>
-
-          <div class="note">
-            Housing stability concerns intensified during this period.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card">
-          <div class="timeline-date">
-            October 1, 2025
-          </div>
-
-          <h3>
-            Local Housing Filing Activity
-          </h3>
-
-          <p>
-            Local housing filing activity associated with the property was later incorporated into the broader
-            administrative chronology and oversight concerns.
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card">
-          <div class="timeline-date">
-            November 1–4, 2025
-          </div>
-
-          <h3>
-            Participant Relocations & Oversight Concerns
-          </h3>
-
-          <p>
-            Multiple participant relocations occurred during this period,
-            prompting clarification requests involving sponsor coordination,
-            property status,
-            and operational communication processes.
-          </p>
-
-          <div class="note">
-            Subsequent correspondence later acknowledged that certain relocation activities had not initially
-            been fully coordinated through sponsor program staff.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card">
-          <div class="timeline-date">
-            November 4, 2025
-          </div>
-
-          <h3>
-            Updated Federal Housing Guidance Issued
-          </h3>
-
-          <p>
-            Updated guidance emphasized housing stabilization,
-            individualized review,
-            and clarification that the federal housing framework did not impose an automatic transitional housing cutoff.
-          </p>
-
-          <div class="note">
-            The guidance became a major contextual document within the project analysis.
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card">
-          <div class="timeline-date">
-            2025–2026
-          </div>
-
-          <h3>
-            Records Requests & Oversight Documentation
-          </h3>
-
-          <p>
-            Public records requests resulted in the release of sponsor policies,
-            oversight directives,
-            monitoring reports,
-            and administrative materials connected to the federal housing framework.
-          </p>
-
-          <div class="note">
-            Documentation obtained through these requests significantly expanded the operational context of the project.
-          </div>
-        </div>
       </div>
 
     </div>
 
-    <div class="statement">
-      The significance of the chronology is not any single document,
-      but how administrative actions,
-      oversight guidance,
-      stabilization objectives,
-      and participant experience intersect over time.
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Summer 2025</h2>
+
+        <p>
+          Municipal oversight activity increasingly intersected with the chronology.
+          Housing complaints, anti-harassment concerns,
+          inspection coordination, and escalation communications expanded the scope of the record.
+        </p>
+
+        <div class="tag">
+          Oversight Expansion
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Late 2025</h2>
+
+        <p>
+          Workflow instability surrounding rental-assistance processing intensified.
+          Evolving documentation requests,
+          review delays, monitor references,
+          routing disputes, and procedural clarification efforts became recurring themes.
+        </p>
+
+        <div class="tag">
+          Workflow Instability
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Late 2025</h2>
+
+        <p>
+          Administrative time compression became increasingly visible.
+          Major housing decisions emerged under compressed timelines while participants simultaneously sought clarification regarding long-term obligations and procedural requirements.
+        </p>
+
+        <div class="tag">
+          Time Compression
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Late 2025 to Early 2026</h2>
+
+        <p>
+          The participant increasingly functioned as a continuity mechanism between entities,
+          preserving chronology, reconstructing timelines,
+          coordinating communication, and clarifying workflow ownership during active transition processing.
+        </p>
+
+        <div class="tag">
+          Procedural Burden Transfer
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="item">
+
+      <div class="dot"></div>
+
+      <div class="card">
+
+        <h2>Early 2026</h2>
+
+        <p>
+          Formal rental-assistance approval activity moved forward following prolonged procedural uncertainty.
+          Housing locator coordination, voucher authorization,
+          and implementation-stage transition activity became more concrete.
+        </p>
+
+        <div class="tag">
+          Stabilization Activation
+        </div>
+
+      </div>
+
     </div>
 
   </div>
-</section>
 
-<section class="light">
-  <div class="container">
+  <div class="summary">
 
-    <h2 class="section-title">
-      Chronology & Context
-    </h2>
+    <h3>Chronology Observation</h3>
 
-    <p class="lead">
-      The project timeline is designed to preserve sequence,
-      administrative evolution,
-      and oversight context while distinguishing documented events
-      from later interpretation and analysis.
+    <p>
+      Across the timeline,
+      procedural continuity increasingly depended on participant-generated documentation,
+      chronology preservation,
+      workflow clarification,
+      and escalation tracking.
+    </p>
+
+    <p class="highlight">
+      The resulting archive documents how administrative systems evolve operationally over time,
+      not merely how they are described procedurally.
     </p>
 
   </div>
-</section>
+
+</div>
 
 <footer>
-  © 2026 Walter Escobar · Housing Systems Accountability Project
+  © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
