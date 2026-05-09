@@ -23,35 +23,41 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.8;
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,38 +120,39 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
-  padding:100px 20px 80px;
+.hero{
+  padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
-  font-size:clamp(2.7rem,7vw,5rem);
-  line-height:1.05;
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
+  line-height:1.05;
 }
 
-header p{
-  max-width:1000px;
+.hero p{
+  max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.18rem;
+  font-size:1.2rem;
 }
 
 .container{
-  max-width:1120px;
+  max-width:1150px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .section{
-  margin-bottom:85px;
+  margin-bottom:95px;
 }
 
 .section h2{
@@ -155,11 +162,17 @@ header p{
   margin-bottom:30px;
 }
 
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+
 .card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
-  padding:34px;
+  padding:32px;
 }
 
 .card h3{
@@ -180,30 +193,24 @@ li{
   margin-bottom:10px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
-
-.evidence-box{
+.tag{
+  display:inline-block;
+  margin-top:20px;
   background:var(--panel2);
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-}
-
-.evidence-box h4{
-  margin-top:0;
-  color:var(--blue);
+  color:var(--blue2);
+  padding:8px 15px;
+  border-radius:999px;
+  font-size:.88rem;
+  font-weight:bold;
 }
 
 .statement{
+  margin-top:45px;
   background:#09101d;
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-  margin-top:28px;
+  border-radius:16px;
+  padding:28px;
 }
 
 .highlight{
@@ -213,7 +220,7 @@ li{
 
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -251,14 +258,18 @@ footer{
   .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
 
   .dropdown-content a{
     padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
   }
 }
 </style>
@@ -267,79 +278,231 @@ footer{
 <body>
 
 <nav>
+
   <div class="nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
       Walter Escobar
     </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
 
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
           <a href="systems-themes.html">Systems Themes</a>
           <a href="documented-contradictions.html">Documented Contradictions</a>
           <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </nav>
 
-<header>
+<section class="hero">
 
-  <h1>Evidence Archive</h1>
+  <h1>
+    Evidence Archive
+  </h1>
 
   <p>
-    This archive organizes the primary record categories used throughout the project,
-    including participant correspondence,
+    Organized categories of participant-preserved documentation,
+    chronology records,
     oversight communications,
-    workflow records,
-    transition-processing materials,
-    municipal documentation,
-    and chronology preservation materials.
+    workflow disputes,
+    escalation materials,
+    and transition-processing evidence reflected throughout the archive.
   </p>
 
-</header>
+</section>
 
 <div class="container">
+
+  <section class="section">
+
+    <h2>Evidence Categories</h2>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>
+          Participant Correspondence
+        </h3>
+
+        <p>
+          Email chains,
+          clarification requests,
+          escalation communications,
+          and chronology-preservation records documenting evolving workflow conditions over time.
+        </p>
+
+        <div class="tag">
+          Communication Archive
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Oversight Documentation
+        </h3>
+
+        <p>
+          Municipal oversight interaction,
+          inspection coordination,
+          anti-harassment concerns,
+          monitoring references,
+          and escalation-related administrative activity.
+        </p>
+
+        <div class="tag">
+          Oversight Records
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Workflow Disputes
+        </h3>
+
+        <p>
+          Routing inconsistencies,
+          procedural reversals,
+          evolving document requests,
+          timeline instability,
+          and workflow clarification disputes.
+        </p>
+
+        <div class="tag">
+          Workflow Analysis
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Housing Transition Records
+        </h3>
+
+        <p>
+          Voucher-processing activity,
+          transition planning,
+          stabilization coordination,
+          timeline compression,
+          and administrative sequencing records.
+        </p>
+
+        <div class="tag">
+          Transition Documentation
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Chronology Reconstruction
+        </h3>
+
+        <p>
+          Cross-referenced sequence analysis comparing timing,
+          escalation activity,
+          approvals,
+          procedural explanations,
+          and workflow evolution over time.
+        </p>
+
+        <div class="tag">
+          Sequence Analysis
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Public Records and Policy Materials
+        </h3>
+
+        <p>
+          Publicly available procedures,
+          participant-facing materials,
+          grievance structures,
+          and published operational guidance referenced throughout the chronology.
+        </p>
+
+        <div class="tag">
+          Reference Materials
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
 
   <section class="section">
 
@@ -347,159 +510,34 @@ footer{
 
     <div class="card">
 
+      <h3>
+        Why the Archive Was Preserved
+      </h3>
+
       <p>
-        The archive is organized by operational category rather than by isolated incident.
-        This structure allows recurring procedural patterns to be identified across multiple record types over time.
+        Documentation preservation became operationally necessary as workflow instability,
+        routing uncertainty,
+        escalation activity,
+        and evolving procedural interpretation intensified throughout the chronology.
       </p>
 
-      <div class="statement">
-
-        <p class="highlight">
-          The evidentiary value of the archive emerges through chronology, repetition, sequence, and cross-referenced operational behavior.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Primary Record Categories</h2>
-
-    <div class="grid">
-
-      <div class="evidence-box">
-
-        <h4>Participant Correspondence</h4>
-
-        <p>
-          Emails, clarification requests, escalation communications,
-          workflow questions, accommodation discussions,
-          and participant-generated chronology preservation.
-        </p>
-
-      </div>
-
-      <div class="evidence-box">
-
-        <h4>Oversight Communications</h4>
-
-        <p>
-          Municipal correspondence, anti-harassment notices,
-          monitoring activity, inspection coordination,
-          and oversight escalation records.
-        </p>
-
-      </div>
-
-      <div class="evidence-box">
-
-        <h4>Housing Transition Records</h4>
-
-        <p>
-          Extension notices, rental-assistance discussions,
-          voucher coordination, locator communications,
-          and transition-planning records.
-        </p>
-
-      </div>
-
-      <div class="evidence-box">
-
-        <h4>Workflow Documentation</h4>
-
-        <p>
-          Routing disputes, deadline tracking,
-          monitor references, evolving requirements,
-          and procedural clarification requests.
-        </p>
-
-      </div>
-
-      <div class="evidence-box">
-
-        <h4>Published Procedures</h4>
-
-        <p>
-          Intake materials, grievance pathways,
-          participant-facing procedures,
-          and operational guidance relied upon during escalation periods.
-        </p>
-
-      </div>
-
-      <div class="evidence-box">
-
-        <h4>Public Records</h4>
-
-        <p>
-          Municipal filings, public-record responses,
-          inspection references,
-          property-related documentation,
-          and independently verifiable chronology records.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Operational Themes Reflected Across the Archive</h2>
-
-    <div class="card">
+      <p>
+        The archive therefore functions simultaneously as:
+      </p>
 
       <ul>
-        <li>Administrative fragmentation</li>
-        <li>Procedural burden transfer</li>
-        <li>Administrative time compression</li>
-        <li>Workflow instability</li>
-        <li>Participant reliance on published procedures</li>
-        <li>Oversight escalation</li>
-        <li>Reactive stabilization</li>
-        <li>Evolving operational explanations</li>
+        <li>Chronology preservation</li>
+        <li>Operational reconstruction</li>
+        <li>Workflow analysis</li>
+        <li>Escalation tracking</li>
+        <li>Systems-level documentation</li>
+        <li>Institutional sequence analysis</li>
       </ul>
 
       <div class="statement">
 
-        <p>
-          No single document establishes the project’s analytical conclusions in isolation.
-          The significance emerges through cumulative chronology and repeated operational patterns across multiple systems.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Preservation Purpose</h2>
-
-    <div class="card">
-
-      <h3>Continuity and Accountability</h3>
-
-      <p>
-        The archive was preserved in order to reduce ambiguity,
-        maintain continuity,
-        and preserve procedural clarity during periods of instability and evolving administrative interpretation.
-      </p>
-
-      <p>
-        Over time,
-        the archive evolved beyond simple recordkeeping and became a systems-analysis framework documenting participant interaction with layered stabilization systems in real time.
-      </p>
-
-      <div class="statement">
-
         <p class="highlight">
-          Documentation became both a preservation mechanism and a stabilization mechanism.
+          The archive focuses on observable chronology and documented operational behavior rather than speculation regarding institutional intent.
         </p>
 
       </div>
