@@ -7,99 +7,217 @@
 <title>Participant Perspective | Walter Escobar</title>
 
 <style>
-body {
-    margin: 0;
-    background: #0d1117;
-    color: #e6edf3;
-    font-family: Arial, sans-serif;
-    line-height: 1.8;
+:root{
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
 }
 
-header {
-    padding: 80px 20px 60px;
-    text-align: center;
-    background: linear-gradient(to bottom, #111827, #0d1117);
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  line-height:1.75;
 }
 
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
-header p {
-    max-width: 900px;
-    margin: auto;
-    color: #9ca3af;
-    font-size: 1.1rem;
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
 }
 
-nav {
-    background: #111827;
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #1f2937;
-    position: sticky;
-    top: 0;
+.logo{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:bold;
 }
 
-nav a {
-    color: #60a5fa;
-    text-decoration: none;
-    margin: 0 14px;
-    font-weight: bold;
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-nav a:hover {
-    color: #93c5fd;
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 60px 20px;
+.menu a:hover,
+.dropbtn:hover{ color:var(--blue2); }
+
+.dropdown{ position:relative; }
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
 }
 
-.section {
-    margin-bottom: 70px;
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
 }
 
-.section h2 {
-    color: #93c5fd;
-    border-left: 4px solid #3b82f6;
-    padding-left: 14px;
-    margin-bottom: 24px;
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
 }
 
-.card {
-    background: #111827;
-    border: 1px solid #1f2937;
-    border-radius: 14px;
-    padding: 32px;
+.dropdown:hover .dropdown-content{ display:block; }
+
+.menu-toggle{ display:none; }
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
 }
 
-.card p {
-    color: #d1d5db;
-    margin-bottom: 20px;
+header{
+  padding:95px 20px 75px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
 }
 
-.highlight {
-    color: #93c5fd;
-    font-weight: bold;
+header h1{
+  font-size:clamp(2.6rem,7vw,4.8rem);
+  line-height:1.05;
+  margin:0 0 24px;
 }
 
-blockquote {
-    border-left: 4px solid #3b82f6;
-    padding-left: 18px;
-    color: #cbd5e1;
-    margin: 25px 0;
-    font-style: italic;
+header p{
+  max-width:980px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.16rem;
 }
 
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid #1f2937;
-    color: #6b7280;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.section{
+  margin-bottom:85px;
+}
+
+.section h2{
+  color:var(--blue2);
+  border-left:4px solid var(--blue);
+  padding-left:14px;
+  margin-bottom:28px;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:32px;
+}
+
+.card h3{
+  margin-top:0;
+  color:var(--blue);
+}
+
+.card p,
+.card li{
+  color:var(--soft);
+}
+
+ul{ padding-left:22px; }
+
+li{ margin-bottom:10px; }
+
+.quote{
+  background:var(--panel2);
+  border-left:4px solid var(--blue);
+  border-radius:12px;
+  padding:24px;
+  margin:24px 0;
+  color:var(--soft);
+  font-style:italic;
+}
+
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
+}
+
+@media(max-width:800px){
+
+  .nav-wrap{ flex-wrap:wrap; }
+
+  .menu-icon{ display:block; }
+
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
+  }
+
+  .menu-toggle:checked ~ .menu{ display:flex; }
+
+  .dropdown{ width:100%; }
+
+  .dropbtn{ padding:8px 0; }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{ padding:8px 0; }
 }
 </style>
 </head>
@@ -107,135 +225,166 @@ footer {
 <body>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="executive-chronology.html">Executive Chronology</a>
-    <a href="systems-themes.html">Systems Themes</a>
-    <a href="documented-contradictions.html">Documented Contradictions</a>
-    <a href="participant-perspective.html">Participant Perspective</a>
-    <a href="timeline.html">Timeline</a>
-    <a href="analysis.html">Analysis</a>
+  <div class="nav-wrap">
+    <a class="logo" href="index.html">Walter Escobar</a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <header>
-    <h1>Participant Perspective</h1>
+  <h1>Participant Perspective</h1>
 
-    <p>
-        This section examines the lived administrative experience of navigating
-        layered housing,
-        oversight,
-        monitoring,
-        stabilization,
-        and procedural systems in real time.
-    </p>
+  <p>
+    This section explains how administrative instability is experienced from the participant side,
+    where documentation, communication, compliance, school obligations, and housing uncertainty
+    must be managed at the same time.
+  </p>
 </header>
 
 <div class="container">
 
-    <div class="section">
-        <h2>Real-Time Administrative Navigation</h2>
+  <section class="section">
+    <h2>Real-Time Navigation</h2>
 
-        <div class="card">
+    <div class="card">
+      <h3>The Participant as the Continuity Point</h3>
 
-            <p>
-                The chronology preserved throughout this project was not created
-                retrospectively years later.
-                Much of the documentation emerged during active periods of housing instability,
-                procedural uncertainty,
-                oversight escalation,
-                and administrative transition.
-            </p>
+      <p>
+        The chronology was not created after the fact. Much of the record was preserved while
+        the participant was actively navigating housing instability, oversight escalation,
+        transition planning, document requests, and changing deadlines.
+      </p>
 
-            <p>
-                The participant increasingly became responsible for:
-            </p>
+      <p>
+        Over time, the participant increasingly became responsible for maintaining continuity across
+        multiple systems that were not always aligned.
+      </p>
 
-            <ul>
-                <li>Tracking timelines and deadlines</li>
-                <li>Clarifying workflow ownership</li>
-                <li>Preserving procedural continuity</li>
-                <li>Comparing operational explanations over time</li>
-                <li>Maintaining written communication records</li>
-                <li>Coordinating cross-agency communication</li>
-                <li>Reconstructing chronology during evolving administrative conditions</li>
-            </ul>
-
-        </div>
+      <ul>
+        <li>Tracking deadlines and changing requirements.</li>
+        <li>Requesting written clarification when instructions shifted.</li>
+        <li>Preserving emails, notices, inspection communications, and agency responses.</li>
+        <li>Coordinating communication between housing staff, oversight entities, and school officials.</li>
+        <li>Separating cooperation from procedural objection.</li>
+      </ul>
     </div>
+  </section>
 
-    <div class="section">
-        <h2>The Experience of Procedural Instability</h2>
+  <section class="section">
+    <h2>Administrative Burden</h2>
 
-        <div class="card">
+    <div class="card">
+      <h3>Procedural Labor</h3>
 
-            <blockquote>
-                “At times the process felt less like a structured system and more like
-                a constantly shifting administrative environment.”
-            </blockquote>
+      <p>
+        The record reflects a significant amount of procedural labor being absorbed by the participant.
+        This included reading program materials, organizing records, requesting policy authority,
+        comparing prior communications, and clarifying workflow ownership.
+      </p>
 
-            <p>
-                Across the chronology,
-                operational expectations frequently evolved while participants simultaneously
-                attempted to maintain educational continuity,
-                housing stability,
-                procedural compliance,
-                and communication responsiveness.
-            </p>
+      <div class="quote">
+        Documentation became a way to preserve stability when the administrative process itself felt unstable.
+      </div>
 
-            <p>
-                Repeated themes included:
-            </p>
-
-            <ul>
-                <li>Evolving documentation requests</li>
-                <li>Undefined review timelines</li>
-                <li>Shifting workflow instructions</li>
-                <li>Jurisdictional ambiguity</li>
-                <li>Inspection and monitoring escalation</li>
-                <li>Changing administrative explanations</li>
-            </ul>
-
-        </div>
+      <p>
+        This burden matters because participants in housing-transition systems may already be managing
+        school, income instability, health-related needs, relocation stress, and survival-level uncertainty.
+      </p>
     </div>
+  </section>
 
-    <div class="section">
-        <h2>Documentation as Stabilization</h2>
+  <section class="section">
+    <h2>Participant-Centered Processing</h2>
 
-        <div class="card">
+    <div class="card">
+      <h3>Efficiency, Accessibility, and Written Review</h3>
 
-            <p>
-                Over time,
-                record preservation itself became a stabilization strategy.
-            </p>
+      <p>
+        The participant repeatedly requested electronic completion, written explanations,
+        and clear deadlines, not to delay the process, but to reduce errors and preserve clarity.
+      </p>
 
-            <p>
-                Emails,
-                notices,
-                oversight correspondence,
-                policy materials,
-                municipal records,
-                and procedural communications were preserved in order to:
-            </p>
+      <ul>
+        <li>Written review was requested because documents were lengthy and consequential.</li>
+        <li>Electronic completion was requested to preserve school obligations and reduce unnecessary travel.</li>
+        <li>Virtual processing was requested where the task involved document review and signatures.</li>
+        <li>Clarification was requested before major long-term housing decisions were made.</li>
+      </ul>
 
-            <ul>
-                <li>Maintain continuity during rapidly evolving conditions</li>
-                <li>Reduce ambiguity regarding prior communications</li>
-                <li>Preserve institutional chronology</li>
-                <li>Clarify participant understanding of procedures</li>
-                <li>Document operational shifts over time</li>
-            </ul>
-
-            <p class="highlight">
-                The resulting archive evolved from personal record preservation
-                into broader systems-oriented institutional analysis.
-            </p>
-
-        </div>
+      <p class="highlight">
+        The perspective captured here is not refusal to participate. It is an effort to participate accurately,
+        efficiently, and with a reliable written record.
+      </p>
     </div>
+  </section>
+
+  <section class="section">
+    <h2>Why This Perspective Matters</h2>
+
+    <div class="card">
+      <h3>Systems Are Experienced Through Process</h3>
+
+      <p>
+        Housing systems are often evaluated through policies, contracts, and administrative outcomes.
+        This project adds another layer: how the process is experienced by the person required to navigate it.
+      </p>
+
+      <p>
+        From the participant perspective, unclear timelines, shifting instructions, and undefined authority
+        are not minor administrative details. They shape stability, planning, education, and the ability to comply.
+      </p>
+
+      <p class="highlight">
+        The project documents how procedural clarity itself becomes a housing-stability issue.
+      </p>
+    </div>
+  </section>
 
 </div>
 
 <footer>
-    © 2026 Walter Escobar | Housing Systems Accountability Project
+  © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
