@@ -23,6 +23,10 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
@@ -32,26 +36,28 @@ body{
 }
 
 nav{
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
 .nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
 .logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
 .menu{
@@ -67,8 +73,8 @@ nav{
   font-weight:bold;
   background:none;
   border:none;
-  font-size:.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
@@ -85,12 +91,12 @@ nav{
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:240px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
@@ -114,24 +120,25 @@ nav{
 
 .menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-header{
+.hero{
   padding:110px 20px 85px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-header h1{
+.hero h1{
   font-size:clamp(2.8rem,7vw,5.1rem);
   margin:0 0 24px;
   line-height:1.05;
 }
 
-header p{
+.hero p{
   max-width:980px;
   margin:auto;
   color:var(--muted);
@@ -139,16 +146,16 @@ header p{
 }
 
 .container{
-  max-width:1120px;
+  max-width:1150px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
 .finding{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
-  padding:34px;
+  padding:36px;
   margin-bottom:34px;
 }
 
@@ -162,11 +169,11 @@ header p{
 }
 
 .statement{
-  margin-top:24px;
-  background:var(--panel2);
+  margin-top:28px;
+  background:#09101d;
   border:1px solid var(--line);
   border-radius:14px;
-  padding:22px;
+  padding:24px;
 }
 
 .highlight{
@@ -176,7 +183,7 @@ header p{
 
 footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
@@ -214,14 +221,18 @@ footer{
   .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
 
   .dropdown-content a{
     padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
   }
 }
 </style>
@@ -230,31 +241,42 @@ footer{
 <body>
 
 <nav>
+
   <div class="nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a href="index.html" class="logo">
       Walter Escobar
     </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
 
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
@@ -263,43 +285,56 @@ footer{
           <a href="analysis.html">Analysis</a>
           <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
 
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </nav>
 
-<header>
+<section class="hero">
 
-  <h1>Key Findings</h1>
+  <h1>
+    Key Findings
+  </h1>
 
   <p>
-    This page summarizes the major operational conclusions reflected across the chronology,
-    documentation archive,
-    workflow records,
+    This section summarizes the major operational conclusions reflected across the chronology,
     oversight activity,
-    and participant-preserved communications.
+    workflow disputes,
+    participant-preserved documentation,
+    and systems-analysis archive.
   </p>
 
-</header>
+</section>
 
 <div class="container">
 
@@ -312,9 +347,14 @@ footer{
     </p>
 
     <div class="statement">
+
       <p class="highlight">
-        Documentation, chronology reconstruction, workflow clarification, and communication coordination repeatedly shifted toward the participant.
+        Timeline reconstruction,
+        workflow clarification,
+        escalation tracking,
+        and communication coordination repeatedly shifted toward the participant.
       </p>
+
     </div>
 
   </div>
@@ -328,9 +368,11 @@ footer{
     </p>
 
     <div class="statement">
+
       <p class="highlight">
-        Participants were often expected to make consequential long-term decisions while simultaneously seeking procedural clarification.
+        Participants were often expected to make consequential long-term decisions while simultaneously navigating evolving procedural expectations.
       </p>
+
     </div>
 
   </div>
@@ -340,13 +382,18 @@ footer{
     <h2>Finding 3 — Workflow Instability</h2>
 
     <p>
-      Review timelines, routing responsibilities, procedural explanations, and documentation requirements evolved repeatedly throughout the chronology.
+      Routing structures,
+      review timelines,
+      procedural explanations,
+      and documentation requirements repeatedly evolved throughout the chronology.
     </p>
 
     <div class="statement">
+
       <p class="highlight">
-        Stable workflow ownership was not consistently visible across the transition process.
+        Stable workflow ownership was not consistently visible during major transition periods.
       </p>
+
     </div>
 
   </div>
@@ -356,16 +403,17 @@ footer{
     <h2>Finding 4 — Reactive Stabilization</h2>
 
     <p>
-      Stabilization efforts frequently intensified after participant escalation,
+      Stabilization efforts frequently intensified after escalation activity,
       chronology preservation,
-      oversight activity,
-      or procedural clarification requests.
+      or procedural clarification requests occurred.
     </p>
 
     <div class="statement">
+
       <p class="highlight">
-        Support structures often appeared more concrete after escalation rather than before instability emerged.
+        Operational flexibility often emerged after instability rather than before it.
       </p>
+
     </div>
 
   </div>
@@ -375,35 +423,39 @@ footer{
     <h2>Finding 5 — Participant Reliance on Published Procedures</h2>
 
     <p>
-      Participants relied on disclosed grievance pathways,
+      Participants relied on disclosed grievance structures,
+      escalation pathways,
       intake materials,
-      escalation structures,
-      and published procedures in good faith.
+      and published procedures in good faith throughout the chronology.
     </p>
 
     <div class="statement">
+
       <p class="highlight">
-        Jurisdictional interpretations later evolved or narrowed during escalation periods.
+        Jurisdictional explanations and procedural interpretation later evolved during escalation periods.
       </p>
+
     </div>
 
   </div>
 
   <div class="finding">
 
-    <h2>Finding 6 — Oversight Escalation Changed the Nature of the Record</h2>
+    <h2>Finding 6 — Oversight Altered the Operational Record</h2>
 
     <p>
       Municipal oversight,
       inspection activity,
       monitoring review,
-      and external administrative involvement increasingly became part of the chronology itself.
+      and escalation interaction increasingly became integrated into the chronology itself.
     </p>
 
     <div class="statement">
+
       <p class="highlight">
-        The project evolved from participant documentation into a multi-layered institutional chronology.
+        The project evolved from participant documentation into a layered institutional chronology.
       </p>
+
     </div>
 
   </div>
