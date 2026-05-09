@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Key Findings | Walter Escobar</title>
+
+<style>
+:root{
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  line-height:1.8;
+}
+
+nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+}
+
+.logo{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
+}
+
+.menu a:hover,
+.dropbtn:hover{
+  color:var(--blue2);
+}
+
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:240px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
+}
+
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+.menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+header{
+  padding:110px 20px 85px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
+}
+
+header h1{
+  font-size:clamp(2.8rem,7vw,5.1rem);
+  margin:0 0 24px;
+  line-height:1.05;
+}
+
+header p{
+  max-width:980px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.2rem;
+}
+
+.container{
+  max-width:1120px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.finding{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:34px;
+  margin-bottom:34px;
+}
+
+.finding h2{
+  margin-top:0;
+  color:var(--blue2);
+}
+
+.finding p{
+  color:var(--soft);
+}
+
+.statement{
+  margin-top:24px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px;
+}
+
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
+}
+
+@media(max-width:800px){
+
+  .nav-wrap{
+    flex-wrap:wrap;
+  }
+
+  .menu-icon{
+    display:block;
+  }
+
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
+  }
+
+  .menu-toggle:checked ~ .menu{
+    display:flex;
+  }
+
+  .dropdown{
+    width:100%;
+  }
+
+  .dropbtn{
+    padding:8px 0;
+  }
+
+  .dropdown-content{
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a{
+    padding:8px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-wrap">
+
+    <a class="logo" href="index.html">
+      Walter Escobar
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<header>
+
+  <h1>Key Findings</h1>
+
+  <p>
+    This page summarizes the major operational conclusions reflected across the chronology,
+    documentation archive,
+    workflow records,
+    oversight activity,
+    and participant-preserved communications.
+  </p>
+
+</header>
+
+<div class="container">
+
+  <div class="finding">
+
+    <h2>Finding 1 — Procedural Burden Transfer</h2>
+
+    <p>
+      The participant increasingly became responsible for preserving continuity across fragmented administrative systems.
+    </p>
+
+    <div class="statement">
+      <p class="highlight">
+        Documentation, chronology reconstruction, workflow clarification, and communication coordination repeatedly shifted toward the participant.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="finding">
+
+    <h2>Finding 2 — Administrative Time Compression</h2>
+
+    <p>
+      Significant housing-transition decisions frequently emerged under compressed timelines following prolonged uncertainty.
+    </p>
+
+    <div class="statement">
+      <p class="highlight">
+        Participants were often expected to make consequential long-term decisions while simultaneously seeking procedural clarification.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="finding">
+
+    <h2>Finding 3 — Workflow Instability</h2>
+
+    <p>
+      Review timelines, routing responsibilities, procedural explanations, and documentation requirements evolved repeatedly throughout the chronology.
+    </p>
+
+    <div class="statement">
+      <p class="highlight">
+        Stable workflow ownership was not consistently visible across the transition process.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="finding">
+
+    <h2>Finding 4 — Reactive Stabilization</h2>
+
+    <p>
+      Stabilization efforts frequently intensified after participant escalation,
+      chronology preservation,
+      oversight activity,
+      or procedural clarification requests.
+    </p>
+
+    <div class="statement">
+      <p class="highlight">
+        Support structures often appeared more concrete after escalation rather than before instability emerged.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="finding">
+
+    <h2>Finding 5 — Participant Reliance on Published Procedures</h2>
+
+    <p>
+      Participants relied on disclosed grievance pathways,
+      intake materials,
+      escalation structures,
+      and published procedures in good faith.
+    </p>
+
+    <div class="statement">
+      <p class="highlight">
+        Jurisdictional interpretations later evolved or narrowed during escalation periods.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="finding">
+
+    <h2>Finding 6 — Oversight Escalation Changed the Nature of the Record</h2>
+
+    <p>
+      Municipal oversight,
+      inspection activity,
+      monitoring review,
+      and external administrative involvement increasingly became part of the chronology itself.
+    </p>
+
+    <div class="statement">
+      <p class="highlight">
+        The project evolved from participant documentation into a multi-layered institutional chronology.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Walter Escobar | Housing Systems Accountability Project
+</footer>
+
+</body>
+</html>
