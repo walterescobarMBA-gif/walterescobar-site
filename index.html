@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
 <title>Walter Escobar | Housing Systems Accountability Project</title>
 
 <style>
-:root {
+:root{
   --bg:#0d1117;
   --panel:#111827;
   --panel2:#0b1220;
@@ -19,176 +20,220 @@
   --line:#1f2937;
 }
 
-* {
+*{
   box-sizing:border-box;
 }
 
-body {
+html{
+  scroll-behavior:smooth;
+}
+
+body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:Arial, sans-serif;
-  line-height:1.75;
+  font-family:Arial,sans-serif;
+  line-height:1.8;
 }
 
-nav {
-  background:var(--panel);
-  border-bottom:1px solid var(--line);
+nav{
   position:sticky;
   top:0;
   z-index:999;
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
-.nav-wrap {
+.nav-wrap{
   max-width:1200px;
   margin:auto;
+  padding:14px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 20px;
 }
 
-.logo {
+.logo{
   color:var(--text);
   text-decoration:none;
   font-weight:bold;
+  letter-spacing:.4px;
 }
 
-.menu {
+.menu{
   display:flex;
   gap:18px;
   align-items:center;
 }
 
 .menu a,
-.dropbtn {
+.dropbtn{
   color:var(--blue);
   text-decoration:none;
   font-weight:bold;
   background:none;
   border:none;
-  font-size:0.95rem;
   cursor:pointer;
+  font-size:.95rem;
 }
 
 .menu a:hover,
-.dropbtn:hover {
+.dropbtn:hover{
   color:var(--blue2);
 }
 
-.dropdown {
+.dropdown{
   position:relative;
 }
 
-.dropdown-content {
+.dropdown-content{
   display:none;
   position:absolute;
   top:100%;
   left:0;
+  min-width:240px;
   background:var(--panel);
   border:1px solid var(--line);
-  border-radius:10px;
-  min-width:230px;
+  border-radius:12px;
   padding:10px 0;
-  box-shadow:0 15px 30px rgba(0,0,0,.35);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
 }
 
-.dropdown-content a {
+.dropdown-content a{
   display:block;
   padding:10px 16px;
   color:var(--soft);
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover{
   background:var(--panel2);
   color:var(--blue2);
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content{
   display:block;
 }
 
-.menu-toggle {
+.menu-toggle{
   display:none;
 }
 
-.menu-icon {
+.menu-icon{
   display:none;
-  color:var(--blue);
   font-size:1.6rem;
+  color:var(--blue);
   cursor:pointer;
 }
 
-.hero {
-  padding:115px 20px 95px;
+.hero{
+  padding:120px 20px 100px;
   text-align:center;
-  background:linear-gradient(to bottom,var(--panel),var(--bg));
+  background:
+  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
 }
 
-.hero h1 {
-  font-size:clamp(2.5rem,7vw,4.8rem);
-  line-height:1.05;
-  margin:0 0 24px;
+.hero h1{
+  font-size:clamp(3rem,8vw,5.8rem);
+  line-height:1.02;
+  margin:0 0 28px;
 }
 
-.hero p {
+.hero p{
   max-width:980px;
   margin:auto;
   color:var(--muted);
-  font-size:1.18rem;
+  font-size:1.22rem;
 }
 
-.container {
+.hero-buttons{
+  margin-top:42px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.2s ease;
+}
+
+.primary{
+  background:var(--blue);
+  color:#06111f;
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+}
+
+.secondary{
+  border:1px solid var(--line);
+  color:var(--blue2);
+  background:var(--panel);
+}
+
+.secondary:hover{
+  background:var(--panel2);
+}
+
+.container{
   max-width:1150px;
   margin:auto;
-  padding:75px 20px;
+  padding:85px 20px;
 }
 
-.section {
-  margin-bottom:85px;
+.section{
+  margin-bottom:95px;
 }
 
-.section h2 {
+.section h2{
   color:var(--blue2);
   border-left:4px solid var(--blue);
   padding-left:14px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
-.statement {
-  background:var(--panel2);
+.card{
+  background:var(--panel);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:34px;
+  border-radius:18px;
+  padding:36px;
 }
 
-.statement p {
+.card p,
+.card li{
   color:var(--soft);
 }
 
-.grid {
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
+  gap:22px;
 }
 
-.card {
-  background:var(--panel);
+.grid-card{
+  background:var(--panel2);
   border:1px solid var(--line);
   border-radius:16px;
-  padding:28px;
+  padding:26px;
 }
 
-.card h3 {
+.grid-card h3{
   margin-top:0;
   color:var(--blue);
 }
 
-.card p {
+.grid-card p{
   color:var(--soft);
 }
 
-.card a {
+.grid-card a{
   display:inline-block;
   margin-top:16px;
   color:var(--blue2);
@@ -196,28 +241,41 @@ nav {
   font-weight:bold;
 }
 
-.highlight {
+.grid-card a:hover{
+  text-decoration:underline;
+}
+
+.statement{
+  margin-top:28px;
+  background:#09101d;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+}
+
+.highlight{
   color:var(--blue2);
   font-weight:bold;
 }
 
-footer {
+footer{
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   border-top:1px solid var(--line);
   color:#6b7280;
 }
 
-@media(max-width:800px) {
-  .nav-wrap {
+@media(max-width:800px){
+
+  .nav-wrap{
     flex-wrap:wrap;
   }
 
-  .menu-icon {
+  .menu-icon{
     display:block;
   }
 
-  .menu {
+  .menu{
     display:none;
     width:100%;
     flex-direction:column;
@@ -225,29 +283,33 @@ footer {
     padding-top:16px;
   }
 
-  .menu-toggle:checked ~ .menu {
+  .menu-toggle:checked ~ .menu{
     display:flex;
   }
 
-  .dropdown {
+  .dropdown{
     width:100%;
   }
 
-  .dropbtn {
+  .dropbtn{
     padding:8px 0;
   }
 
-  .dropdown-content {
+  .dropdown-content{
     position:static;
     display:block;
-    box-shadow:none;
     border:none;
+    box-shadow:none;
     background:transparent;
     padding-left:14px;
   }
 
-  .dropdown-content a {
+  .dropdown-content a{
     padding:8px 0;
+  }
+
+  .hero{
+    padding:95px 20px 80px;
   }
 }
 </style>
@@ -256,178 +318,285 @@ footer {
 <body>
 
 <nav>
+
   <div class="nav-wrap">
-    <a class="logo" href="index.html">Walter Escobar</a>
+
+    <a href="index.html" class="logo">
+      Walter Escobar
+    </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <label for="menu-toggle" class="menu-icon">
+      ☰
+    </label>
 
     <div class="menu">
+
       <a href="index.html">Home</a>
 
       <div class="dropdown">
-        <button class="dropbtn">Project ▾</button>
+
+        <button class="dropbtn">
+          Project ▾
+        </button>
+
         <div class="dropdown-content">
           <a href="casestudy.html">Case Study</a>
           <a href="participant-perspective.html">Participant Perspective</a>
           <a href="methodology.html">Methodology</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Analysis ▾</button>
+
+        <button class="dropbtn">
+          Analysis ▾
+        </button>
+
         <div class="dropdown-content">
           <a href="executive-chronology.html">Executive Chronology</a>
           <a href="systems-themes.html">Systems Themes</a>
           <a href="documented-contradictions.html">Documented Contradictions</a>
           <a href="analysis.html">Analysis</a>
+          <a href="key-findings.html">Key Findings</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Archive ▾</button>
+
+        <button class="dropbtn">
+          Archive ▾
+        </button>
+
         <div class="dropdown-content">
           <a href="timeline.html">Timeline</a>
           <a href="evidence.html">Evidence</a>
         </div>
+
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Action ▾</button>
+
+        <button class="dropbtn">
+          Action ▾
+        </button>
+
         <div class="dropdown-content">
           <a href="initiatives.html">Initiatives</a>
           <a href="contact.html">Contact</a>
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </nav>
 
 <section class="hero">
-  <h1>Housing Systems Accountability Project</h1>
+
+  <h1>
+    Housing Systems<br>
+    Accountability Project
+  </h1>
 
   <p>
-    A participant-perspective chronology and systems-analysis project examining
-    administrative fragmentation, procedural instability, oversight escalation,
-    participant reliance, workflow burden transfer, and housing-transition processes
-    within a layered stabilization system.
+    A chronology-based systems analysis examining participant interaction with layered housing,
+    stabilization,
+    oversight,
+    and administrative-processing systems over time.
   </p>
+
+  <div class="hero-buttons">
+
+    <a href="casestudy.html" class="btn primary">
+      Explore the Case Study
+    </a>
+
+    <a href="key-findings.html" class="btn secondary">
+      View Key Findings
+    </a>
+
+  </div>
+
 </section>
 
 <div class="container">
 
   <section class="section">
-    <h2>Project Thesis</h2>
 
-    <div class="statement">
+    <h2>Project Overview</h2>
+
+    <div class="card">
+
       <p>
-        This project documents how a participant increasingly became responsible for
-        preserving continuity, reconstructing chronology, clarifying workflow ownership,
-        and coordinating fragmented procedural communication across multiple entities.
+        This project documents how administrative systems operate in practice from the participant perspective during periods of housing instability,
+        oversight escalation,
+        workflow uncertainty,
+        and long-term stabilization planning.
       </p>
 
-      <p class="highlight">
-        The central issue is not one isolated incident. The record reflects a broader
-        pattern of administrative instability, reactive stabilization, and shifting
-        procedural explanations over time.
+      <p>
+        The archive combines chronology reconstruction,
+        participant-preserved records,
+        oversight communications,
+        workflow documentation,
+        municipal correspondence,
+        and systems-oriented analysis to identify recurring operational patterns over time.
       </p>
-    </div>
-  </section>
 
-  <section class="section">
-    <h2>Core Evidence Themes</h2>
+      <div class="statement">
 
-    <div class="grid">
-
-      <div class="card">
-        <h3>Administrative Time Compression</h3>
-        <p>
-          The record reflects sudden deadlines, rapidly shifting housing options,
-          and compressed decision windows during major housing-transition moments.
+        <p class="highlight">
+          The project evolved from personal documentation into a broader systems-accountability and chronology-analysis initiative.
         </p>
-      </div>
 
-      <div class="card">
-        <h3>Procedural Burden Transfer</h3>
-        <p>
-          The participant repeatedly assumed responsibility for tracking deadlines,
-          clarifying ownership, coordinating records, and preserving communication continuity.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Participant Reliance</h3>
-        <p>
-          Published grievance procedures, intake materials, and disclosed escalation pathways
-          were relied upon in good faith and later complicated by jurisdictional uncertainty.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Reactive Stabilization</h3>
-        <p>
-          Stabilization activity often appeared to intensify after escalation,
-          documentation, oversight involvement, or participant-generated clarification.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Oversight Escalation</h3>
-        <p>
-          Municipal, state, and housing-monitoring activity increasingly intersected
-          with day-to-day housing administration and transition planning.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Operational Contradictions</h3>
-        <p>
-          The chronology reflects evolving explanations around inspections,
-          housing availability, workflow requirements, and procedural authority.
-        </p>
       </div>
 
     </div>
+
   </section>
 
   <section class="section">
-    <h2>Start Here</h2>
+
+    <h2>Core Analytical Areas</h2>
 
     <div class="grid">
 
-      <div class="card">
+      <div class="grid-card">
+
+        <h3>Case Study</h3>
+
+        <p>
+          Central project thesis,
+          chronology framing,
+          and integrated systems overview.
+        </p>
+
+        <a href="casestudy.html">
+          Open Section →
+        </a>
+
+      </div>
+
+      <div class="grid-card">
+
         <h3>Executive Chronology</h3>
+
         <p>
-          Begin with the condensed timeline of major procedural and oversight events.
+          Condensed timeline of major transition,
+          oversight,
+          and stabilization events.
         </p>
-        <a href="executive-chronology.html">Open Executive Chronology →</a>
+
+        <a href="executive-chronology.html">
+          Open Section →
+        </a>
+
       </div>
 
-      <div class="card">
+      <div class="grid-card">
+
         <h3>Systems Themes</h3>
+
         <p>
-          Review the core structural patterns identified across the record.
+          Recurring operational patterns identified across the archive.
         </p>
-        <a href="systems-themes.html">Open Systems Themes →</a>
+
+        <a href="systems-themes.html">
+          Open Section →
+        </a>
+
       </div>
 
-      <div class="card">
+      <div class="grid-card">
+
         <h3>Documented Contradictions</h3>
+
         <p>
-          Examine changing operational explanations and procedural reversals.
+          Evolving procedural explanations,
+          workflow reversals,
+          and operational inconsistencies.
         </p>
-        <a href="documented-contradictions.html">Open Documented Contradictions →</a>
+
+        <a href="documented-contradictions.html">
+          Open Section →
+        </a>
+
       </div>
 
-      <div class="card">
-        <h3>Participant Perspective</h3>
+      <div class="grid-card">
+
+        <h3>Key Findings</h3>
+
         <p>
-          Understand the lived administrative experience behind the chronology.
+          Distilled institutional and operational conclusions reflected across the chronology.
         </p>
-        <a href="participant-perspective.html">Open Participant Perspective →</a>
+
+        <a href="key-findings.html">
+          Open Section →
+        </a>
+
+      </div>
+
+      <div class="grid-card">
+
+        <h3>Evidence Archive</h3>
+
+        <p>
+          Organized categories of chronology records,
+          oversight communications,
+          and workflow documentation.
+        </p>
+
+        <a href="evidence.html">
+          Open Section →
+        </a>
+
       </div>
 
     </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Methodological Approach</h2>
+
+    <div class="card">
+
+      <p>
+        The project prioritizes chronology because sequence itself reveals operational behavior.
+      </p>
+
+      <p>
+        Significant findings emerged through:
+      </p>
+
+      <ul>
+        <li>Timeline reconstruction</li>
+        <li>Cross-referenced communications</li>
+        <li>Workflow comparison</li>
+        <li>Oversight chronology analysis</li>
+        <li>Participant-preserved documentation</li>
+        <li>Administrative sequence evaluation</li>
+      </ul>
+
+      <div class="statement">
+
+        <p class="highlight">
+          The archive demonstrates how systems evolve operationally over time,
+          not merely how they are described procedurally.
+        </p>
+
+      </div>
+
+    </div>
+
   </section>
 
 </div>
