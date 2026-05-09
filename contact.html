@@ -8,404 +8,211 @@
 
 <style>
 :root{
-  --bg:#020617;
-  --navy:#07111f;
-  --gold:#d6b46d;
-  --white:#ffffff;
-  --muted:#cbd5e1;
-  --light:#f8fafc;
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
 }
 
 *{
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   background:var(--bg);
-  color:var(--white);
+  color:var(--text);
+  font-family:Arial,sans-serif;
   line-height:1.75;
 }
 
-header{
-  min-height:65vh;
-  display:flex;
-  align-items:center;
-  padding:120px 24px;
-  background:
-    linear-gradient(135deg,rgba(2,6,23,.97),rgba(7,17,31,.96)),
-    radial-gradient(circle at top left,rgba(214,180,109,.2),transparent 35%);
-}
-
-.hero{
-  max-width:1100px;
-  margin:auto;
-}
-
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.2em;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:24px;
-}
-
-h1{
-  font-size:clamp(56px,10vw,120px);
-  line-height:.9;
-  letter-spacing:-.07em;
-  margin:0 0 34px;
-}
-
-.hero p{
-  font-size:clamp(22px,4vw,36px);
-  color:var(--muted);
-  max-width:900px;
-}
-
 nav{
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
   z-index:999;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(14px);
-  padding:18px 12px;
-  text-align:center;
-  overflow-x:auto;
-  white-space:nowrap;
 }
 
-nav a{
+.nav-wrap{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+}
+
+.logo{
+  color:var(--text);
   text-decoration:none;
-  color:#020617;
-  font-weight:900;
-  margin:0 14px;
-  font-size:18px;
+  font-weight:bold;
 }
 
-nav a:hover{
-  color:var(--gold);
+.menu{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-section{
-  padding:90px 24px;
+.menu a,
+.dropbtn{
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:.95rem;
+  cursor:pointer;
+}
+
+.menu a:hover,
+.dropbtn:hover{
+  color:var(--blue2);
+}
+
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
+}
+
+.dropdown-content a:hover{
+  background:var(--panel2);
+  color:var(--blue2);
+}
+
+.dropdown:hover .dropdown-content{
+  display:block;
+}
+
+.menu-toggle{
+  display:none;
+}
+
+.menu-icon{
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+header{
+  padding:100px 20px 80px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
+}
+
+header h1{
+  font-size:clamp(2.7rem,7vw,5rem);
+  line-height:1.05;
+  margin:0 0 24px;
+}
+
+header p{
+  max-width:950px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.18rem;
 }
 
 .container{
-  max-width:1100px;
+  max-width:900px;
   margin:auto;
+  padding:75px 20px;
 }
 
-.section-title{
-  font-size:clamp(42px,7vw,78px);
-  line-height:1;
-  letter-spacing:-.06em;
-  margin:0 0 26px;
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:36px;
 }
 
-.lead{
-  font-size:clamp(22px,3vw,30px);
-  color:var(--muted);
-  max-width:940px;
-}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
-  margin-top:56px;
-}
-
-.contact-card{
-  background:var(--navy);
-  border:1px solid rgba(214,180,109,.18);
-  border-radius:28px;
-  padding:40px;
-}
-
-.contact-card h3{
+.card h2{
   margin-top:0;
-  font-size:30px;
-  line-height:1.1;
+  color:var(--blue2);
 }
 
-.contact-card p{
-  color:var(--muted);
-  font-size:18px;
+.card p{
+  color:var(--soft);
 }
 
-.contact-label{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-size:13px;
-  font-weight:900;
-  margin-bottom:16px;
+.contact-box{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+  margin-top:26px;
 }
 
-.contact-link{
-  display:block;
-  margin-top:18px;
-  color:var(--white);
-  text-decoration:none;
-  font-size:20px;
-  font-weight:800;
-  word-break:break-word;
+.contact-box h3{
+  margin-top:0;
+  color:var(--blue);
 }
 
-.contact-link:hover{
-  color:var(--gold);
+.contact-item{
+  margin-bottom:18px;
+}
+
+.contact-item strong{
+  color:var(--blue2);
 }
 
 .statement{
-  margin-top:60px;
-  border-left:6px solid var(--gold);
-  padding-left:30px;
-  font-size:clamp(24px,4vw,40px);
-  font-weight:850;
-  max-width:980px;
+  background:#09101d;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+  margin-top:28px;
 }
 
-.light{
-  background:var(--white);
-  color:#020617;
-}
-
-.light .lead{
-  color:#334155;
-}
-
-.light .contact-card{
-  background:#f8fafc;
-  border:1px solid rgba(2,6,23,.08);
-}
-
-.light .contact-card p{
-  color:#334155;
+.highlight{
+  color:var(--blue2);
+  font-weight:bold;
 }
 
 footer{
-  padding:44px 24px;
   text-align:center;
-  color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,.08);
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-  header{
-    padding:90px 24px;
+  .nav-wrap{
+    flex-wrap:wrap;
   }
 
-  nav a{
-    font-size:16px;
-    margin:0 10px;
+  .menu-icon{
+    display:block;
   }
 
-  section{
-    padding:70px 22px;
-  }
-
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="hero">
-
-    <div class="kicker">
-      Contact
-    </div>
-
-    <h1>
-      Public-interest communication.
-    </h1>
-
-    <p>
-      This project focuses on housing systems analysis,
-      stabilization research,
-      oversight structures,
-      participant-facing administration,
-      and public-interest documentation practices.
-    </p>
-
-  </div>
-</header>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="case-study.html">Case Study</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="initiatives.html">Initiatives</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<section>
-  <div class="container">
-
-    <h2 class="section-title">
-      Contact Information
-    </h2>
-
-    <p class="lead">
-      For public-interest communication,
-      documentation inquiries,
-      systems analysis discussion,
-      or housing stabilization research correspondence,
-      use the contact information below.
-    </p>
-
-    <div class="contact-grid">
-
-      <div class="contact-card">
-
-        <div class="contact-label">
-          Primary Contact
-        </div>
-
-        <h3>
-          Walter Escobar
-        </h3>
-
-        <p>
-          Housing Systems Research & Documentation
-        </p>
-
-        <a class="contact-link" href="mailto:walter@walterescobar.org">
-          walter@walterescobar.org
-        </a>
-
-      </div>
-
-      <div class="contact-card">
-
-        <div class="contact-label">
-          Website
-        </div>
-
-        <h3>
-          Public Documentation Archive
-        </h3>
-
-        <p>
-          Housing systems analysis,
-          oversight documentation,
-          stabilization research,
-          and participant-centered operational review.
-        </p>
-
-        <a class="contact-link" href="https://walterescobar.org" target="_blank">
-          walterescobar.org
-        </a>
-
-      </div>
-
-      <div class="contact-card">
-
-        <div class="contact-label">
-          Areas of Focus
-        </div>
-
-        <h3>
-          Project Scope
-        </h3>
-
-        <p>
-          Housing stability,
-          oversight structures,
-          operational continuity,
-          participant documentation,
-          records procedures,
-          and administrative systems analysis.
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="statement">
-      Documentation becomes meaningful when it transforms isolated experiences into structured public understanding.
-    </div>
-
-  </div>
-</section>
-
-<section class="light">
-  <div class="container">
-
-    <h2 class="section-title">
-      Project Principles
-    </h2>
-
-    <p class="lead">
-      The project is guided by chronology preservation,
-      documentation integrity,
-      systems analysis,
-      and participant-centered public-interest framing.
-    </p>
-
-    <div class="contact-grid">
-
-      <div class="contact-card">
-
-        <h3>
-          Documentation Integrity
-        </h3>
-
-        <p>
-          Materials are organized carefully to preserve context,
-          chronology,
-          and factual distinction between documentation and interpretation.
-        </p>
-
-      </div>
-
-      <div class="contact-card">
-
-        <h3>
-          Public-Interest Framing
-        </h3>
-
-        <p>
-          The project focuses on broader operational and systems-level questions
-          rather than sensationalism or personal grievance narratives.
-        </p>
-
-      </div>
-
-      <div class="contact-card">
-
-        <h3>
-          Systems Analysis
-        </h3>
-
-        <p>
-          The long-term objective is greater understanding of how housing systems,
-          oversight structures,
-          and participant-facing administration function in practice.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  © 2026 Walter Escobar · Housing Systems Accountability Project
-</footer>
-
-</body>
-</html>
+  .menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex
