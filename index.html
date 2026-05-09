@@ -7,129 +7,248 @@
 <title>Walter Escobar | Housing Systems Accountability Project</title>
 
 <style>
+:root {
+  --bg:#0d1117;
+  --panel:#111827;
+  --panel2:#0b1220;
+  --text:#e6edf3;
+  --muted:#9ca3af;
+  --soft:#d1d5db;
+  --blue:#60a5fa;
+  --blue2:#93c5fd;
+  --line:#1f2937;
+}
+
+* {
+  box-sizing:border-box;
+}
+
 body {
-    margin: 0;
-    background: #0d1117;
-    color: #e6edf3;
-    font-family: Arial, sans-serif;
-    line-height: 1.8;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial, sans-serif;
+  line-height:1.75;
 }
 
 nav {
-    background: #111827;
-    padding: 16px;
-    text-align: center;
-    border-bottom: 1px solid #1f2937;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:999;
 }
 
-nav a {
-    color: #60a5fa;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
-    font-size: 0.95rem;
+.nav-wrap {
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
 }
 
-nav a:hover {
-    color: #93c5fd;
+.logo {
+  color:var(--text);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.menu {
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.menu a,
+.dropbtn {
+  color:var(--blue);
+  text-decoration:none;
+  font-weight:bold;
+  background:none;
+  border:none;
+  font-size:0.95rem;
+  cursor:pointer;
+}
+
+.menu a:hover,
+.dropbtn:hover {
+  color:var(--blue2);
+}
+
+.dropdown {
+  position:relative;
+}
+
+.dropdown-content {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  min-width:230px;
+  padding:10px 0;
+  box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+.dropdown-content a {
+  display:block;
+  padding:10px 16px;
+  color:var(--soft);
+}
+
+.dropdown-content a:hover {
+  background:var(--panel2);
+  color:var(--blue2);
+}
+
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+
+.menu-toggle {
+  display:none;
+}
+
+.menu-icon {
+  display:none;
+  color:var(--blue);
+  font-size:1.6rem;
+  cursor:pointer;
 }
 
 .hero {
-    padding: 110px 20px 90px;
-    text-align: center;
-    background: linear-gradient(to bottom, #111827, #0d1117);
+  padding:115px 20px 95px;
+  text-align:center;
+  background:linear-gradient(to bottom,var(--panel),var(--bg));
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
+  font-size:clamp(2.5rem,7vw,4.8rem);
+  line-height:1.05;
+  margin:0 0 24px;
 }
 
 .hero p {
-    max-width: 950px;
-    margin: auto;
-    color: #9ca3af;
-    font-size: 1.15rem;
+  max-width:980px;
+  margin:auto;
+  color:var(--muted);
+  font-size:1.18rem;
 }
 
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 70px 20px;
+  max-width:1150px;
+  margin:auto;
+  padding:75px 20px;
 }
 
 .section {
-    margin-bottom: 80px;
+  margin-bottom:85px;
 }
 
 .section h2 {
-    color: #93c5fd;
-    border-left: 4px solid #3b82f6;
-    padding-left: 14px;
-    margin-bottom: 28px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 24px;
-}
-
-.card {
-    background: #111827;
-    border: 1px solid #1f2937;
-    border-radius: 16px;
-    padding: 28px;
-    transition: 0.25s ease;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    border-color: #3b82f6;
-}
-
-.card h3 {
-    margin-top: 0;
-    color: #60a5fa;
-}
-
-.card p {
-    color: #d1d5db;
-}
-
-.card a {
-    display: inline-block;
-    margin-top: 18px;
-    color: #93c5fd;
-    text-decoration: none;
-    font-weight: bold;
+  color:var(--blue2);
+  border-left:4px solid var(--blue);
+  padding-left:14px;
+  margin-bottom:28px;
 }
 
 .statement {
-    background: #0b1220;
-    border: 1px solid #1f2937;
-    border-radius: 16px;
-    padding: 34px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:34px;
 }
 
 .statement p {
-    color: #d1d5db;
-    margin-bottom: 20px;
+  color:var(--soft);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+.card {
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:28px;
+}
+
+.card h3 {
+  margin-top:0;
+  color:var(--blue);
+}
+
+.card p {
+  color:var(--soft);
+}
+
+.card a {
+  display:inline-block;
+  margin-top:16px;
+  color:var(--blue2);
+  text-decoration:none;
+  font-weight:bold;
 }
 
 .highlight {
-    color: #93c5fd;
-    font-weight: bold;
+  color:var(--blue2);
+  font-weight:bold;
 }
 
 footer {
-    text-align: center;
-    padding: 45px 20px;
-    border-top: 1px solid #1f2937;
-    color: #6b7280;
+  text-align:center;
+  padding:45px 20px;
+  border-top:1px solid var(--line);
+  color:#6b7280;
+}
+
+@media(max-width:800px) {
+  .nav-wrap {
+    flex-wrap:wrap;
+  }
+
+  .menu-icon {
+    display:block;
+  }
+
+  .menu {
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:16px;
+  }
+
+  .menu-toggle:checked ~ .menu {
+    display:flex;
+  }
+
+  .dropdown {
+    width:100%;
+  }
+
+  .dropbtn {
+    padding:8px 0;
+  }
+
+  .dropdown-content {
+    position:static;
+    display:block;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    padding-left:14px;
+  }
+
+  .dropdown-content a {
+    padding:8px 0;
+  }
 }
 </style>
 </head>
@@ -137,166 +256,185 @@ footer {
 <body>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="executive-chronology.html">Executive Chronology</a>
-  <a href="systems-themes.html">Systems Themes</a>
-  <a href="documented-contradictions.html">Documented Contradictions</a>
-  <a href="participant-perspective.html">Participant Perspective</a>
-  <a href="casestudy.html">Case Study</a>
-  <a href="timeline.html">Timeline</a>
-  <a href="evidence.html">Evidence</a>
-  <a href="analysis.html">Analysis</a>
-  <a href="methodology.html">Methodology</a>
-  <a href="initiatives.html">Initiatives</a>
-  <a href="contact.html">Contact</a>
+  <div class="nav-wrap">
+    <a class="logo" href="index.html">Walter Escobar</a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Project ▾</button>
+        <div class="dropdown-content">
+          <a href="casestudy.html">Case Study</a>
+          <a href="participant-perspective.html">Participant Perspective</a>
+          <a href="methodology.html">Methodology</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Analysis ▾</button>
+        <div class="dropdown-content">
+          <a href="executive-chronology.html">Executive Chronology</a>
+          <a href="systems-themes.html">Systems Themes</a>
+          <a href="documented-contradictions.html">Documented Contradictions</a>
+          <a href="analysis.html">Analysis</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Archive ▾</button>
+        <div class="dropdown-content">
+          <a href="timeline.html">Timeline</a>
+          <a href="evidence.html">Evidence</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Action ▾</button>
+        <div class="dropdown-content">
+          <a href="initiatives.html">Initiatives</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <section class="hero">
-    <h1>Housing Systems Accountability Project</h1>
+  <h1>Housing Systems Accountability Project</h1>
 
-    <p>
-        A participant-perspective chronology and systems-analysis project examining
-        administrative fragmentation,
-        procedural instability,
-        oversight escalation,
-        and housing-transition workflows within a layered stabilization ecosystem.
-    </p>
+  <p>
+    A participant-perspective chronology and systems-analysis project examining
+    administrative fragmentation, procedural instability, oversight escalation,
+    participant reliance, workflow burden transfer, and housing-transition processes
+    within a layered stabilization system.
+  </p>
 </section>
 
 <div class="container">
 
-    <section class="section">
+  <section class="section">
+    <h2>Project Thesis</h2>
 
-        <h2>Project Overview</h2>
+    <div class="statement">
+      <p>
+        This project documents how a participant increasingly became responsible for
+        preserving continuity, reconstructing chronology, clarifying workflow ownership,
+        and coordinating fragmented procedural communication across multiple entities.
+      </p>
 
-        <div class="statement">
+      <p class="highlight">
+        The central issue is not one isolated incident. The record reflects a broader
+        pattern of administrative instability, reactive stabilization, and shifting
+        procedural explanations over time.
+      </p>
+    </div>
+  </section>
 
-            <p>
-                This project began as an effort to preserve records during a period
-                of housing instability and administrative uncertainty.
-            </p>
+  <section class="section">
+    <h2>Core Evidence Themes</h2>
 
-            <p>
-                Over time,
-                the accumulation of municipal correspondence,
-                oversight activity,
-                participant communications,
-                procedural notices,
-                and chronology reconstruction evolved into a broader systems-oriented analysis.
-            </p>
+    <div class="grid">
 
-            <p class="highlight">
-                The archive examines how layered administrative systems are experienced,
-                navigated,
-                and documented from the participant perspective in real time.
-            </p>
+      <div class="card">
+        <h3>Administrative Time Compression</h3>
+        <p>
+          The record reflects sudden deadlines, rapidly shifting housing options,
+          and compressed decision windows during major housing-transition moments.
+        </p>
+      </div>
 
-        </div>
+      <div class="card">
+        <h3>Procedural Burden Transfer</h3>
+        <p>
+          The participant repeatedly assumed responsibility for tracking deadlines,
+          clarifying ownership, coordinating records, and preserving communication continuity.
+        </p>
+      </div>
 
-    </section>
+      <div class="card">
+        <h3>Participant Reliance</h3>
+        <p>
+          Published grievance procedures, intake materials, and disclosed escalation pathways
+          were relied upon in good faith and later complicated by jurisdictional uncertainty.
+        </p>
+      </div>
 
-    <section class="section">
+      <div class="card">
+        <h3>Reactive Stabilization</h3>
+        <p>
+          Stabilization activity often appeared to intensify after escalation,
+          documentation, oversight involvement, or participant-generated clarification.
+        </p>
+      </div>
 
-        <h2>Core Sections</h2>
+      <div class="card">
+        <h3>Oversight Escalation</h3>
+        <p>
+          Municipal, state, and housing-monitoring activity increasingly intersected
+          with day-to-day housing administration and transition planning.
+        </p>
+      </div>
 
-        <div class="grid">
+      <div class="card">
+        <h3>Operational Contradictions</h3>
+        <p>
+          The chronology reflects evolving explanations around inspections,
+          housing availability, workflow requirements, and procedural authority.
+        </p>
+      </div>
 
-            <div class="card">
-                <h3>Executive Chronology</h3>
+    </div>
+  </section>
 
-                <p>
-                    Condensed overview of major procedural,
-                    oversight,
-                    and stabilization events across the project timeline.
-                </p>
+  <section class="section">
+    <h2>Start Here</h2>
 
-                <a href="executive-chronology.html">
-                    View Section →
-                </a>
-            </div>
+    <div class="grid">
 
-            <div class="card">
-                <h3>Systems Themes</h3>
+      <div class="card">
+        <h3>Executive Chronology</h3>
+        <p>
+          Begin with the condensed timeline of major procedural and oversight events.
+        </p>
+        <a href="executive-chronology.html">Open Executive Chronology →</a>
+      </div>
 
-                <p>
-                    Analysis of recurring operational patterns including
-                    workflow instability,
-                    fragmentation,
-                    and participant reliance.
-                </p>
+      <div class="card">
+        <h3>Systems Themes</h3>
+        <p>
+          Review the core structural patterns identified across the record.
+        </p>
+        <a href="systems-themes.html">Open Systems Themes →</a>
+      </div>
 
-                <a href="systems-themes.html">
-                    View Section →
-                </a>
-            </div>
+      <div class="card">
+        <h3>Documented Contradictions</h3>
+        <p>
+          Examine changing operational explanations and procedural reversals.
+        </p>
+        <a href="documented-contradictions.html">Open Documented Contradictions →</a>
+      </div>
 
-            <div class="card">
-                <h3>Documented Contradictions</h3>
+      <div class="card">
+        <h3>Participant Perspective</h3>
+        <p>
+          Understand the lived administrative experience behind the chronology.
+        </p>
+        <a href="participant-perspective.html">Open Participant Perspective →</a>
+      </div>
 
-                <p>
-                    Examination of evolving operational explanations,
-                    procedural reversals,
-                    and changing institutional framing.
-                </p>
-
-                <a href="documented-contradictions.html">
-                    View Section →
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Participant Perspective</h3>
-
-                <p>
-                    Documentation of the lived administrative experience of navigating
-                    layered housing and oversight systems in real time.
-                </p>
-
-                <a href="participant-perspective.html">
-                    View Section →
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Case Study</h3>
-
-                <p>
-                    Central narrative and analytical framework connecting
-                    chronology,
-                    oversight,
-                    workflow,
-                    and stabilization themes.
-                </p>
-
-                <a href="casestudy.html">
-                    View Section →
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Methodology</h3>
-
-                <p>
-                    Documentation standards,
-                    chronology methods,
-                    source categories,
-                    and systems-analysis framework.
-                </p>
-
-                <a href="methodology.html">
-                    View Section →
-                </a>
-            </div>
-
-        </div>
-
-    </section>
+    </div>
+  </section>
 
 </div>
 
 <footer>
-    © 2026 Walter Escobar | Housing Systems Accountability Project
+  © 2026 Walter Escobar | Housing Systems Accountability Project
 </footer>
 
 </body>
-</html> 
+</html>
