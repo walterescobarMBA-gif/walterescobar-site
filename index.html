@@ -1,609 +1,226 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Walter Escobar | Housing, Accountability & Los Angeles</title>
+  <meta name="description" content="Walter Escobar is a Los Angeles-based public-interest housing advocate and founder of Housing Accountability Archive, focused on housing stability, accountability, and participant-centered systems.">
+  <meta name="theme-color" content="#11100e">
+  <link rel="canonical" href="https://walterescobar.org/">
 
-<title>Walter Escobar | Housing Systems Accountability Project</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Walter Escobar | Housing, Accountability & Los Angeles">
+  <meta property="og:description" content="Housing should lead to housing. Public-interest advocacy focused on dignity, accountability, and measurable housing stability in Los Angeles.">
+  <meta property="og:url" content="https://walterescobar.org/">
 
-<style>
-:root{
-  --bg:#0d1117;
-  --panel:#111827;
-  --panel2:#0b1220;
-  --text:#e6edf3;
-  --muted:#9ca3af;
-  --soft:#d1d5db;
-  --blue:#60a5fa;
-  --blue2:#93c5fd;
-  --line:#1f2937;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,sans-serif;
-  line-height:1.8;
-}
-
-nav{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(13,17,23,.96);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-
-.nav-wrap{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  color:var(--text);
-  text-decoration:none;
-  font-weight:bold;
-  letter-spacing:.4px;
-}
-
-.menu{
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-
-.menu a,
-.dropbtn{
-  color:var(--blue);
-  text-decoration:none;
-  font-weight:bold;
-  background:none;
-  border:none;
-  cursor:pointer;
-  font-size:.95rem;
-}
-
-.menu a:hover,
-.dropbtn:hover{
-  color:var(--blue2);
-}
-
-.dropdown{
-  position:relative;
-}
-
-.dropdown-content{
-  display:none;
-  position:absolute;
-  top:100%;
-  left:0;
-  min-width:240px;
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:10px 0;
-  box-shadow:0 18px 35px rgba(0,0,0,.35);
-}
-
-.dropdown-content a{
-  display:block;
-  padding:10px 16px;
-  color:var(--soft);
-}
-
-.dropdown-content a:hover{
-  background:var(--panel2);
-  color:var(--blue2);
-}
-
-.dropdown:hover .dropdown-content{
-  display:block;
-}
-
-.menu-toggle{
-  display:none;
-}
-
-.menu-icon{
-  display:none;
-  font-size:1.6rem;
-  color:var(--blue);
-  cursor:pointer;
-}
-
-.hero{
-  padding:120px 20px 100px;
-  text-align:center;
-  background:
-  linear-gradient(to bottom, rgba(17,24,39,.96), rgba(13,17,23,1));
-}
-
-.hero h1{
-  font-size:clamp(3rem,8vw,5.8rem);
-  line-height:1.02;
-  margin:0 0 28px;
-}
-
-.hero p{
-  max-width:980px;
-  margin:auto;
-  color:var(--muted);
-  font-size:1.22rem;
-}
-
-.hero-buttons{
-  margin-top:42px;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 22px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:.2s ease;
-}
-
-.primary{
-  background:var(--blue);
-  color:#06111f;
-}
-
-.primary:hover{
-  transform:translateY(-2px);
-}
-
-.secondary{
-  border:1px solid var(--line);
-  color:var(--blue2);
-  background:var(--panel);
-}
-
-.secondary:hover{
-  background:var(--panel2);
-}
-
-.container{
-  max-width:1150px;
-  margin:auto;
-  padding:85px 20px;
-}
-
-.section{
-  margin-bottom:95px;
-}
-
-.section h2{
-  color:var(--blue2);
-  border-left:4px solid var(--blue);
-  padding-left:14px;
-  margin-bottom:30px;
-}
-
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:36px;
-}
-
-.card p,
-.card li{
-  color:var(--soft);
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
-
-.grid-card{
-  background:var(--panel2);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:26px;
-}
-
-.grid-card h3{
-  margin-top:0;
-  color:var(--blue);
-}
-
-.grid-card p{
-  color:var(--soft);
-}
-
-.grid-card a{
-  display:inline-block;
-  margin-top:16px;
-  color:var(--blue2);
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.grid-card a:hover{
-  text-decoration:underline;
-}
-
-.statement{
-  margin-top:28px;
-  background:#09101d;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:24px;
-}
-
-.highlight{
-  color:var(--blue2);
-  font-weight:bold;
-}
-
-footer{
-  text-align:center;
-  padding:50px 20px;
-  border-top:1px solid var(--line);
-  color:#6b7280;
-}
-
-@media(max-width:800px){
-
-  .nav-wrap{
-    flex-wrap:wrap;
-  }
-
-  .menu-icon{
-    display:block;
-  }
-
-  .menu{
-    display:none;
-    width:100%;
-    flex-direction:column;
-    align-items:flex-start;
-    padding-top:16px;
-  }
-
-  .menu-toggle:checked ~ .menu{
-    display:flex;
-  }
-
-  .dropdown{
-    width:100%;
-  }
-
-  .dropbtn{
-    padding:8px 0;
-  }
-
-  .dropdown-content{
-    position:static;
-    display:block;
-    border:none;
-    box-shadow:none;
-    background:transparent;
-    padding-left:14px;
-  }
-
-  .dropdown-content a{
-    padding:8px 0;
-  }
-
-  .hero{
-    padding:95px 20px 80px;
-  }
-}
-</style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<nav>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="Walter Escobar home">
+        <span class="brand-mark">WE</span>
+        <span class="brand-text">Walter Escobar</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" class="nav" aria-label="Primary navigation">
+        <a href="#why">Why housing</a>
+        <a href="#principles">Principles</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="nav-contact" href="mailto:Walter@WalterEscobar.org">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="nav-wrap">
-
-    <a href="index.html" class="logo">
-      Walter Escobar
-    </a>
-
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-
-    <label for="menu-toggle" class="menu-icon">
-      ☰
-    </label>
-
-    <div class="menu">
-
-      <a href="index.html">Home</a>
-
-      <div class="dropdown">
-
-        <button class="dropbtn">
-          Project ▾
-        </button>
-
-        <div class="dropdown-content">
-          <a href="casestudy.html">Case Study</a>
-          <a href="participant-perspective.html">Participant Perspective</a>
-          <a href="methodology.html">Methodology</a>
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Los Angeles · Housing · Public Interest</p>
+          <h1>Housing should lead to <em>housing.</em></h1>
+          <p class="lede">
+            I care about whether people become safer, more stable, and permanently housed.
+            Systems, contracts, funding, and programs matter because people matter.
+          </p>
+          <p class="hero-sub">
+            I’m Walter Escobar, a Los Angeles-based public-interest housing advocate and the founder and publisher of
+            Housing Accountability Archive. My work focuses on participant-centered housing systems,
+            accountability, and the practical question that should anchor every homelessness response:
+            <strong>did the person get housed?</strong>
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#why">Why this matters</a>
+            <a class="button secondary" href="https://www.housingaccountabilityarchive.org/" rel="noopener">Housing Accountability Archive</a>
+          </div>
         </div>
 
+        <aside class="hero-card" aria-label="Statement of purpose">
+          <p class="card-kicker">A simple standard</p>
+          <blockquote>
+            “The measure of a housing system is not how many steps it contains. It is whether people can reach a safe, stable home.”
+          </blockquote>
+          <p class="card-note">Dignity. Clarity. Accountability. Housing stability.</p>
+        </aside>
       </div>
+    </section>
 
-      <div class="dropdown">
+    <section id="why" class="section section-light">
+      <div class="shell split">
+        <div>
+          <p class="section-label">Why housing</p>
+          <h2>Los Angeles can acknowledge progress and still demand much more.</h2>
+        </div>
+        <div class="prose">
+          <p>
+            Homelessness is not an abstraction here. It is visible in neighborhoods, parks, transit stations,
+            sidewalks, vehicles, shelters, and the daily lives of Angelenos.
+          </p>
+          <p>
+            LAHSA’s 2026 count estimated <strong>45,194 people experiencing homelessness in the City of Los Angeles</strong>,
+            including <strong>29,115 people experiencing unsheltered homelessness</strong>. LAHSA described the 2026 results
+            as a stall after two years of regional declines; the year-over-year changes were not considered statistically significant.
+          </p>
+          <p>
+            That nuance matters. Progress should be recognized. But the scale of homelessness should also keep the public conversation
+            centered on outcomes: helping people come inside, move into permanent housing, and remain housed.
+          </p>
+          <p class="source-note">
+            2026 snapshot source:
+            <a href="https://www.lahsa.org/news/News/News?article=1079-2026-homeless-count-reveals-bottleneck-stymied-progress" rel="noopener">
+              Los Angeles Homeless Services Authority, July 24, 2026
+            </a>.
+          </p>
+        </div>
+      </div>
+    </section>
 
-        <button class="dropbtn">
-          Analysis ▾
-        </button>
+    <section id="principles" class="section section-dark">
+      <div class="shell">
+        <p class="section-label">What I believe</p>
+        <h2 class="principles-title">A housing response should be judged by what happens to people.</h2>
+        <div class="principles-grid">
+          <article>
+            <span>01</span>
+            <h3>People before process</h3>
+            <p>Administrative systems should support housing stability, not become barriers that people must survive.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Outcomes over activity</h3>
+            <p>Meetings, referrals, contracts, and expenditures are inputs. A safe and stable home is the outcome.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Public money, public accountability</h3>
+            <p>Publicly funded housing work should be transparent enough to show what was promised, what was delivered, and what changed.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Dignity without qualification</h3>
+            <p>A person’s appearance, background, disability, identity, income, or circumstances should not diminish the urgency of helping them reach safety.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>Clarity is a service</h3>
+            <p>People should be able to understand who is responsible, what happens next, what records exist, and how to ask for help.</p>
+          </article>
+          <article>
+            <span>06</span>
+            <h3>Stability is the goal</h3>
+            <p>Getting indoors is important. The deeper objective is durable housing stability and a realistic path forward.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="dropdown-content">
-          <a href="executive-chronology.html">Executive Chronology</a>
-          <a href="systems-themes.html">Systems Themes</a>
-          <a href="documented-contradictions.html">Documented Contradictions</a>
-          <a href="analysis.html">Analysis</a>
-          <a href="key-findings.html">Key Findings</a>
+    <section id="work" class="section section-light">
+      <div class="shell">
+        <div class="section-heading-row">
+          <div>
+            <p class="section-label">Public-interest work</p>
+            <h2>Document carefully. Ask better questions. Keep the human outcome in view.</h2>
+          </div>
         </div>
 
-      </div>
-
-      <div class="dropdown">
-
-        <button class="dropbtn">
-          Archive ▾
-        </button>
-
-        <div class="dropdown-content">
-          <a href="timeline.html">Timeline</a>
-          <a href="evidence.html">Evidence</a>
+        <div class="work-card">
+          <div class="work-card-copy">
+            <p class="work-tag">Independent project</p>
+            <h3>Housing Accountability Archive</h3>
+            <p>
+              Housing Accountability Archive is an independent public-interest publication focused on documenting
+              publicly funded housing administration, examining whether required processes can be verified through records,
+              and making complicated systems easier to understand.
+            </p>
+            <p>
+              Its purpose is not to replace government, service providers, attorneys, or journalists. It is to contribute
+              careful documentation, participant-centered questions, and a stronger public record.
+            </p>
+            <a class="text-link" href="https://www.housingaccountabilityarchive.org/" rel="noopener">
+              Visit Housing Accountability Archive <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="work-card-aside">
+            <p class="mini-label">Focus</p>
+            <p>Housing stability</p>
+            <p>Administrative clarity</p>
+            <p>Records & verification</p>
+            <p>Public accountability</p>
+          </div>
         </div>
-
       </div>
+    </section>
 
-      <div class="dropdown">
-
-        <button class="dropbtn">
-          Action ▾
-        </button>
-
-        <div class="dropdown-content">
-          <a href="initiatives.html">Initiatives</a>
-          <a href="contact.html">Contact</a>
+    <section id="about" class="section section-warm">
+      <div class="shell split">
+        <div>
+          <p class="section-label">About Walter</p>
+          <h2>I came to this work by navigating housing systems firsthand.</h2>
         </div>
-
+        <div class="prose">
+          <p>
+            What began as an effort to understand my own path through housing systems became a broader interest in how those
+            systems work for the people who depend on them.
+          </p>
+          <p>
+            I became interested in the spaces between policy and practice: whether a participant can understand the next step,
+            whether responsibility is clear when multiple organizations are involved, whether records can reconstruct what happened,
+            and whether administrative activity ultimately advances housing stability.
+          </p>
+          <p>
+            I am especially interested in Los Angeles because this is home. I want to see a city where urgency is matched by
+            competence, compassion is matched by follow-through, and public investment can be traced to meaningful housing outcomes.
+          </p>
+        </div>
       </div>
+    </section>
 
+    <section class="section contact-section">
+      <div class="shell contact-grid">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>For public-interest, housing, research, or community inquiries.</h2>
+        </div>
+        <div class="contact-box">
+          <a class="email-link" href="mailto:Walter@WalterEscobar.org">Walter@WalterEscobar.org</a>
+          <p>Los Angeles, California</p>
+          <p class="small">
+            This is Walter Escobar’s personal website. It is not a government agency, law firm, or housing service provider.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-wrap">
+      <p>© <span id="year"></span> Walter Escobar.</p>
+      <p>Housing should lead to housing.</p>
     </div>
+  </footer>
 
-  </div>
-
-</nav>
-
-<section class="hero">
-
-  <h1>
-    Housing Systems<br>
-    Accountability Project
-  </h1>
-
-  <p>
-    A chronology-based systems analysis examining participant interaction with layered housing,
-    stabilization,
-    oversight,
-    and administrative-processing systems over time.
-  </p>
-
-  <div class="hero-buttons">
-
-    <a href="casestudy.html" class="btn primary">
-      Explore the Case Study
-    </a>
-
-    <a href="key-findings.html" class="btn secondary">
-      View Key Findings
-    </a>
-
-  </div>
-
-</section>
-
-<div class="container">
-
-  <section class="section">
-
-    <h2>Project Overview</h2>
-
-    <div class="card">
-
-      <p>
-        This project documents how administrative systems operate in practice from the participant perspective during periods of housing instability,
-        oversight escalation,
-        workflow uncertainty,
-        and long-term stabilization planning.
-      </p>
-
-      <p>
-        The archive combines chronology reconstruction,
-        participant-preserved records,
-        oversight communications,
-        workflow documentation,
-        municipal correspondence,
-        and systems-oriented analysis to identify recurring operational patterns over time.
-      </p>
-
-      <div class="statement">
-
-        <p class="highlight">
-          The project evolved from personal documentation into a broader systems-accountability and chronology-analysis initiative.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Core Analytical Areas</h2>
-
-    <div class="grid">
-
-      <div class="grid-card">
-
-        <h3>Case Study</h3>
-
-        <p>
-          Central project thesis,
-          chronology framing,
-          and integrated systems overview.
-        </p>
-
-        <a href="casestudy.html">
-          Open Section →
-        </a>
-
-      </div>
-
-      <div class="grid-card">
-
-        <h3>Executive Chronology</h3>
-
-        <p>
-          Condensed timeline of major transition,
-          oversight,
-          and stabilization events.
-        </p>
-
-        <a href="executive-chronology.html">
-          Open Section →
-        </a>
-
-      </div>
-
-      <div class="grid-card">
-
-        <h3>Systems Themes</h3>
-
-        <p>
-          Recurring operational patterns identified across the archive.
-        </p>
-
-        <a href="systems-themes.html">
-          Open Section →
-        </a>
-
-      </div>
-
-      <div class="grid-card">
-
-        <h3>Documented Contradictions</h3>
-
-        <p>
-          Evolving procedural explanations,
-          workflow reversals,
-          and operational inconsistencies.
-        </p>
-
-        <a href="documented-contradictions.html">
-          Open Section →
-        </a>
-
-      </div>
-
-      <div class="grid-card">
-
-        <h3>Key Findings</h3>
-
-        <p>
-          Distilled institutional and operational conclusions reflected across the chronology.
-        </p>
-
-        <a href="key-findings.html">
-          Open Section →
-        </a>
-
-      </div>
-
-      <div class="grid-card">
-
-        <h3>Evidence Archive</h3>
-
-        <p>
-          Organized categories of chronology records,
-          oversight communications,
-          and workflow documentation.
-        </p>
-
-        <a href="evidence.html">
-          Open Section →
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <h2>Methodological Approach</h2>
-
-    <div class="card">
-
-      <p>
-        The project prioritizes chronology because sequence itself reveals operational behavior.
-      </p>
-
-      <p>
-        Significant findings emerged through:
-      </p>
-
-      <ul>
-        <li>Timeline reconstruction</li>
-        <li>Cross-referenced communications</li>
-        <li>Workflow comparison</li>
-        <li>Oversight chronology analysis</li>
-        <li>Participant-preserved documentation</li>
-        <li>Administrative sequence evaluation</li>
-      </ul>
-
-      <div class="statement">
-
-        <p class="highlight">
-          The archive demonstrates how systems evolve operationally over time,
-          not merely how they are described procedurally.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-
-<footer>
-  © 2026 Walter Escobar | Housing Systems Accountability Project
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
