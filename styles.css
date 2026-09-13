@@ -187,3 +187,16 @@ h3 { font-size: 24px; }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
 }
+
+
+/* Professional portfolio additions — September 2026 */
+.portfolio-intro { max-width: 780px; margin: 18px 0 0; font-size: 18px; color: var(--ink-soft); }
+.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 44px; }
+.portfolio-card { background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px; }
+.portfolio-card h3 { font-family: Georgia, "Times New Roman", serif; font-size: 34px; font-weight: 500; margin-bottom: 14px; }
+.portfolio-card p:not(.work-tag) { color: var(--ink-soft); }
+.capability-strip { margin-top: 26px; padding: 30px 34px; border-radius: var(--radius); background: var(--ink); color: var(--paper-2); }
+.capability-strip .mini-label { color: #c9bba7; }
+.capability-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.capability-list span { border: 1px solid rgba(255,255,255,.24); border-radius: 999px; padding: 9px 13px; font-size: 14px; font-weight: 700; }
+@media (max-width: 800px) { .portfolio-grid { grid-template-columns: 1fr; } }
